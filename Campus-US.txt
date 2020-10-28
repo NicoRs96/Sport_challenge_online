@@ -1,3 +1,3 @@
-- As a sportsman, I want to have information about sports-facility, so I can choose if book or not. 
--As a renter, I want to see the age of the players, so I can know if they are all adult.
+- As a sportsman, I want to specify my favourite sport, so I can see first of all the events related to that. 
+-As a renter, I want to set a minimal age to book an event, so I can exclude too younger players.
 -As a renter, I want to decide the terms of payment, so I can refuse electronic money if I would.

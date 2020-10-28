@@ -1,3 +1,3 @@
 -The system shall allow the user to unsubscribe.
 -The system shall provide a message when a booking is confirmed. 
--
+-The system shall sort the events by date in ascending order.

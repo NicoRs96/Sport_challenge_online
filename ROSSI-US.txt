@@ -1,3 +1,3 @@
 - As a sportsman, I want to specify my skill level, so I can play with players at the same level.
 -As a renter, I want to define a minimum number of participants for event, so I can decide if doing it or not.
--As a sportsman, I want to know who are the other participants at the event, so I can meet new people. 
+-As a sportsman, I want to read the names and the level of the other partecipants in the tournament, so I can meet new people. 

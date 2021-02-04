@@ -1,8 +1,6 @@
 
-import bean.IscrizioneBean;
 import view.MainView;
 
-import java.sql.Date;
 import java.sql.SQLException;
 
 public class Main {	   

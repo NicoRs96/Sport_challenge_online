@@ -30,19 +30,21 @@ public class IscrivitiController implements Initializable {
     private Button indietroButton;
 
     @FXML
-    private TextField NomeTF;
+    private TextField nomeTF;
     @FXML
-    private TextField CognomeTF;
+    private TextField cognomeTF;
     @FXML
-    private DatePicker DataDP;
+    private DatePicker dataDP;
     @FXML
-    private TextField TelefonoTF;
+    private TextField telefonoTF;
     @FXML
-    private TextField MailTF;
+    private TextField mailTF;
     @FXML
-    private TextField PWTF;
+    private TextField pWTF;
     @FXML
-    private CheckBox RentCB;
+    private CheckBox rentCB;
+    
+    String avviso ="ERRORE DATI UTENTE";
 
 
     @FXML
@@ -58,34 +60,34 @@ public class IscrivitiController implements Initializable {
     @FXML
     private void confermaRegistrazione(ActionEvent event) throws SQLException, IOException {
 
-		if (NomeTF.getText().trim().isEmpty() ||
-                CognomeTF.getText().trim().isEmpty() || DataDP== null ||
-                DataDP.getValue().toString().trim().isEmpty() ||
-				MailTF.getText().trim().isEmpty() ||
-				PWTF.getText().trim().isEmpty() ||
-				TelefonoTF.getText().trim().isEmpty()) {
+		if (nomeTF.getText().trim().isEmpty() ||
+                cognomeTF.getText().trim().isEmpty() || dataDP== null ||
+                dataDP.getValue().toString().trim().isEmpty() ||
+				mailTF.getText().trim().isEmpty() ||
+				pWTF.getText().trim().isEmpty() ||
+				telefonoTF.getText().trim().isEmpty()) {
             emptyFieldError();
             return;
         }
 
 		//controllo età
-		if((LocalDateTime.now().getYear() - DataDP.getValue().getYear()) < 14)
+		if((LocalDateTime.now().getYear() - dataDP.getValue().getYear()) < 14)
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("ERRORE DATI UTENTE");
+			alert.setTitle(avviso);
 			alert.setContentText("La piattaforma è riservata ad utenti di età > 14, per favore riprova.");
 			alert.showAndWait();
 			return;
 		}
 
 		//controllo email
-		if(!MailTF.getText().isEmpty())
+		if(!mailTF.getText().isEmpty())
 		{
 			Pattern pattern = Pattern.compile("^.+@.+\\..+$");
-			Matcher matcher = pattern.matcher(MailTF.getText().trim());
+			Matcher matcher = pattern.matcher(mailTF.getText().trim());
 			if(!matcher.find()) {
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle("ERRORE DATI UTENTE");
+				alert.setTitle(avviso);
 				alert.setContentText("L'email inserita non è nel formato corretto, per favore riprova.");
 				alert.showAndWait();
 				return;
@@ -93,17 +95,17 @@ public class IscrivitiController implements Initializable {
 		}
 
 		//check utente già registrato
-        int isRent = RentCB.isSelected() ? 1 : 0;
-        if(iscrizioneBean.checkIfUserAlreadyExists(NomeTF.getText().trim().toUpperCase(), CognomeTF.getText().trim().toUpperCase())) {
+        int isRent = rentCB.isSelected() ? 1 : 0;
+        if(iscrizioneBean.checkIfUserAlreadyExists(nomeTF.getText().trim().toUpperCase(), cognomeTF.getText().trim().toUpperCase())) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("ERRORE DATI UTENTE");
+			alert.setTitle(avviso);
 			alert.setContentText("C'è già un utente registrato con questo nome e cognome, per favore riprova.");
 			alert.showAndWait();
 		}
 
         //aggiunta utente nel database
-		else if(iscrizioneBean.addUser(NomeTF.getText().trim().toUpperCase(), CognomeTF.getText().trim().toUpperCase(),
-				MailTF.getText().trim(), DataDP.getValue().toString(), PWTF.getText().trim(),TelefonoTF.getText().trim(), isRent)) {
+		else if(iscrizioneBean.addUser(nomeTF.getText().trim().toUpperCase(), cognomeTF.getText().trim().toUpperCase(),
+				mailTF.getText().trim(), dataDP.getValue().toString(), pWTF.getText().trim(),telefonoTF.getText().trim(), isRent)) {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle("INSERIMENTO AVVENUTO CON SUCCESSO");
 			alert.setContentText("Complimenti, ti sei registrato con successo");

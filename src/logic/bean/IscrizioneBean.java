@@ -6,11 +6,12 @@ import java.util.Properties;
 public class IscrizioneBean {
 
     public IscrizioneBean() {
+    	//nothing
     }
 
     public Connection getConnection() throws SQLException {
 
-        Connection connection = null;
+        
         Connection conn = null;
         Properties connectionProps = new Properties();
         connectionProps.put("user", "root");

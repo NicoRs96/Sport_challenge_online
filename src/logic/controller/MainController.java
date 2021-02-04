@@ -18,20 +18,20 @@ import javafx.stage.Stage;
 import view.Iscrivitiview;
 
 public class MainController implements Initializable{
-	public LoginDao loginBean = new LoginDao();
+	private LoginDao loginBean = new LoginDao();
 
 
 	@FXML
 	 private Button iscrivitiBTN;
 	
 	@FXML
-	 private TextField EmailTF;
+	 private TextField emailTF;
 
 	@FXML
 	private TextField pwTF;
 
 	@FXML
-	private Button LoginBtn;
+	private Button loginBtn;
 
 	@FXML
 	private void iscriviti(ActionEvent event) throws Exception {
@@ -44,7 +44,7 @@ public class MainController implements Initializable{
 	@FXML
 	private void login(ActionEvent event) throws Exception {
 
-		if (EmailTF.getText().trim().isEmpty() || pwTF.getText().trim().isEmpty()) {
+		if (emailTF.getText().trim().isEmpty() || pwTF.getText().trim().isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERRORE INSERIMENTO DATI");
 			alert.setContentText("Il sistema non accetta campi vuoti, per favore riprova.");
@@ -52,7 +52,7 @@ public class MainController implements Initializable{
 			return;
 		}
 
-		TreeMap<String, String> user = loginBean.authenticate(EmailTF.getText().trim(), pwTF.getText().trim());
+		TreeMap<String, String> user = loginBean.authenticate(emailTF.getText().trim(), pwTF.getText().trim());
 		if (user.isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERRORE LOGIN");
@@ -62,11 +62,7 @@ public class MainController implements Initializable{
 		}
 
 		String nome = user.get("NOME");
-		String cognome = user.get("COGNOME");
-		String datadinascita = user.get("DATADINASCITA");
-		String email = user.get("EMAIL");
-		String password = user.get("PASSWORD");
-		String telefono = user.get("TELEFONO");
+		
 		String isRent = user.get("RENT");
 
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -76,7 +72,7 @@ public class MainController implements Initializable{
 		alert.showAndWait();
 
 		if (isRent.equals("1")) {
-			Stage stage = (Stage) LoginBtn.getScene().getWindow();
+			Stage stage = (Stage) loginBtn.getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
@@ -85,12 +81,12 @@ public class MainController implements Initializable{
 		}
 
 		//modificare view e mettere quella dello sportsman
-		Stage stage = (Stage) LoginBtn.getScene().getWindow();
+		Stage stage = (Stage) loginBtn.getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-		return;
+		
 	}
 	 
 	@Override

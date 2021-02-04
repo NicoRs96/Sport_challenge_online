@@ -7,11 +7,12 @@ import java.util.TreeMap;
 
 public class LoginDao {
 
-    public LoginDao(){}
+    public LoginDao(){
+    	//nothing
+    }
 
     public Connection getConnection() throws SQLException {
 
-        Connection connection = null;
         Connection conn = null;
         Properties connectionProps = new Properties();
         connectionProps.put("user", "root");

@@ -3,5 +3,7 @@
 	<classpathentry excluding="logic/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/logic"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Paolo C/Documents/mysql-connector-java-8.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Paolo C/Documents/protobuf-java-3.11.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

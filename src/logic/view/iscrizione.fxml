@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.CheckBox?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IscrivitiController">
    <children>
       <TextField fx:id="NomeTF" layoutX="120.0" layoutY="251.0" prefHeight="33.0" prefWidth="261.0" promptText="Nome" styleClass="text-field" stylesheets="@bootstrap3.css" />
@@ -19,12 +20,13 @@
       <TextField fx:id="TelefonoTF" layoutX="120.0" layoutY="417.0" prefHeight="33.0" prefWidth="261.0" promptText="Telefono" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="MailTF" layoutX="120.0" layoutY="469.0" prefHeight="33.0" prefWidth="261.0" promptText="email" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="PWTF" layoutX="120.0" layoutY="524.0" prefHeight="33.0" prefWidth="261.0" promptText="password" styleClass="text-field" stylesheets="@bootstrap3.css" />
-      <Button layoutX="150.0" layoutY="639.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="CONFERMA">
+      <Button fx:id="ConfermaBTN" layoutX="150.0" layoutY="639.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="CONFERMA" onAction="#confermaRegistrazione">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
          </styleClass>
       </Button>
+      <CheckBox fx:id="RentCB" layoutX="120" layoutY="580.0" styleClass="check-box" stylesheets="bootstrap3.css" text="RENT"></CheckBox>
       <Text fx:id="name" fill="#ff0d00" layoutX="204.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />

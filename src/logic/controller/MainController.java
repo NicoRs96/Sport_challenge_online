@@ -1,10 +1,12 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
-import dao.LoginDao;
+import bean.LoginBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +20,10 @@ import javafx.stage.Stage;
 import view.Iscrivitiview;
 
 public class MainController implements Initializable{
-	private LoginDao loginBean = new LoginDao();
+	
+	private LoginBean loginBean = new LoginBean();
+	
+	TreeMap<String, String> user;
 
 
 	@FXML
@@ -34,7 +39,7 @@ public class MainController implements Initializable{
 	private Button loginBtn;
 
 	@FXML
-	private void iscriviti(ActionEvent event) throws Exception {
+	private void iscriviti(ActionEvent event) throws IOException  {
 				
 		Stage stageTheButtonBelongs = (Stage) iscrivitiBTN.getScene().getWindow();
 	   	Iscrivitiview iscrizioneIscrivitiview = new Iscrivitiview();
@@ -42,7 +47,7 @@ public class MainController implements Initializable{
 	}
 
 	@FXML
-	private void login(ActionEvent event) throws Exception {
+	private void login(ActionEvent event) throws SQLException, IOException {
 
 		if (emailTF.getText().trim().isEmpty() || pwTF.getText().trim().isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -51,15 +56,21 @@ public class MainController implements Initializable{
 			alert.showAndWait();
 			return;
 		}
-
-		TreeMap<String, String> user = loginBean.authenticate(emailTF.getText().trim(), pwTF.getText().trim());
-		if (user.isEmpty()) {
+		
+		loginBean.setUsername(emailTF.getText().trim());
+		loginBean.setPassword(pwTF.getText().trim());
+		
+		if (loginBean.userExist() == 1) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERRORE LOGIN");
 			alert.setContentText("Non esiste nessun utente associato a questa combinazione email/password.");
 			alert.showAndWait();
-			return;
 		}
+		else {
+		    user = loginBean.getUser(); 
+		}	
+		
+	
 
 		String nome = user.get("NOME");
 		

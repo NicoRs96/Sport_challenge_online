@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import bean.IscrizioneBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,12 +19,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import view.HomePageRenterView;
+import view.HomePageSportmanView;
 
 import javax.swing.*;
 
-public class IscrivitiController implements Initializable {
-	public static IscrizioneBean iscrizioneBean = new IscrizioneBean();
+import bean.IscrivitiBean;
+import dao.IscrizioneDao;
 
+public class IscrivitiController implements Initializable {
+
+	private IscrivitiBean IscrivitiBean = new IscrivitiBean();
+	
+	
     @FXML
     private Button indietroButton;
 
@@ -69,23 +75,28 @@ public class IscrivitiController implements Initializable {
             emptyFieldError();
             return;
         }
+		
+		IscrivitiBean.setNome(nomeTF.getText().trim());
+		IscrivitiBean.setCognome(cognomeTF.getText().trim());
+		IscrivitiBean.setData(dataDP.getValue());
+		IscrivitiBean.setMail(mailTF.getText().trim());
+		IscrivitiBean.setPw(pWTF.getText().trim());
+		IscrivitiBean.setTelefono(telefonoTF.getText().trim());
+		IscrivitiBean.setCb(rentCB.isSelected());
 
 		//controllo et√†
-		if((LocalDateTime.now().getYear() - dataDP.getValue().getYear()) < 14)
+		if (IscrivitiBean.checkData() == 1)
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
-			alert.setContentText("La piattaforma √® riservata ad utenti di et√† > 14, per favore riprova.");
+			alert.setContentText("La piattaforma Ë riservata ad utenti di et‡† > 14, per favore riprova.");
 			alert.showAndWait();
 			return;
 		}
 
 		//controllo email
-		if(!mailTF.getText().isEmpty())
+		if(IscrivitiBean.checkMail()==1){
 		{
-			Pattern pattern = Pattern.compile("^.+@.+\\..+$");
-			Matcher matcher = pattern.matcher(mailTF.getText().trim());
-			if(!matcher.find()) {
 				Alert alert = new Alert(Alert.AlertType.ERROR);
 				alert.setTitle(avviso);
 				alert.setContentText("L'email inserita non √® nel formato corretto, per favore riprova.");
@@ -95,35 +106,33 @@ public class IscrivitiController implements Initializable {
 		}
 
 		//check utente gi√† registrato
-        int isRent = rentCB.isSelected() ? 1 : 0;
-        if(iscrizioneBean.checkIfUserAlreadyExists(nomeTF.getText().trim().toUpperCase(), cognomeTF.getText().trim().toUpperCase())) {
+        boolean isRent = IscrivitiBean.getCb();
+        if(IscrivitiBean.checkUtente()==1)
+        {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
-			alert.setContentText("C'√® gi√† un utente registrato con questo nome e cognome, per favore riprova.");
+			alert.setContentText("CË gi‡  un utente registrato con questo nome e cognome, per favore riprova.");
 			alert.showAndWait();
 		}
 
         //aggiunta utente nel database
-		else if(iscrizioneBean.addUser(nomeTF.getText().trim().toUpperCase(), cognomeTF.getText().trim().toUpperCase(),
-				mailTF.getText().trim(), dataDP.getValue().toString(), pWTF.getText().trim(),telefonoTF.getText().trim(), isRent)) {
+		if (IscrivitiBean.aggiungiUtente()== 1) 
+		{
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle("INSERIMENTO AVVENUTO CON SUCCESSO");
 			alert.setContentText("Complimenti, ti sei registrato con successo");
 			alert.showAndWait();
-			if(isRent == 1){
+			
+			if(isRent){
                 Stage stage = (Stage) indietroButton.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                HomePageRenterView homePageRenterView = new HomePageRenterView();
+                homePageRenterView.apriHPRenter(stage);
 			}
 			//modificare view e mettere quella dello sportsman
 			else{
                 Stage stage = (Stage) indietroButton.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                HomePageSportmanView homePageSportmanView = new HomePageSportmanView();
+                homePageSportmanView.apriHPSportman(stage);
             }
 
 		}

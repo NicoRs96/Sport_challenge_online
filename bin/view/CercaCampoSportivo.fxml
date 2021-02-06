@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CercaCampoController">
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
@@ -25,8 +25,8 @@
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <TextField layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
-      <Button layoutX="854.0" layoutY="180.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca">
+      <TextField fx:id="CittaTF" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
+      <Button fx:id="CercaBTN" layoutX="854.0" layoutY="180.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca" onAction="#cerca">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
@@ -49,11 +49,17 @@
          </value>
       </ComboBox>
 	
-      <DatePicker layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
-      <TableView layoutX="67.0" layoutY="296.0" prefHeight="328.0" prefWidth="1038.0" stylesheets="@bootstrap3.css">
+      <DatePicker fx:id="DataDP" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
+      <TableView fx:id="CampiTV" layoutX="67.0" layoutY="296.0" prefHeight="328.0" prefWidth="1038.0" stylesheets="@bootstrap3.css">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn  fx:id="nomeCol" prefWidth="75.0" text="NOME" />
+          <TableColumn  fx:id="comuneCol" prefWidth="75.0" text="COMUNE" />
+           <TableColumn fx:id="indirizzoCol" prefWidth="75.0" text="INDIRIZZO" />
+           <TableColumn fx:id="descCol" prefWidth="75.0" text="DESC" />
+           <TableColumn fx:id="dataCol" prefWidth="75.0" text="DATA" />
+           <TableColumn fx:id="oraCol" prefWidth="75.0" text="ORARIO" />
+           <TableColumn fx:id="sportCol" prefWidth="75.0" text="SPORT" />
+           <TableColumn fx:id="renterCol" prefWidth="75.0" text="RENTER" />
         </columns>
       </TableView>
       <Button fx:id="prenotaBTN" layoutX="484.0" layoutY="678.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="217.0" stylesheets="@bootstrap3.css" text="PRENOTA">

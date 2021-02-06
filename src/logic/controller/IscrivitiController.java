@@ -1,14 +1,10 @@
 package controller;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,15 +17,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import view.HomePageRenterView;
 import view.HomePageSportmanView;
-
-import javax.swing.*;
-
 import bean.IscrivitiBean;
-import dao.IscrizioneDao;
+
 
 public class IscrivitiController implements Initializable {
 
-	private IscrivitiBean IscrivitiBean = new IscrivitiBean();
+	private IscrivitiBean iscrivitiBean = new IscrivitiBean();
 	
 	
     @FXML
@@ -76,16 +69,16 @@ public class IscrivitiController implements Initializable {
             return;
         }
 		
-		IscrivitiBean.setNome(nomeTF.getText().trim());
-		IscrivitiBean.setCognome(cognomeTF.getText().trim());
-		IscrivitiBean.setData(dataDP.getValue());
-		IscrivitiBean.setMail(mailTF.getText().trim());
-		IscrivitiBean.setPw(pWTF.getText().trim());
-		IscrivitiBean.setTelefono(telefonoTF.getText().trim());
-		IscrivitiBean.setCb(rentCB.isSelected());
+		iscrivitiBean.setNome(nomeTF.getText().trim());
+		iscrivitiBean.setCognome(cognomeTF.getText().trim());
+		iscrivitiBean.setData(dataDP.getValue());
+		iscrivitiBean.setMail(mailTF.getText().trim());
+		iscrivitiBean.setPw(pWTF.getText().trim());
+		iscrivitiBean.setTelefono(telefonoTF.getText().trim());
+		iscrivitiBean.setCb(rentCB.isSelected());
 
 		//controllo età
-		if (IscrivitiBean.checkData() == 1)
+		if (iscrivitiBean.checkData() == 1)
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
@@ -95,7 +88,7 @@ public class IscrivitiController implements Initializable {
 		}
 
 		//controllo email
-		if(IscrivitiBean.checkMail()==1){
+		if(iscrivitiBean.checkMail()==1){
 		{
 				Alert alert = new Alert(Alert.AlertType.ERROR);
 				alert.setTitle(avviso);
@@ -106,8 +99,8 @@ public class IscrivitiController implements Initializable {
 		}
 
 		//check utente già registrato
-        boolean isRent = IscrivitiBean.getCb();
-        if(IscrivitiBean.checkUtente()==1)
+        boolean isRent = iscrivitiBean.getCb();
+        if(iscrivitiBean.checkUtente()==1)
         {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
@@ -116,7 +109,7 @@ public class IscrivitiController implements Initializable {
 		}
 
         //aggiunta utente nel database
-		if (IscrivitiBean.aggiungiUtente()== 1) 
+		if (iscrivitiBean.aggiungiUtente()== 1) 
 		{
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle("INSERIMENTO AVVENUTO CON SUCCESSO");

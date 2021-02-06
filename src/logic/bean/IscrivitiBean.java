@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import dao.IscrizioneDao;
-import javafx.scene.control.DatePicker;
 
 public class IscrivitiBean {
 	
@@ -96,7 +95,7 @@ public class IscrivitiBean {
 		
 	}
 	
-	public int aggiungiUtente() throws NumberFormatException, SQLException {
+	public int aggiungiUtente() throws SQLException {
 		if (iscrizioneDao.addUser(nome.toUpperCase(), cognome.toUpperCase(),
 				mail, data.toString(), pw,telefono, cb.toString())) {
 			return 1;

@@ -1,73 +1,60 @@
 package bean;
 
-import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Properties;
-import java.util.TreeMap;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import dao.CercaCampoDao;
 
 public class CercaCampoBean {
-
-    public CercaCampoBean(){}
-
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-
-    }
-
-    public Boolean isCityAvailable(String city) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM COMUNE WHERE NOME='%s'", city);
-
-        ResultSet result = statement.executeQuery(query);
-
-        if(result.next()){
-            connection.close();
-            return true;
-        }
-        connection.close();
-        return false;
-    }
-
-    public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ParseException {
-        TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
-
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM CAMPO WHERE COMUNE='%s' AND SPORT='%s' AND DATA >= '%s'", city, sport, data);
-        ResultSet resultSet = statement.executeQuery(query);
-        while(resultSet.next()) {
-            String name = resultSet.getString("NOME");
-            String comune = resultSet.getString("COMUNE");
-            String indirizzo = resultSet.getString("INDIRIZZO");
-            String desc = resultSet.getString("DESCRIZIONE");
-            String renter = ""+resultSet.getInt("RENTER");
-            String date = resultSet.getString("DATA");
-            String ora = resultSet.getString("ORA");
-            TreeMap<String, String> info = new TreeMap<>();
-            info.put("COMUNE", comune);
-            info.put("INDIRIZZO", indirizzo);
-            info.put("DESC", desc);
-            info.put("RENTER", renter);
-            info.put("DATA", date);
-            info.put("ORA", ora);
-            campoInfo.put(name,info);
-
-        }
-
-        return campoInfo;
-    }
-
-
+	
+	public CercaCampoBean() {
+		//nothing
+	}
+	
+	private CercaCampoDao cercaCampoDao = new CercaCampoDao();
+	
+	String città;
+	String sport;
+	LocalDate data;
+	
+	public String getCittà() {
+		return città;
+	}
+	public void setCittà(String città) {
+		this.città = città;
+	}
+	public String getSport() {
+		return sport;
+	}
+	public void setSport(String sport) {
+		this.sport = sport;
+	}
+	public LocalDate getData() {
+		return data;
+	}
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+	
+	
+	public int checkData() {
+		if(data.getYear() < LocalDateTime.now().getYear() ||
+                (data.getYear() == LocalDateTime.now().getYear() && data.getMonth().getValue() < LocalDateTime.now().getMonth().getValue()) ||
+                (data.getYear() == LocalDateTime.now().getYear()
+                        && data.getMonth() == LocalDateTime.now().getMonth()
+                        && data.getDayOfMonth() < LocalDateTime.now().getDayOfMonth())) {
+			return 1;
+		}
+		return 0;
+	}
+	public boolean isCityAvailable() throws SQLException {
+		
+		if(cercaCampoDao.isCityAvailable(città)) {		
+			return true;
+			
+	}
+		return false;
+	
 }
+	}

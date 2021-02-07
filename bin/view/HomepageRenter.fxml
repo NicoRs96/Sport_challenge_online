@@ -8,16 +8,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageRenterController">
    <children>
-      <Button layoutX="104.0" layoutY="191.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="229.0" stylesheets="@bootstrap3.css" text="Affitta Campo Sportivo">
+      <Button fx:id="affittaCSBTN" layoutX="104.0" layoutY="191.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="229.0" stylesheets="@bootstrap3.css" text="Affitta Campo Sportivo">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
          </styleClass>
       </Button>
-      <Button layoutX="701.0" layoutY="192.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="186.0" stylesheets="@bootstrap3.css" text="Crea Torneo">
+      <Button fx:id="creaTornBTN" layoutX="701.0" layoutY="192.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="186.0" stylesheets="@bootstrap3.css" text="Crea Torneo">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
@@ -28,7 +27,7 @@
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button layoutX="1082.0" layoutY="38.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" layoutX="1082.0" layoutY="38.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -49,13 +48,13 @@
             <Image url="@torneo.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="358.0" layoutY="192.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="229.0" stylesheets="@bootstrap3.css" text="Gestisci Campi Sportivi">
+      <Button fx:id="gesticiCSBTN" layoutX="358.0" layoutY="192.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="229.0" stylesheets="@bootstrap3.css" text="Gestisci Campi Sportivi">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
          </styleClass>
       </Button>
-      <Button layoutX="903.0" layoutY="192.0" mnemonicParsing="false" prefWidth="186.0" stylesheets="@bootstrap3.css" text="Gestisci Tornei">
+      <Button fx:id="gestisciTornBTN" layoutX="903.0" layoutY="192.0" mnemonicParsing="false" prefWidth="186.0" stylesheets="@bootstrap3.css" text="Gestisci Tornei">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />

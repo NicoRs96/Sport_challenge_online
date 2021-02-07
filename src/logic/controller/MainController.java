@@ -17,6 +17,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Persona;
+import view.HomePageRenterView;
+import view.HomePageSportmanView;
 import view.Iscrivitiview;
 
 public class MainController implements Initializable{
@@ -72,8 +75,7 @@ public class MainController implements Initializable{
 		
 	
 
-		String nome = user.get("NOME");
-		
+		String nome = user.get("NOME");		
 		String isRent = user.get("RENT");
 
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -84,19 +86,17 @@ public class MainController implements Initializable{
 
 		if (isRent.equals("1")) {
 			Stage stage = (Stage) loginBtn.getScene().getWindow();
-			Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			HomePageRenterView homePageRenterView = new HomePageRenterView();
+            homePageRenterView.apriHPRenter(stage);
 			return;
 		}
 
 		//modificare view e mettere quella dello sportsman
+        Persona persona = new Persona(loginBean.getUsername());
 		Stage stage = (Stage) loginBtn.getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageRenter.fxml"));
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		//HomePageSportmanView homePageSportmanView = new HomePageSportmanView(persona);
+        //homePageSportmanView.apriHPSportman(stage);
+        
 		
 	}
 	 

@@ -12,21 +12,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CercaCampoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CercaCampoSportivoController">
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1074.0" layoutY="62.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" layoutX="1074.0" layoutY="62.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <TextField fx:id="CittaTF" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
-      <Button fx:id="CercaBTN" layoutX="854.0" layoutY="180.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca" onAction="#cerca">
+      <TextField fx:id="cittaTF" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
+      <Button fx:id="CercaBTN" layoutX="854.0" layoutY="180.0" mnemonicParsing="false" onAction="#cerca" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
@@ -49,17 +49,17 @@
          </value>
       </ComboBox>
 	
-      <DatePicker fx:id="DataDP" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
-      <TableView fx:id="CampiTV" layoutX="67.0" layoutY="296.0" prefHeight="328.0" prefWidth="1038.0" stylesheets="@bootstrap3.css">
+      <DatePicker fx:id="dataDP" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
+      <TableView fx:id="campiTV" layoutX="37.0" layoutY="296.0" prefHeight="328.0" prefWidth="1094.0" stylesheets="@bootstrap3.css">
         <columns>
-          <TableColumn  fx:id="nomeCol" prefWidth="75.0" text="NOME" />
-          <TableColumn  fx:id="comuneCol" prefWidth="75.0" text="COMUNE" />
-           <TableColumn fx:id="indirizzoCol" prefWidth="75.0" text="INDIRIZZO" />
-           <TableColumn fx:id="descCol" prefWidth="75.0" text="DESC" />
-           <TableColumn fx:id="dataCol" prefWidth="75.0" text="DATA" />
-           <TableColumn fx:id="oraCol" prefWidth="75.0" text="ORARIO" />
-           <TableColumn fx:id="sportCol" prefWidth="75.0" text="SPORT" />
-           <TableColumn fx:id="renterCol" prefWidth="75.0" text="RENTER" />
+          <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />
+          <TableColumn fx:id="comuneCol" prefWidth="122.0" text="COMUNE" />
+           <TableColumn fx:id="indirizzoCol" prefWidth="143.0" text="INDIRIZZO" />
+           <TableColumn fx:id="descCol" prefWidth="308.0" text="DESC" />
+           <TableColumn fx:id="dataCol" prefWidth="110.0" text="DATA" />
+           <TableColumn fx:id="oraCol" prefWidth="90.0" text="ORARIO" />
+           <TableColumn fx:id="sportCol" prefWidth="105.0" text="SPORT" />
+           <TableColumn fx:id="renterCol" prefWidth="96.0" text="RENTER" />
         </columns>
       </TableView>
       <Button fx:id="prenotaBTN" layoutX="484.0" layoutY="678.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="217.0" stylesheets="@bootstrap3.css" text="PRENOTA">

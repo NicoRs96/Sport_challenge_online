@@ -7,13 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HomePageSportmanView {
-	public HomePageSportmanView() {
+public class CercaCampoSportivoView {
+	
+	public CercaCampoSportivoView() {
 		//nothing
 	}
-	
-	public void apriHPSportman(Stage stage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomepageSportman.fxml"));
+
+	public void apriCercaCampoSportivo(Stage stage) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/view/CercaCampoSportivo.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

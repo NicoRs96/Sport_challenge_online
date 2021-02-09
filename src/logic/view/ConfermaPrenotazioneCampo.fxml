@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="name" fill="#ff0d00" layoutX="216.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="64.0" />
+         </font>
+      </Text>
+      <Button fx:id="esciBTN" layoutX="1073.0" layoutY="50.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning" />
+         </styleClass>
+      </Button>
+      <Button fx:id="confermaBTN" layoutX="494.0" layoutY="688.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="217.0" stylesheets="@bootstrap3.css" text="CONFERMA">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="success" />
+         </styleClass>
+      </Button>
+      <WebView fx:id="mapWV" layoutX="761.0" layoutY="152.0" prefHeight="372.0" prefWidth="342.0" />
+      <Text layoutX="69.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" wrappingWidth="100.6708984375">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="65.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comune">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="65.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indirizzo">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="62.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrizione">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="68.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="65.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ora">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="68.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prezzo">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="nomeTA" layoutX="273.0" layoutY="172.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="comuneTA" layoutX="274.0" layoutY="220.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="indirizzoTA" layoutX="273.0" layoutY="268.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="descrizioneTA" layoutX="273.0" layoutY="316.0" prefHeight="137.0" prefWidth="329.0" />
+      <TextArea fx:id="dataTA" layoutX="273.0" layoutY="453.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="oraTA" layoutX="273.0" layoutY="501.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="prezzoTA" layoutX="274.0" layoutY="549.0" prefHeight="48.0" prefWidth="329.0" />
+      <TextArea fx:id="contattiTA" layoutX="761.0" layoutY="573.0" prefHeight="67.0" prefWidth="342.0" />
+      <Text layoutX="892.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contatti" wrappingWidth="79.99999541044235">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="68.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mod Pagamento">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="modPagamentoTA" layoutX="273.0" layoutY="597.0" prefHeight="48.0" prefWidth="329.0" />
+   </children>
+</Pane>

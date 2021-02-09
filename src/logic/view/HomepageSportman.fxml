@@ -43,13 +43,13 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="specificalvlBTN" layoutX="154.0" layoutY="718.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Specifica il tuo livello">
+      <Button fx:id="specificalvlBTN" layoutX="370.0" layoutY="719.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Specifica il tuo livello">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <Button fx:id="disiscriviBTN" layoutX="584.0" layoutY="718.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Disiscriviti">
+      <Button fx:id="disiscriviBTN" layoutX="838.0" layoutY="719.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Disiscriviti">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -60,7 +60,7 @@
             <Image url="@impSportivo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="sportPrefeBTN" layoutX="368.0" layoutY="719.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Imposta sport preferito">
+      <Button fx:id="sportPrefeBTN" layoutX="585.0" layoutY="719.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Imposta sport preferito">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -71,5 +71,11 @@
             <Image url="@torneo1.png" />
          </image>
       </ImageView>
+      <Button fx:id="iMieiEventiBTN" layoutX="154.0" layoutY="719.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="I miei eventi">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning" />
+         </styleClass>
+      </Button>
    </children>
 </Pane>

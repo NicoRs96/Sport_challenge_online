@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="64.0" />
+         </font>
+      </Text>
+      <Button fx:id="esciBTN" layoutX="1074.0" layoutY="62.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning" />
+         </styleClass>
+      </Button>
+      <Text layoutX="125.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sport Preferito">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="sportComboBox" layoutX="418.0" layoutY="181.0" prefHeight="46.0" prefWidth="256.0" value="Seleziona uno sport">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Tennis" />
+               <String fx:value="Calcio" />
+               <String fx:value="Basket" />
+               <String fx:value="Calcio a 5" />
+               <String fx:value="Pallavolo" />
+               <String fx:value="Golf" />
+               <String fx:value="Padel" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Button fx:id="confermaBTN" layoutX="562.0" layoutY="663.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="CONFERMA">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="success" />
+         </styleClass>
+      </Button>
+      <ImageView fitHeight="354.0" fitWidth="472.0" layoutX="369.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sport.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

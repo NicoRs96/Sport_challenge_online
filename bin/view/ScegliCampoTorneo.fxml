@@ -16,7 +16,7 @@
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1073.0" layoutY="48.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" layoutX="1073.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />

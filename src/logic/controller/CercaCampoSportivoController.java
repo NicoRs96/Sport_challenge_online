@@ -3,7 +3,6 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,32 +10,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import model.Campo;
-import view.HomePageSportmanView;
-
-import javax.swing.*;
-import javax.xml.crypto.Data;
 
 import bean.CercaCampoBean;
 import dao.CercaCampoDao;
+import model.Persona;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
 public class CercaCampoSportivoController implements Initializable {
     
-	
+	private Persona persona;
+
 	private CercaCampoDao cercaCampoDao = new CercaCampoDao();
 
 	private CercaCampoBean cercaCampoBean = new CercaCampoBean();
@@ -76,12 +67,14 @@ public class CercaCampoSportivoController implements Initializable {
     
     @FXML 
     private void indietro(ActionEvent event) throws IOException {
-    	
-    	Stage stage = (Stage) esciBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+
+        Stage stage = (Stage) esciBTN.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
+        Parent root = (Parent) loader.load();
+        HomePageSportmanController homePageSportmanController = loader.getController();
+        homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
     }
 
 
@@ -115,7 +108,7 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
-        cercaCampoBean.setCittà(cittaTF.getText().trim());
+        cercaCampoBean.setCitta(cittaTF.getText().trim());
         cercaCampoBean.setData(dataDP.getValue());
         cercaCampoBean.setSport(sportComboBox.getValue().toString());
         
@@ -129,15 +122,6 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
-        if(!cercaCampoBean.isCityAvailable()){
-        	
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE CITTA");
-            alert.setContentText("La citta inserita non Esiste.");
-            alert.showAndWait();
-            return;
-        }
-
         Label lblValue = new Label();
         ObservableList<Campo> values = FXCollections.
                 observableArrayList();
@@ -147,6 +131,7 @@ public class CercaCampoSportivoController implements Initializable {
         for (String name : campos.keySet()) {
             TreeMap<String, String> info = campos.get(name);
             String nome = name;
+            int id = Integer.parseInt(info.get("ID"));
             String comune = info.get("COMUNE");
             String indirizzo = info.get("INDIRIZZO");
             String desc = info.get("DESC");
@@ -155,21 +140,59 @@ public class CercaCampoSportivoController implements Initializable {
             String ora = info.get("ORA");
             
             String prezzo = info.get("PREZZO");
-            String modPpagamento = info.get("MOD_PAGAMENTO");
+            String modPpagamento = info.get("METODODIPAGAMENTO");
+
+            int isAffittabile = Integer.parseInt(info.get("AFFITTABILE"));
             
-            Campo campo = new Campo(nome, comune, indirizzo,renter);
+            Campo campo = new Campo(id,nome, comune, indirizzo,renter, isAffittabile);
             campo.setDesc(desc);
             campo.setData(date);
             campo.setOra(ora);
             campo.setSport(sportComboBox.getValue().toString());
             campo.setPrezzo(prezzo);
             campo.setModPagamento(modPpagamento);
-            
-            values.add(campo);
-            campiTV.setItems(values);
+
+            if(campo.getIsAffittabile() == 1) {
+                values.add(campo);
+                campiTV.setItems(values);
+            }
         }
+
+
     }
 
+
+    public void prenota(ActionEvent event) throws SQLException {
+
+        Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
+
+        if(campo == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("ERRORE CAMPO");
+            alert.setContentText("Attenzione, campo non selezioanto.");
+            alert.showAndWait();
+            return;
+        }
+
+
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("RIEPILOGO PRENOTAZIONE");
+        String information = String.format("Riepilogo ordine\n----------\nCitta: %s\nPrezzo: %s\nModalita di pagamento: %s\nData: %s\nOra: %s\nSport: %s", campo.getComune(), campo.getPrezzo(),campo.getModPagamento(), campo.getData(), campo.getOra(), campo.getSport());
+        alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.OK){
+            if(cercaCampoBean.confermaPrenotazione(persona.getId(),campo.getId())) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("SUCCESS");
+                alert.setContentText("Prenotazione avvenuta con successo");
+                alert.showAndWait();
+                return;
+            }
+        }
+        return;
+
+    }
 
 
     @Override
@@ -183,4 +206,9 @@ public class CercaCampoSportivoController implements Initializable {
         renterCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("renter"));
         sportCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("sport"));
     }
+
+    public void setPersona(Persona persona){
+        this.persona = persona;
+    }
+
 }

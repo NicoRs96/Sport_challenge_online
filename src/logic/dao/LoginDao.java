@@ -32,6 +32,7 @@ public class LoginDao {
         String query = String.format("SELECT * FROM USER WHERE email = '%s' AND password='%s'",email, password);
         ResultSet resultSet = stm.executeQuery(query);
         while(resultSet.next()) {
+            user.put("ID", ""+resultSet.getInt("ID"));
             user.put("NOME", resultSet.getString("NOME"));
             user.put("COGNOME", resultSet.getString("COGNOME"));
             user.put("DATADINASCITA", resultSet.getDate("DATADINASCITA").toString());

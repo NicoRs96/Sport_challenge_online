@@ -1,8 +1,10 @@
 package bean;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.TreeMap;
 
 import dao.CercaCampoDao;
 
@@ -14,15 +16,15 @@ public class CercaCampoBean {
 	
 	private CercaCampoDao cercaCampoDao = new CercaCampoDao();
 	
-	String città;
+	String citta;
 	String sport;
 	LocalDate data;
 	
-	public String getCittà() {
-		return città;
+	public String getCitta() {
+		return citta;
 	}
-	public void setCittà(String città) {
-		this.città = città;
+	public void setCitta(String citta) {
+		this.citta = citta;
 	}
 	public String getSport() {
 		return sport;
@@ -48,13 +50,21 @@ public class CercaCampoBean {
 		}
 		return 0;
 	}
-	public boolean isCityAvailable() throws SQLException {
+
+	public boolean isCityAvailable(String citta) throws SQLException {
 		
-		if(cercaCampoDao.isCityAvailable(città)) {		
+		if(cercaCampoDao.isCityAvailable(citta)) {
 			return true;
-			
-	}
+			}
 		return false;
 	
-}
 	}
+
+	public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ParseException {
+		return cercaCampoDao.getCampo(city, sport, data);
+	}
+
+	public boolean confermaPrenotazione(int utente, int campo) throws SQLException {
+		return cercaCampoDao.confermaPrenotazione(utente, campo);
+	}
+}

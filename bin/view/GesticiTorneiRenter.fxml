@@ -9,7 +9,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="190.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
@@ -30,13 +29,13 @@
       </Text>
       <TableView fx:id="torneiTV" layoutX="43.0" layoutY="211.0" prefHeight="219.0" prefWidth="1081.0" stylesheets="@bootstrap3.css">
          <columns>
-            <TableColumn fx:id="nomeCol1" prefWidth="185.0" text="CAMPO" />
-            <TableColumn fx:id="comuneCol1" prefWidth="126.0" text="DATA" />
-            <TableColumn fx:id="indirizzoCol1" prefWidth="119.0" text="ORA" />
-            <TableColumn fx:id="descCol1" prefWidth="114.0" text="PREZZO" />
-            <TableColumn fx:id="dataCol" prefWidth="146.0" text="ETÀ MINIMA" />
-            <TableColumn fx:id="oraCol" prefWidth="214.0" text="SCADENZA PRENOTAZIONI" />
-            <TableColumn fx:id="renterCol" prefWidth="176.0" text="PAGAMENTO" />
+            <TableColumn fx:id="campoCol" prefWidth="185.0" text="CAMPO" />
+            <TableColumn fx:id="dataCol" prefWidth="126.0" text="DATA" />
+            <TableColumn fx:id="oraCol" prefWidth="119.0" text="ORA" />
+            <TableColumn fx:id="prezzoCol" prefWidth="114.0" text="PREZZO" />
+            <TableColumn fx:id="etaMinCol" prefWidth="146.0" text="ETÀ MINIMA" />
+            <TableColumn fx:id="scadenzaCol" prefWidth="214.0" text="SCADENZA PRENOTAZIONI" />
+            <TableColumn fx:id="pagamentoCol" prefWidth="176.0" text="PAGAMENTO" />
          </columns>
       </TableView>
       <Text layoutX="43.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Partecipanti">
@@ -46,10 +45,10 @@
       </Text>
       <TableView fx:id="partecipantiTV" layoutX="43.0" layoutY="529.0" prefHeight="219.0" prefWidth="502.0" stylesheets="@bootstrap3.css">
          <columns>
-            <TableColumn fx:id="nomeCol11" prefWidth="128.0" text="NOME" />
-            <TableColumn fx:id="comuneCol11" prefWidth="123.0" text="COGNOME" />
-            <TableColumn fx:id="indirizzoCol11" prefWidth="93.0" text="LIVELLO" />
-            <TableColumn fx:id="dataCol1" prefWidth="156.0" text="TELEFONO" />
+            <TableColumn fx:id="nomeCol" prefWidth="128.0" text="NOME" />
+            <TableColumn fx:id="cognomeCol" prefWidth="123.0" text="COGNOME" />
+            <TableColumn fx:id="livelloCol" prefWidth="93.0" text="LIVELLO" />
+            <TableColumn fx:id="telefonoCol" prefWidth="156.0" text="TELEFONO" />
          </columns>
       </TableView>
       <Button fx:id="confermaBTN" layoutX="690.0" layoutY="732.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="CONFERMA">

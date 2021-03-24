@@ -1,6 +1,7 @@
 package model;
 
 public class Campo {
+    private int id;
     private String nome;
     private String comune;
     private String indirizzo;
@@ -11,13 +12,32 @@ public class Campo {
     private String sport;
     private String prezzo;
     private String modPagamento;
+    private int isAffittabile;
     
 
-    public Campo(String nome, String comune, String indirizzo, String renter) {
+    public Campo(int id, String nome, String comune, String indirizzo, String renter, int isAffittabile) {
+        this.id = id;
         this.nome = nome;
         this.comune = comune;
         this.indirizzo = indirizzo;
-        this.renter = renter;       
+        this.renter = renter;
+        this.isAffittabile = isAffittabile;
+    }
+    public Campo(int id, String nome, String comune, String indirizzo, String data, String ora) {
+        this.id = id;
+        this.nome = nome;
+        this.comune = comune;
+        this.indirizzo = indirizzo;
+        this.data = data;
+        this.ora = ora;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -99,4 +119,21 @@ public class Campo {
 	public void setModPagamento(String modPagamento) {
 		this.modPagamento = modPagamento;
 	}
+
+    public int getIsAffittabile() {
+        return isAffittabile;
+    }
+
+    public void setIsAffittabile(int isAffittabile) {
+        this.isAffittabile = isAffittabile;
+    }
+
+    public String toString(){
+        return "id=" + getId() +
+                ";nome=" + getNome() + "" +
+                ";comune=" + getComune() + "" +
+                ";indirizzo=" + getIndirizzo() + "" +
+                ";data=" + getData() + "" +
+                ";ora=" + getOra() + "";
+    }
 }

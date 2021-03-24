@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Persona;
@@ -36,7 +38,7 @@ public class MainController implements Initializable{
 	 private TextField emailTF;
 
 	@FXML
-	private TextField pwTF;
+	private PasswordField pwTF;
 
 	@FXML
 	private Button loginBtn;
@@ -74,10 +76,15 @@ public class MainController implements Initializable{
 		}	
 		
 	
-
-		String nome = user.get("NOME");		
+		int id = Integer.parseInt(user.get("ID"));
+		String nome = user.get("NOME");
+		String cognome = user.get("COGNOME");
+		String email = user.get("EMAIL");
+		String telefono = user.get("TELEFONO");
+		LocalDate data = LocalDate.parse(user.get("DATADINASCITA"));
 		String isRent = user.get("RENT");
 
+		Persona persona = new Persona(id, nome, cognome, email, data, telefono, isRent);
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("ACCESSO ESEGUITO");
 		String name = String.format("Bentornato, %s", nome);
@@ -86,16 +93,15 @@ public class MainController implements Initializable{
 
 		if (isRent.equals("1")) {
 			Stage stage = (Stage) loginBtn.getScene().getWindow();
-			HomePageRenterView homePageRenterView = new HomePageRenterView();
+			HomePageRenterView homePageRenterView = new HomePageRenterView(persona);
             homePageRenterView.apriHPRenter(stage);
 			return;
 		}
 
 		//modificare view e mettere quella dello sportsman
-        Persona persona = new Persona(loginBean.getUsername());
 		Stage stage = (Stage) loginBtn.getScene().getWindow();
-		//HomePageSportmanView homePageSportmanView = new HomePageSportmanView(persona);
-        //homePageSportmanView.apriHPSportman(stage);
+		HomePageSportmanView homePageSportmanView = new HomePageSportmanView(persona);
+        homePageSportmanView.apriHPSportman(stage);
         
 		
 	}

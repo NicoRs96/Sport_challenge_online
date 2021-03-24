@@ -8,15 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestisciCampiRenterController">
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="199.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1067.0" layoutY="72.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" onAction="#esci" layoutX="1067.0" layoutY="72.0" mnemonicParsing="false"  stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -33,16 +32,25 @@
             <TableColumn fx:id="comuneCol" prefWidth="122.0" text="CITTÀ" />
             <TableColumn fx:id="indirizzoCol" prefWidth="143.0" text="INDIRIZZO" />
             <TableColumn fx:id="descCol" prefWidth="506.0" text="DESC" />
+            <TableColumn fx:id="dataCol1" prefWidth="203.0" text="DATA" />
+            <TableColumn fx:id="oraCol1" prefWidth="203.0" text="ORA" />
             <TableColumn fx:id="sportCol" prefWidth="203.0" text="SPORT" />
          </columns>
       </TableView>
-      <Button layoutX="294.0" layoutY="409.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Rendi affitabile">
+
+      <Button fx:id="rendiAffittabileBTN" onAction="#rendiAffittabile" layoutX="294.0" layoutY="409.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Rendi affitabile">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="info" />
          </styleClass>
       </Button>
-      <Button layoutX="725.0" layoutY="409.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Cancella">
+      <Button fx:id="ricaricaCampi" onAction="#ricarica" layoutX="550.0" layoutY="409.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Refresh">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning"/>
+         </styleClass>
+      </Button>
+      <Button fx:id="cancella1BTN" onAction="#cancellaAffittabilita" layoutX="725.0" layoutY="409.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Cancella">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="danger" />
@@ -53,19 +61,18 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <TableView fx:id="campiTV1" layoutX="53.0" layoutY="509.0" prefHeight="219.0" prefWidth="1081.0" stylesheets="@bootstrap3.css">
+      <TableView fx:id="prenotazioniTV" layoutX="53.0" layoutY="509.0" prefHeight="219.0" prefWidth="1081.0" stylesheets="@bootstrap3.css">
          <columns>
-            <TableColumn fx:id="nomeCol1" prefWidth="119.0" text="CAMPO" />
-            <TableColumn fx:id="comuneCol1" prefWidth="122.0" text="DATA" />
-            <TableColumn fx:id="indirizzoCol1" prefWidth="103.0" text="ORA" />
-            <TableColumn fx:id="descCol1" prefWidth="115.0" text="PREZZO" />
-            <TableColumn fx:id="dataCol" prefWidth="107.0" text="PRENOTATO" />
-            <TableColumn fx:id="oraCol" prefWidth="171.0" text="NOME CLIENTE" />
-            <TableColumn fx:id="sportCol1" prefWidth="154.0" text="COGNOME CLIENTE" />
-            <TableColumn fx:id="renterCol" prefWidth="202.0" text="TELEFONO" />
+            <TableColumn fx:id="campoCol" prefWidth="119.0" text="CAMPO" />
+            <TableColumn fx:id="dataCol" prefWidth="122.0" text="DATA" />
+            <TableColumn fx:id="oraCol" prefWidth="103.0" text="ORA" />
+            <TableColumn fx:id="prezzoCol" prefWidth="115.0" text="PREZZO" />
+            <TableColumn fx:id="nomeClienteCol" prefWidth="168.0" text="NOME CLIENTE" />
+            <TableColumn fx:id="cognomeClienteCol" prefWidth="154.0" text="COGNOME CLIENTE" />
+            <TableColumn fx:id="telefonoClienteCol" prefWidth="202.0" text="TELEFONO" />
          </columns>
       </TableView>
-      <Button layoutX="551.0" layoutY="754.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Cancella">
+      <Button fx:id="cancellaBTN" onAction="#cancellaPrenotazione" layoutX="551.0" layoutY="754.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Cancella">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="danger" />

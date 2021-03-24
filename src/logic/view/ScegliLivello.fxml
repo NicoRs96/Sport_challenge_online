@@ -10,8 +10,15 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScegliLivelloController">
    <children>
+      <fx:define>
+         <ToggleGroup fx:id="test" />
+      </fx:define>
       <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />
@@ -23,6 +30,19 @@
             <String fx:value="warning" />
          </styleClass>
       </Button>
+      <ComboBox fx:id="sportComboBox" layoutX="418.0" layoutY="181.0" prefHeight="46.0" prefWidth="256.0" value="Seleziona uno sport">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Tennis" />
+               <String fx:value="Calcio" />
+               <String fx:value="Basket" />
+               <String fx:value="Calcio a 5" />
+               <String fx:value="Pallavolo" />
+               <String fx:value="Golf" />
+               <String fx:value="Padel" />
+            </FXCollections>
+         </items>
+      </ComboBox>
       <ImageView fitHeight="249.0" fitWidth="196.0" layoutX="106.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@D-300.png" />
@@ -38,22 +58,22 @@
             <Image url="@P-300.png" />
          </image>
       </ImageView>
-      <CheckBox fx:id="dilettanteCB" layoutX="106.0" layoutY="579.0" mnemonicParsing="false" text="Dilettante">
+      <RadioButton fx:id="dilettanteCB" toggleGroup="$test" layoutX="106.0" layoutY="579.0" mnemonicParsing="false" text="Dilettante">
          <font>
             <Font size="25.0" />
          </font>
-      </CheckBox>
-      <CheckBox fx:id="espertoCB" layoutX="512.0" layoutY="587.0" mnemonicParsing="false" text="Esperto">
+      </RadioButton>
+      <RadioButton fx:id="espertoCB"  toggleGroup="$test" layoutX="512.0" layoutY="587.0" mnemonicParsing="false" text="Esperto">
          <font>
             <Font size="25.0" />
          </font>
-      </CheckBox>
-      <CheckBox fx:id="professionistaCB" layoutX="874.0" layoutY="587.0" mnemonicParsing="false" text="Professionista">
+      </RadioButton>
+      <RadioButton fx:id="professionistaCB" toggleGroup="$test" layoutX="874.0" layoutY="587.0" mnemonicParsing="false" text="Professionista">
          <font>
             <Font size="25.0" />
          </font>
-      </CheckBox>
-      <Button fx:id="confermaBTN" layoutX="551.0" layoutY="712.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="CONFERMA">
+      </RadioButton>
+      <Button fx:id="confermaBTN" onAction="#conferma" layoutX="551.0" layoutY="712.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="CONFERMA">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="success" />

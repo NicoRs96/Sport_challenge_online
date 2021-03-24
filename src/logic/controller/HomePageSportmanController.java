@@ -2,19 +2,27 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
+import bean.CancellaAccountBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import model.Persona;
 import view.CercaCampoSportivoView;
 
 public class HomePageSportmanController implements Initializable{
+	private Persona persona;
+	private CancellaAccountBean cancellaAccountBean = new CancellaAccountBean();
 	
 	@FXML
 	private Button esciBTN;
@@ -33,6 +41,9 @@ public class HomePageSportmanController implements Initializable{
 	
 	@FXML
 	private Button sportPrefeBTN;
+
+	@FXML
+	private Button iMieiEventiBTN;
 	
 	
 	@FXML
@@ -48,15 +59,90 @@ public class HomePageSportmanController implements Initializable{
 	@FXML
 	private void cercaCampo() throws IOException {
 		Stage stage = (Stage) cercaCSBTN.getScene().getWindow();
-		CercaCampoSportivoView cercaCampoSportivoView = new CercaCampoSportivoView();
+		CercaCampoSportivoView cercaCampoSportivoView = new CercaCampoSportivoView(persona);
 		cercaCampoSportivoView.apriCercaCampoSportivo(stage);
 	}
-		
+
+
+	public void cercaTornei(ActionEvent actionEvent) throws IOException {
+		Stage stage = (Stage) cercaTornBTN.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CercaTorneo.fxml"));
+		Parent root = (Parent) loader.load();
+		CercaTorneoController cercaTorneoController = loader.getController();
+		cercaTorneoController.setPersona(persona);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+	}
+
+	public void gestisciEventi(ActionEvent actionEvent) throws IOException, SQLException, ParseException {
+		Stage stage = (Stage) iMieiEventiBTN.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GestisciMieiEventi.fxml"));
+		Parent root = (Parent) loader.load();
+		GestisciMieiEventiController gestisciMieiEventiController = loader.getController();
+		gestisciMieiEventiController.setPersona(persona);
+		gestisciMieiEventiController.getCampi();
+		gestisciMieiEventiController.getTornei();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+	}
+
+	public void gestisciLivello(ActionEvent actionEvent) throws IOException, SQLException, ParseException {
+		Stage stage = (Stage) specificalvlBTN.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ScegliLivello.fxml"));
+		Parent root = (Parent) loader.load();
+		ScegliLivelloController scegliLivelloController = loader.getController();
+		scegliLivelloController.setPersona(persona);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+	}
+
+	public void gestisciSportPreferito(ActionEvent actionEvent) throws IOException, SQLException, ParseException {
+		Stage stage = (Stage) sportPrefeBTN.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SportPreferito.fxml"));
+		Parent root = (Parent) loader.load();
+		SportPreferitoController sportPreferitoController = loader.getController();
+		sportPreferitoController.setPersona(persona);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+	}
+
+	public void cancellaAccount(ActionEvent actionEvent) throws SQLException, IOException {
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("ATTENZIONE");
+		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE");
+		alert.showAndWait();
+		if(alert.getResult() == ButtonType.OK){
+			if(cancellaAccountBean.deleteAccount(persona.getId())){
+				alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("SUCCESS");
+				alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO");
+				alert.showAndWait();
+				Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+				Parent root = (Parent) loader.load();
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				return;
+			}
+		}
+		Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+		Parent root = (Parent) loader.load();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		return;
+	}
+
 	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//nothing
 	}
+
+	public void setPersona(Persona persona){
+		this.persona = persona;
+	}
+
 
 }

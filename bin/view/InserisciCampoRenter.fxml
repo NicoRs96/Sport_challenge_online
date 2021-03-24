@@ -11,14 +11,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Spinner?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InserisciCampoRenterController" >
+   <fx:define>
+      <ToggleGroup fx:id="metodoTG" />
+   </fx:define>
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="185.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1061.0" layoutY="63.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" layoutX="1061.0" layoutY="63.0" mnemonicParsing="false" onAction="#esci" stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -27,8 +36,15 @@
       <TextField fx:id="nomeCampoTF" layoutX="94.0" layoutY="232.0" prefHeight="33.0" prefWidth="261.0" promptText="Nome Campo" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="indirizzoTF" layoutX="94.0" layoutY="293.0" prefHeight="33.0" prefWidth="261.0" promptText="Indirizzo" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="cittaTF" layoutX="94.0" layoutY="342.0" prefHeight="33.0" prefWidth="261.0" promptText="Città" styleClass="text-field" stylesheets="@bootstrap3.css" />
-      <TextField fx:id="descrizioneTF" layoutX="94.0" layoutY="465.0" prefHeight="120.0" prefWidth="261.0" promptText="Descrizione" styleClass="text-field" />
-      <Button fx:id="confermaBTN" layoutX="124.0" layoutY="657.0" mnemonicParsing="false" onAction="#confermaRegistrazione" prefHeight="70.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="CONFERMA">
+      <DatePicker fx:id="dataDP" layoutX="94.0" layoutY="382.0" prefHeight="33.0" prefWidth="261.0" promptText="Data" styleClass="text-field" stylesheets="@bootstrap3.css" />
+      <TextField fx:id="oraTF" layoutX="94.0" layoutY="422.0" prefHeight="33.0" prefWidth="261.0" promptText="Ora" styleClass="text-field" stylesheets="@bootstrap3.css" />
+      <TextField fx:id="prezzoS" layoutX="94.0" layoutY="510.0" prefHeight="33.0" prefWidth="261.0" promptText="Prezzo" styleClass="text-field" stylesheets="@bootstrap3.css" />
+      <RadioButton fx:id="contantiCB" toggleGroup="$metodoTG" layoutX="94.0" layoutY="555.0" prefHeight="33.0" prefWidth="120.0" styleClass="text-field" stylesheets="@bootstrap3.css" style="-fx-border-color: transparent; -fx-background-color: transparent" text="Contanti" />
+      <RadioButton fx:id="cartaCB" toggleGroup="$metodoTG" layoutX="170.0" layoutY="555.0" prefHeight="33.0" prefWidth="120.0" styleClass="text-field" stylesheets="@bootstrap3.css" style="-fx-border-color: transparent; -fx-background-color: transparent"  text="Carta di credito"/>
+      <RadioButton fx:id="EntrambiCB" toggleGroup="$metodoTG" layoutX="284.0" layoutY="555.0" prefHeight="33.0" prefWidth="120.0" styleClass="text-field" stylesheets="@bootstrap3.css" style="-fx-border-color: transparent; -fx-background-color: transparent"  text="Entrambi"/>
+      <CheckBox fx:id="torneoCB"  layoutX="170.0" layoutY="730.0" prefHeight="33.0" prefWidth="300.0" styleClass="text-field" stylesheets="@bootstrap3.css" style="-fx-border-color: transparent; -fx-background-color: transparent"  text="CAMPO PER TORNEO"/>
+      <TextField fx:id="descrizioneTF" layoutX="94.0" layoutY="600.0" prefHeight="120.0" prefWidth="261.0" promptText="Descrizione" styleClass="text-field" />
+      <Button fx:id="confermaBTN" layoutX="124.0" layoutY="760.0" mnemonicParsing="false" onAction="#confermaRegistrazione" prefHeight="70.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="CONFERMA">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="success" />
@@ -44,7 +60,7 @@
             <Image url="@campisportivi.jpg" />
          </image>
       </ImageView>
-      <ComboBox fx:id="sportComboBox" layoutX="94.0" layoutY="403.0" prefHeight="32.0" prefWidth="261.0" value="Seleziona uno sport">
+      <ComboBox fx:id="sportComboBox" layoutX="94.0" layoutY="460.0" prefHeight="32.0" prefWidth="261.0" value="Seleziona uno sport">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Tennis" />

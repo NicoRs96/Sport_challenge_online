@@ -82,7 +82,7 @@ public class IscrivitiController implements Initializable {
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
-			alert.setContentText("La piattaforma è riservata ad utenti di età  > 14, per favore riprova.");
+			alert.setContentText("La piattaforma e' riservata ad utenti di eta' > 14, per favore riprova.");
 			alert.showAndWait();
 			return;
 		}
@@ -104,7 +104,7 @@ public class IscrivitiController implements Initializable {
         {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle(avviso);
-			alert.setContentText("Cè già  un utente registrato con questo nome e cognome, per favore riprova.");
+			alert.setContentText("C'e' gia'  un utente registrato con questo nome e cognome, per favore riprova.");
 			alert.showAndWait();
 		}
 
@@ -115,18 +115,12 @@ public class IscrivitiController implements Initializable {
 			alert.setTitle("INSERIMENTO AVVENUTO CON SUCCESSO");
 			alert.setContentText("Complimenti, ti sei registrato con successo");
 			alert.showAndWait();
-			
-			if(isRent){
-                Stage stage = (Stage) indietroButton.getScene().getWindow();
-                HomePageRenterView homePageRenterView = new HomePageRenterView();
-                homePageRenterView.apriHPRenter(stage);
-			}
-			//modificare view e mettere quella dello sportsman
-			else{
-                Stage stage = (Stage) indietroButton.getScene().getWindow();
-                HomePageSportmanView homePageSportmanView = new HomePageSportmanView();
-                homePageSportmanView.apriHPSportman(stage);
-            }
+
+            Stage stage = (Stage) indietroButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
 
 		}
     }

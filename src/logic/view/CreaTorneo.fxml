@@ -13,22 +13,29 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreaTorneoController">
    <children>
-      <TextField fx:id="prezzoTF" layoutX="147.0" layoutY="480.0" prefHeight="31.0" prefWidth="248.0" promptText="Prezzo" />
-      <TextField fx:id="oraTF" layoutX="147.0" layoutY="292.0" prefHeight="18.0" prefWidth="248.0" promptText="Ora" />
-      <DatePicker fx:id="dataDP" layoutX="147.0" layoutY="249.0" prefHeight="31.0" prefWidth="248.0" promptText="Scegli la data del torneo" />
-      <CheckBox fx:id="contantiCB" layoutX="147.0" layoutY="599.0" mnemonicParsing="false" text="Contanti">
+      <TextField fx:id="nomeTF" layoutX="147.0" layoutY="240.0" prefHeight="31.0" prefWidth="248.0" promptText="Nome" />
+      <DatePicker fx:id="dataDP" layoutX="147.0" layoutY="280.0" prefHeight="31.0" prefWidth="248.0" promptText="Scegli la data del torneo" />
+      <TextField fx:id="oraTF" layoutX="147.0" layoutY="330.0" prefHeight="18.0" prefWidth="248.0" promptText="Ora" />
+      <TextField fx:id="etaMinimaTF" layoutX="147.0" layoutY="370.0" prefHeight="31.0" prefWidth="248.0" promptText="Età minima" />
+      <TextField fx:id="numMinIscrittiTF" layoutX="147.0" layoutY="416.0" prefHeight="31.0" prefWidth="248.0" promptText="Numero minimo di partecipanti" />
+      <DatePicker fx:id="datascadenzaDP" layoutX="147.0" layoutY="462.0" prefHeight="27.0" prefWidth="248.0" promptText="Data di scadenza prenotazioni" />
+      <TextField fx:id="prezzoTF" layoutX="147.0" layoutY="510.0" prefHeight="31.0" prefWidth="248.0" promptText="Prezzo" />
+      <TextField fx:id="descTF" layoutX="147.0" layoutY="566.0" prefHeight="120.0" prefWidth="261.0" promptText="Descrizione" styleClass="text-field" />
+      <CheckBox fx:id="contantiCB" layoutX="147.0" layoutY="730.0" mnemonicParsing="false" text="Contanti">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="carteCB" layoutX="287.0" layoutY="599.0" mnemonicParsing="false" text="Carte">
+      <CheckBox fx:id="carteCB" layoutX="287.0" layoutY="730.0" mnemonicParsing="false" text="Carte">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <Button fx:id="confermaBTN" layoutX="172.0" layoutY="699.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" stylesheets="@bootstrap3.css" text="Conferma">
+      <Button fx:id="confermaBTN" onAction="#conferma" layoutX="172.0" layoutY="770.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" stylesheets="@bootstrap3.css" text="Conferma">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="success" />
@@ -39,8 +46,13 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <TextArea fx:id="campoTA" layoutX="267.0" layoutY="165.0" prefHeight="47.0" prefWidth="301.0" />
-      <Text layoutX="147.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modalità di pagamento">
+      <ComboBox fx:id="campiComboBox" layoutX="267.0" layoutY="165.0" prefHeight="47.0" prefWidth="301.0" value="Seleziona un campo" onAction="#test">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Text layoutX="147.0" layoutY="720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modalità di pagamento">
          <font>
             <Font size="20.0" />
          </font>
@@ -50,15 +62,12 @@
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1056.0" layoutY="68.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" onAction="#indietro" layoutX="1056.0" layoutY="68.0" mnemonicParsing="false" stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <TextField fx:id="etaMinimaTF" layoutX="147.0" layoutY="340.0" prefHeight="31.0" prefWidth="248.0" promptText="Età minima" />
-      <TextField fx:id="numMinIscrittiTF" layoutX="147.0" layoutY="386.0" prefHeight="31.0" prefWidth="248.0" promptText="Numero minimo di partecipanti" />
-      <DatePicker fx:id="datascadenzaDP" layoutX="147.0" layoutY="432.0" prefHeight="27.0" prefWidth="248.0" promptText="Data di scadenza prenotazioni" />
       <ImageView fitHeight="311.0" fitWidth="463.0" layoutX="712.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@copp.png" />

@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IscrivitiController">
    <children>
       <Text fx:id="name" fill="#ff0d00" layoutX="216.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
          <font>
             <Font name="Cambria Bold" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="esciBTN" layoutX="1073.0" layoutY="50.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+      <Button fx:id="esciBTN" layoutX="1073.0" layoutY="50.0" mnemonicParsing="false"  stylesheets="@bootstrap3.css" text="Esci">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />
@@ -25,6 +25,7 @@
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="success" />
+         </styleClass>
          </styleClass>
       </Button>
       <WebView fx:id="mapWV" layoutX="761.0" layoutY="152.0" prefHeight="372.0" prefWidth="342.0" />

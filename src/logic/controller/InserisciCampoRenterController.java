@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Persona;
 
@@ -53,13 +52,15 @@ public class InserisciCampoRenterController implements Initializable {
 
     @FXML
     public void indietro(ActionEvent event) {
+    	//nothing
     }
 
     public InserisciCampoRenterController(){
+    	//constructor
     }
 
 
-    public void confermaRegistrazione(ActionEvent event) throws SQLException {
+    public void confermaRegistrazione() throws SQLException {
 
         if(nomeCampoTF.getText().trim().isEmpty() ||
                 indirizzoTF.getText().trim().isEmpty() ||
@@ -104,7 +105,6 @@ public class InserisciCampoRenterController implements Initializable {
                         ora,
                         selectedRadioButton.getText(),
                         prezzoS.getText(), torneo)){
-                    continue;
                 }
                 else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -118,10 +118,9 @@ public class InserisciCampoRenterController implements Initializable {
             alert.setTitle("COMPLETATO");
             alert.setContentText("Complimenti, hai inserito il/i tuoi/i campi con successo!");
             alert.showAndWait();
-            return;
         }
 
-    public void esci(ActionEvent event) throws IOException {
+    public void esci() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
         Parent root = (Parent) loader.load();
@@ -133,6 +132,7 @@ public class InserisciCampoRenterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    	//nothing
     }
 
     public void setPersonas(Persona persona){

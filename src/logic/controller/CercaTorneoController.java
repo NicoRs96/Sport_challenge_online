@@ -73,10 +73,10 @@ public class CercaTorneoController implements Initializable {
         descCol.setCellValueFactory(new PropertyValueFactory<Torneo,String>("desc"));
     }
 
-    public void indietro(ActionEvent actionEvent) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root =  loader.load();
         HomePageSportmanController homePageSportmanController = loader.getController();
         homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);
@@ -84,7 +84,7 @@ public class CercaTorneoController implements Initializable {
     }
 
 
-    public void cercaTorneiByCityAndDate(ActionEvent actionEvent) throws SQLException {
+    public void cercaTorneiByCityAndDate() throws SQLException {
         torneiTV.getItems().clear();
         if(cittaTF.getText().trim().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -117,10 +117,8 @@ public class CercaTorneoController implements Initializable {
             TreeMap<String, String> info = tornei.get(id);
             String nome = info.get("NOME");
 
-            String comune = info.get("COMUNE");
-            String indirizzo = info.get("INDIRIZZO");
+          
             String desc = info.get("DESC");
-            String renter = info.get("RENTER");
             String date = info.get("DATA");
             String ora = info.get("ORA");
             String eta = info.get("ETA");
@@ -141,7 +139,7 @@ public class CercaTorneoController implements Initializable {
         this.persona = persona;
     }
 
-    public void iscriviti(ActionEvent actionEvent) throws SQLException {
+    public void iscriviti() throws SQLException {
         Torneo torneo = (Torneo) torneiTV.getSelectionModel().getSelectedItem();
 
         if(torneo == null){
@@ -155,7 +153,7 @@ public class CercaTorneoController implements Initializable {
         if(torneo.getEtaMin() > Period.between(this.persona.getData(), LocalDate.now()).getYears()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("ERRORE ETA");
-            alert.setContentText("Attenzione, l'et√† minima per questo torneo √® superiore alla tua.");
+            alert.setContentText("Attenzione, l'et‡† minima per questo torneo Ë superiore alla tua.");
             alert.showAndWait();
             return;
         }
@@ -183,18 +181,16 @@ public class CercaTorneoController implements Initializable {
                 campo.getSport());
         alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
         alert.showAndWait();
-        if(alert.getResult() == ButtonType.OK){
-            if(cercaTorneoBean.confermaIscrizione(persona.getId(),torneo.getId())) {
+        if((alert.getResult() == ButtonType.OK)&&
+            (cercaTorneoBean.confermaIscrizione(persona.getId(),torneo.getId()))) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("SUCCESS");
                 alert.setContentText("Iscrizione avvenuta con successo");
                 alert.showAndWait();
                 torneiTV.getItems().remove(torneiTV.getSelectionModel().getSelectedItem());
-                return;
             }
-        }
+        
 
-        return;
 
     }
 }

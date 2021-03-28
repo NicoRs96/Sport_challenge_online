@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import model.Persona;
 
@@ -36,11 +35,11 @@ public class SportPreferitoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    	//nothing
     }
 
 
-    public void indietro(ActionEvent actionEvent) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
         Parent root = (Parent) loader.load();
@@ -50,7 +49,7 @@ public class SportPreferitoController implements Initializable {
         stage.setScene(scene);
     }
 
-    public void conferma(ActionEvent actionEvent) throws SQLException {
+    public void conferma() throws SQLException {
         if(sportComboBox.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE INSERIMENTO DATI");
@@ -65,7 +64,6 @@ public class SportPreferitoController implements Initializable {
             String mdg = String.format("Complimenti, %s e' il tuo sport preferito!", sportComboBox.getValue().toString());
             alert.setContentText(mdg);
             alert.showAndWait();
-            return;
         }
     }
 

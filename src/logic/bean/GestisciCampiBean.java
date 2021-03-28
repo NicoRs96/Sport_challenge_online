@@ -10,7 +10,9 @@ import java.util.TreeMap;
 public class GestisciCampiBean {
     private GestisciCampiDao gestisciCampiDao = new GestisciCampiDao();
 
-    public GestisciCampiBean(){}
+    public GestisciCampiBean(){
+    	//constructor
+    }
     public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException, ParseException {
         return gestisciCampiDao.getCampi(renterId);
     }

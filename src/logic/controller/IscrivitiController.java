@@ -15,8 +15,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import view.HomePageRenterView;
-import view.HomePageSportmanView;
 import bean.IscrivitiBean;
 
 
@@ -88,18 +86,17 @@ public class IscrivitiController implements Initializable {
 		}
 
 		//controllo email
-		if(iscrivitiBean.checkMail()==1){
+		if(iscrivitiBean.checkMail()==1)
 		{
 				Alert alert = new Alert(Alert.AlertType.ERROR);
 				alert.setTitle(avviso);
 				alert.setContentText("L'email inserita non è nel formato corretto, per favore riprova.");
 				alert.showAndWait();
 				return;
-			}
+			
 		}
 
 		//check utente già registrato
-        boolean isRent = iscrivitiBean.getCb();
         if(iscrivitiBean.checkUtente()==1)
         {
 			Alert alert = new Alert(Alert.AlertType.ERROR);

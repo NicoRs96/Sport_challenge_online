@@ -2,7 +2,6 @@ package dao;
 
 import java.sql.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Properties;
 import java.util.TreeMap;
 
@@ -28,18 +27,37 @@ public class CercaCampoDao {
     }
 
     public Boolean isCityAvailable(String city) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM COMUNE WHERE NOME='%s'", city);
+        Connection connection = getConnection();        
+        Statement statement = null;
+        ResultSet result = null;
+        boolean check = false;
+        	try {
+        		statement = connection.createStatement();
+			} catch (Exception e) {
+				
+			}
+        	finally {
+        		
+        		try {
+        			result = statement.executeQuery(query);
+				} 
+        		catch (SQLException throwables) {
+		            throwables.printStackTrace();
+				}
+        		finally {
+	        		statement.close();
+	        		if (result !=null && result.next()){
+	        			check=true;
+		        		result.close();
+		        		}
 
-        ResultSet result = statement.executeQuery(query);
-
-        if (result.next()) {
-            connection.close();
-            return true;
-        }
+	        		}
+        		
+				}
+        
         connection.close();
-        return false;
+        return check;
 
     }
 

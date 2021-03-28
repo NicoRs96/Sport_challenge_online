@@ -53,10 +53,12 @@ public class CercaCampoBean {
 
 	public boolean isCityAvailable(String citta) throws SQLException {
 		
-		if(cercaCampoDao.isCityAvailable(citta)) {
-			return true;
+		boolean b=false;
+		
+		if(Boolean.TRUE.equals(cercaCampoDao.isCityAvailable(citta))) {
+			b=true;
 			}
-		return false;
+		return b;
 	
 	}
 

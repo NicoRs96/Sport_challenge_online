@@ -1,17 +1,20 @@
 package dao;
 
-//import com.sun.source.tree.Tree;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.util.TreeMap;
 
 public class GestisciCampiDao {
+	
+	
 
-    public GestisciCampiDao(){}
-
+    public GestisciCampiDao(){
+    	//constructor
+    }
+    
+    String prezzoString="PREZZO";
     public Connection getConnection() throws SQLException {
 
 
@@ -42,7 +45,7 @@ public class GestisciCampiDao {
             String date = resultSet.getString("DATA");
             String ora = resultSet.getString("ORA");
             String metodo = resultSet.getString("METODODIPAGAMENTO");
-            String prezzo = resultSet.getString("PREZZO");
+            String prezzo = resultSet.getString(prezzoString);
             String sport = resultSet.getString("SPORT");
             String affittabile = resultSet.getString("AFFITTABILE");
             TreeMap<String, String> info = new TreeMap<>();
@@ -100,7 +103,7 @@ public class GestisciCampiDao {
             String campo = resultSet.getString("CAMPO");
             String date = resultSet.getString("DATA");
             String ora = resultSet.getString("ORA");
-            String prezzo = resultSet.getString("PREZZO");
+            String prezzo = resultSet.getString(prezzoString);
             String nomeCliente = resultSet.getString("CLIENTE");
             String cognome = resultSet.getString("COGNOME");
             String telefono = resultSet.getString("TELEFONO");

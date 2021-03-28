@@ -116,12 +116,7 @@ public class GestisciMieiEventiController implements Initializable {
             values.add(campo);
             campiTV.setItems(values);
 
-            /*
-            if(info.get("AFFITTABILE").equals("0"))
-                get.setStyle("-fx-selection-bar: red;");
-            else
-                campiTV.setStyle("-fx-selection-bar: lightgreen;");
-            */
+           
         }
 
     }
@@ -174,14 +169,14 @@ public class GestisciMieiEventiController implements Initializable {
         this.persona = persona;
     }
 
-    public void cancellaPrenotazione(ActionEvent actionEvent) throws SQLException, ParseException {
+    public void cancellaPrenotazione() throws SQLException, ParseException {
         if(campiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE CAMPO");
-            alert.setContentText("Non Ã¨ stato selezionato nessun campo, per favore riprova.");
+            alert.setContentText("Non è stato selezionato nessun campo, per favore riprova.");
             alert.showAndWait();
             return;
-        };
+        }
 
         Campo campo = (Campo)  campiTV.getSelectionModel().getSelectedItem();
         if(gestisciMieiEventiBean.cancellaPrenotazioneCampo(campo.getId())){
@@ -198,18 +193,17 @@ public class GestisciMieiEventiController implements Initializable {
         alert.setTitle("Errore");
         alert.setContentText("Errore nel sistema, contatta un amministratore.");
         alert.showAndWait();
-        return;
 
     }
 
-    public void cancellaTorneo(ActionEvent actionEvent) throws SQLException {
+    public void cancellaTorneo() throws SQLException {
         if(torneiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE TORNEO");
-            alert.setContentText("Non Ã¨ stato selezionato nessun torneo, per favore riprova.");
+            alert.setContentText("Non è stato selezionato nessun torneo, per favore riprova.");
             alert.showAndWait();
             return;
-        };
+        }
 
         Torneo torneo = (Torneo)  torneiTV.getSelectionModel().getSelectedItem();
         if(gestisciMieiEventiBean.cancellaPrenotazioneTorneo(torneo.getId(), persona.getId())){
@@ -226,7 +220,6 @@ public class GestisciMieiEventiController implements Initializable {
         alert.setTitle("Errore");
         alert.setContentText("Errore nel sistema, contatta un amministratore.");
         alert.showAndWait();
-        return;
 
     }
 }

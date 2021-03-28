@@ -8,5 +8,6 @@ public class CampoAffitabileController {
 
     @FXML
     public void indietro(ActionEvent event) {
+    	//nothing
     }
 }

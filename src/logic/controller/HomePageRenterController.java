@@ -39,6 +39,8 @@ public class HomePageRenterController implements Initializable{
 
 	@FXML
 	private Button disiscriviBTN;
+	
+	String percorso = "/view/Main.fxml";
 
 
 	
@@ -46,7 +48,7 @@ public class HomePageRenterController implements Initializable{
 	private void indietro(ActionEvent event) throws IOException {
 		
 		Stage stage = (Stage) esciBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(percorso));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -112,30 +114,30 @@ public class HomePageRenterController implements Initializable{
 	}
 
 
-    public void cancellaAccount(ActionEvent actionEvent) throws SQLException, IOException {
+    public void cancellaAccount() throws SQLException, IOException {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("ATTENZIONE");
 		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE");
 		alert.showAndWait();
-		if(alert.getResult() == ButtonType.OK){
-			if(cancellaAccountBean.deleteAccount(persona.getId())){
+		if((alert.getResult() == ButtonType.OK)&&
+			(cancellaAccountBean.deleteAccount(persona.getId()))){
 				alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("SUCCESS");
 				alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO");
 				alert.showAndWait();
 				Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
 				Parent root = (Parent) loader.load();
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				return;
 			}
-		}
+		
 		Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
 		Parent root = (Parent) loader.load();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		return;
+		
     }
 }

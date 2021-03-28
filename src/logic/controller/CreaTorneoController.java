@@ -1,7 +1,6 @@
 package controller;
 
 import bean.CreaTorneoBean;
-import bean.InserisciCampoBean;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Campo;
 import model.Persona;
@@ -20,7 +18,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -30,6 +27,7 @@ public class CreaTorneoController implements Initializable {
     private List<Campo> campi = new ArrayList<>();
 
     public CreaTorneoController(){
+    	//constructor
     }
 
     @FXML
@@ -72,7 +70,7 @@ public class CreaTorneoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    	//nothing
     }
 
     @FXML
@@ -102,10 +100,12 @@ public class CreaTorneoController implements Initializable {
         Campo campo = campi.stream().filter(x->x.getId() == (int) campiComboBox.getSelectionModel().getSelectedItem()).findFirst().orElse(null);
         alert.setContentText(campo.toString().replace(";","\n"));
         alert.showAndWait();
-        return;
     }
 
-    public void conferma(ActionEvent actionEvent) throws SQLException {
+    public void conferma() throws SQLException {
+    	
+    	String numValido = "Inserisci un numero valido";
+    	
         if(oraTF.getText().trim().isEmpty() ||
                 prezzoTF.getText().trim().isEmpty() ||
                 nomeTF.getText().trim().isEmpty() ||
@@ -139,7 +139,7 @@ public class CreaTorneoController implements Initializable {
         if(dataDP.getValue().isBefore(datascadenzaDP.getValue())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE DATA");
-            alert.setContentText("La data del torneo Ã¨ piÃ¹ recente della data di scadenza dell'iscrizione.");
+            alert.setContentText("La data del torneo è più recente della data di scadenza dell'iscrizione.");
             alert.showAndWait();
             return;
         }
@@ -150,7 +150,7 @@ public class CreaTorneoController implements Initializable {
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE ETA MIN");
-            alert.setContentText("Inserisci un numero valido");
+            alert.setContentText(numValido);
             alert.showAndWait();
             return;
         }
@@ -158,7 +158,7 @@ public class CreaTorneoController implements Initializable {
         if(etaMin<14){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE ETA MIN");
-            alert.setContentText("Non puoi inserire una etÃ  minima inferiore a 14 anni");
+            alert.setContentText("Non puoi inserire una età  minima inferiore a 14 anni");
             alert.showAndWait();
             return;
         }
@@ -169,7 +169,7 @@ public class CreaTorneoController implements Initializable {
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE NUMERO MINIMO ISCRITTI");
-            alert.setContentText("Inserisci un numero valido");
+            alert.setContentText(numValido);
             alert.showAndWait();
             return;
         }
@@ -177,7 +177,7 @@ public class CreaTorneoController implements Initializable {
         if(minPart<2){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE NUMERO MINIMO ISCRITTI");
-            alert.setContentText("Il numero minimo di partecipanti Ã¨ 2.");
+            alert.setContentText("Il numero minimo di partecipanti è 2.");
             alert.showAndWait();
             return;
         }
@@ -188,7 +188,7 @@ public class CreaTorneoController implements Initializable {
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE PREZZO");
-            alert.setContentText("Inserisci un numero valido");
+            alert.setContentText(numValido);
             alert.showAndWait();
             return;
         }
@@ -215,7 +215,6 @@ public class CreaTorneoController implements Initializable {
             alert.setTitle("COMPLETATO");
             alert.setContentText("Complimenti, hai creato con un successo un torneo!");
             alert.showAndWait();
-            return;
         }
     }
 }

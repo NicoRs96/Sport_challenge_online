@@ -1,6 +1,5 @@
 package dao;
 
-import model.Campo;
 import model.Persona;
 import model.Torneo;
 
@@ -32,7 +31,6 @@ public class GestisciTorneiRenterDao {
         Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM TORNEO t,CAMPO c WHERE c.RENTER = %s AND c.TORNEO = 1 AND t.CAMPO = c.ID", id);
         ResultSet resultSet = statement.executeQuery(query);
-        int i = 1;
         while(resultSet.next()) {
             Torneo torneo = new Torneo(resultSet.getInt("ID"),resultSet.getString("NOME"),resultSet.getString("c.NOME"),
                     resultSet.getString("DATA"),

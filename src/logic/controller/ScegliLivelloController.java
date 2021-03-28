@@ -31,10 +31,11 @@ public class ScegliLivelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    	//nothing
 
     }
 
-    public void indietro(ActionEvent actionEvent) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
         Parent root = (Parent) loader.load();
@@ -44,7 +45,7 @@ public class ScegliLivelloController implements Initializable {
         stage.setScene(scene);
     }
 
-    public void conferma(ActionEvent actionEvent) throws SQLException {
+    public void conferma() throws SQLException {
         if(sportComboBox.getValue() == null || test.getSelectedToggle() == null ){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE INSERIMENTO DATI");
@@ -59,7 +60,6 @@ public class ScegliLivelloController implements Initializable {
                     sportComboBox.getValue().toString());
             alert.setContentText(mdg);
             alert.showAndWait();
-            return;
         }
     }
 

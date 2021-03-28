@@ -81,6 +81,7 @@ public class Persona {
 	}
 
 	public String getIsRenter() {
+		
 		return isRenter;
 	}
 

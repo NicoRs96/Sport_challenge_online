@@ -5,7 +5,9 @@ import java.util.Properties;
 
 public class InserisciCampoDao {
 
-    public InserisciCampoDao(){}
+    public InserisciCampoDao(){
+    	//constructor
+    }
 
     public Connection getConnection() throws SQLException {
 

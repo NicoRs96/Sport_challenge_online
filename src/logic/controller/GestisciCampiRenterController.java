@@ -74,6 +74,9 @@ public class GestisciCampiRenterController implements Initializable {
     private TableView prenotazioniTV;
 
     private Persona persona;
+    
+	String campoErratoString = "Errore selezione campo";
+	String successString = "SUCCESS";
 
 
 
@@ -109,12 +112,7 @@ public class GestisciCampiRenterController implements Initializable {
             values.add(campo);
             campiTV.setItems(values);
 
-            /*
-            if(info.get("AFFITTABILE").equals("0"))
-                get.setStyle("-fx-selection-bar: red;");
-            else
-                campiTV.setStyle("-fx-selection-bar: lightgreen;");
-            */
+           
         }
 
         campiTV.setRowFactory(tv-> new TableRow<Campo>(){
@@ -154,10 +152,11 @@ public class GestisciCampiRenterController implements Initializable {
 
     @FXML
     public void rendiAffittabile(ActionEvent event) throws SQLException {
+    	
 
         if(campiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE SELEZIONE CAMPO");
+            alert.setTitle(campoErratoString);
             alert.setContentText("Non hai selezionato nessun campo, riprova.");
             alert.showAndWait();
             return;
@@ -166,19 +165,18 @@ public class GestisciCampiRenterController implements Initializable {
         Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
         if(campo.getIsAffittabile() == 1){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE SELEZIONE CAMPO");
-            alert.setContentText("Il campo selezionato Ã¨ giÃ  affittabile.");
+            alert.setTitle(campoErratoString);
+            alert.setContentText("Il campo selezionato è già affittabile.");
             alert.showAndWait();
             return;
         }
 
         if(gestisciCampiBean.setCampoAffittabile(campo.getId())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS");
-            alert.setContentText("Il campo selezionato adesso Ã¨ affittabile.");
+            alert.setTitle(successString);
+            alert.setContentText("Il campo selezionato adesso è affittabile.");
             alert.showAndWait();
-            ricarica(event);
-            return;
+            ricarica();
         }
 
 
@@ -189,7 +187,7 @@ public class GestisciCampiRenterController implements Initializable {
         Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
         if(campiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE SELEZIONE CAMPO");
+            alert.setTitle(campoErratoString);
             alert.setContentText("Non hai selezionato nessun campo, riprova.");
             alert.showAndWait();
             return;
@@ -197,19 +195,18 @@ public class GestisciCampiRenterController implements Initializable {
 
         if(campo.getIsAffittabile() == 0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE SELEZIONE CAMPO");
-            alert.setContentText("Il campo selezionato non Ã¨ affittabile.");
+            alert.setTitle(campoErratoString);
+            alert.setContentText("Il campo selezionato non è affittabile.");
             alert.showAndWait();
             return;
         }
 
         if(gestisciCampiBean.setCampoNonAffittabile(campo.getId())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS");
-            alert.setContentText("Il campo selezionato adesso non Ã¨ piÃ¹ affittabile.");
+            alert.setTitle(successString);
+            alert.setContentText("Il campo selezionato adesso non è più affittabile.");
             alert.showAndWait();
-            ricarica(event);
-            return;
+            ricarica();
         }
     }
 
@@ -226,10 +223,9 @@ public class GestisciCampiRenterController implements Initializable {
         if(gestisciCampiBean.cancellaPrenotazione(prenotazione.getId())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("SUCCESS");
-            alert.setContentText("La prenotazione Ã¨ stata cancellata.");
+            alert.setContentText("La prenotazione è stata cancellata.");
             alert.showAndWait();
-            ricarica(event);
-            return;
+            ricarica();
         }
     }
 
@@ -259,7 +255,7 @@ public class GestisciCampiRenterController implements Initializable {
         telefonoClienteCol.setCellValueFactory(new PropertyValueFactory<Prenotazione,String>("telefonoCliente"));
     }
 
-    public void ricarica(ActionEvent event) {
+    public void ricarica() {
         try {
             getCampi();
             getPrenotazioni();
@@ -276,7 +272,7 @@ public class GestisciCampiRenterController implements Initializable {
     }
 
 
-    public void esci(ActionEvent event) throws IOException {
+    public void esci() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
         Parent root = (Parent) loader.load();

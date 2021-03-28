@@ -11,10 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Campo;
 import model.Persona;
 import model.Torneo;
 
@@ -122,7 +119,7 @@ public class GestisciTorneiRenterController implements Initializable {
         telefonoCol.setCellValueFactory(new PropertyValueFactory<Persona,String>("telefono"));
     }
 
-    public void indietro(ActionEvent actionEvent) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
         Parent root = (Parent) loader.load();
@@ -132,7 +129,7 @@ public class GestisciTorneiRenterController implements Initializable {
         stage.setScene(scene);
     }
 
-    public void getIscritti(MouseEvent mouseEvent) throws SQLException {
+    public void getIscritti() throws SQLException {
         if(torneiTV.getSelectionModel().getSelectedItem() == null)
             return;
         partecipantiTV.getItems().clear();
@@ -145,7 +142,7 @@ public class GestisciTorneiRenterController implements Initializable {
     }
 
 
-    public void confermaIscrizione(ActionEvent actionEvent) throws SQLException {
+    public void confermaIscrizione() throws SQLException {
         if(partecipantiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE UTENTE");
@@ -153,10 +150,10 @@ public class GestisciTorneiRenterController implements Initializable {
             alert.showAndWait();
             return;
         }
-        Persona persona = (Persona) partecipantiTV.getSelectionModel().getSelectedItem();
+        Persona personam = (Persona) partecipantiTV.getSelectionModel().getSelectedItem();
         Torneo torneo = (Torneo)  torneiTV.getSelectionModel().getSelectedItem();
 
-        if(gestisciTorneiRenterBean.confermaIscrizione(persona.getId(), torneo.getId())){
+        if(gestisciTorneiRenterBean.confermaIscrizione(personam.getId(), torneo.getId())){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("ISCRIZIONE CONFERMATA");
             alert.setContentText("Iscrizione confermata con successo.");
@@ -170,22 +167,21 @@ public class GestisciTorneiRenterController implements Initializable {
         alert.setTitle("Errore");
         alert.setContentText("Errore nel sistema, contatta un amministratore.");
         alert.showAndWait();
-        return;
 
     }
 
-    public void cancellaIscrizione(ActionEvent actionEvent) throws SQLException {
+    public void cancellaIscrizione() throws SQLException {
         if(partecipantiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE UTENTE");
-            alert.setContentText("Non Ã¨ stato selezionato nessun utente, per favore riprova.");
+            alert.setContentText("Non è stato selezionato nessun utente, per favore riprova.");
             alert.showAndWait();
             return;
         }
-        Persona persona = (Persona) partecipantiTV.getSelectionModel().getSelectedItem();
+        Persona personam = (Persona) partecipantiTV.getSelectionModel().getSelectedItem();
         Torneo torneo = (Torneo)  torneiTV.getSelectionModel().getSelectedItem();
 
-        if(gestisciTorneiRenterBean.cancellaIscrizione(persona.getId(), torneo.getId())){
+        if(gestisciTorneiRenterBean.cancellaIscrizione(personam.getId(), torneo.getId())){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("ISCRIZIONE CANCELLATA");
             alert.setContentText("Iscrizione cancellata con successo.");
@@ -199,7 +195,6 @@ public class GestisciTorneiRenterController implements Initializable {
         alert.setTitle("Errore");
         alert.setContentText("Errore nel sistema, contatta un amministratore.");
         alert.showAndWait();
-        return;
 
 
     }

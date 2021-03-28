@@ -9,7 +9,9 @@ import java.util.List;
 public class CreaTorneoBean {
     private CreaTorneoDao creaTorneoDao = new CreaTorneoDao();
 
-    public CreaTorneoBean() {}
+    public CreaTorneoBean() {
+    	//constructor
+    }
 
     public List<Campo> getCampiByRenterId(int id) throws SQLException {
         return creaTorneoDao.getCampyByRenterId(id);

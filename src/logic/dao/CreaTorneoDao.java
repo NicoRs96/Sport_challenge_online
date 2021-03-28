@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.TreeMap;
 
 public class CreaTorneoDao {
 
@@ -30,7 +29,6 @@ public class CreaTorneoDao {
         Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM CAMPO WHERE renter= %s AND TORNEO = 1", id);
         ResultSet resultSet = statement.executeQuery(query);
-        int i = 1;
         while(resultSet.next()) {
             Campo campo = new Campo(resultSet.getInt("ID"), resultSet.getString("NOME"), resultSet.getString("COMUNE"),
                     resultSet.getString("INDIRIZZO"),resultSet.getString("DATA"), resultSet.getString("ORA"));

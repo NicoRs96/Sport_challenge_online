@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.TreeMap;
 
+
 public class CancellaAccountDao {
 
 
@@ -14,24 +15,43 @@ public class CancellaAccountDao {
         connectionProps.put("user", "root");
         connectionProps.put("password", "admin");
 
+        try {
         conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
+                connectionProps);}
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+        	
+		}
         return conn;
 
     }
 
     public boolean deleteAccount(int id) throws SQLException {
         TreeMap<String, String> user = new TreeMap<>();
-        Connection connection = getConnection();
-        Statement stm = connection.createStatement();
-        String query = String.format("DELETE FROM USER WHERE ID = %s", id);
+        Statement stm = null;
         try {
-            stm.execute(query);
+        Connection connection = getConnection();
+        
+        stm = connection.createStatement();}
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+		}
+               
+        String query = String.format("DELETE FROM USER WHERE ID = %s", id);
+        
+        try {
+            if(stm!=null) {
+            	stm.execute(query);}
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return false;
         }
+        finally {
+					
+         if (stm!=null)
+        	{stm.close();}
+        	 }
         return false;
     }
 

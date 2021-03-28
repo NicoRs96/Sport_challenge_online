@@ -10,7 +10,9 @@ import java.util.List;
 public class GestisciTorneiRenterBean {
     private GestisciTorneiRenterDao gestisciTorneiRenterDao = new GestisciTorneiRenterDao();
 
-    public GestisciTorneiRenterBean() {}
+    public GestisciTorneiRenterBean() {
+    	//constructor
+    }
 
     public List<Torneo> getTorneiByRenterId(int id) throws SQLException {
         return gestisciTorneiRenterDao.getTorneiByRenterId(id);

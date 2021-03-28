@@ -70,7 +70,7 @@ public class CercaCampoSportivoController implements Initializable {
 
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root =  loader.load();
         HomePageSportmanController homePageSportmanController = loader.getController();
         homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);
@@ -122,7 +122,6 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
-        Label lblValue = new Label();
         ObservableList<Campo> values = FXCollections.
                 observableArrayList();
         
@@ -162,7 +161,7 @@ public class CercaCampoSportivoController implements Initializable {
     }
 
 
-    public void prenota(ActionEvent event) throws SQLException {
+    public void prenota() throws SQLException {
 
         Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
 
@@ -181,16 +180,15 @@ public class CercaCampoSportivoController implements Initializable {
         String information = String.format("Riepilogo ordine\n----------\nCitta: %s\nPrezzo: %s\nModalita di pagamento: %s\nData: %s\nOra: %s\nSport: %s", campo.getComune(), campo.getPrezzo(),campo.getModPagamento(), campo.getData(), campo.getOra(), campo.getSport());
         alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
         alert.showAndWait();
-        if(alert.getResult() == ButtonType.OK){
-            if(cercaCampoBean.confermaPrenotazione(persona.getId(),campo.getId())) {
+        if((alert.getResult() == ButtonType.OK) &&
+            (cercaCampoBean.confermaPrenotazione(persona.getId(),campo.getId()))) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("SUCCESS");
                 alert.setContentText("Prenotazione avvenuta con successo");
                 alert.showAndWait();
-                return;
-            }
+                          
         }
-        return;
+        
 
     }
 

@@ -3,7 +3,6 @@ package view;
 import java.io.IOException;
 
 import controller.HomePageRenterController;
-import controller.HomePageSportmanController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

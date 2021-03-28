@@ -1,13 +1,9 @@
 package dao;
 
-import model.Campo;
-import model.Persona;
 import model.Torneo;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.util.TreeMap;
 

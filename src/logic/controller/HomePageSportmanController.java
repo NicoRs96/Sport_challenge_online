@@ -111,13 +111,13 @@ public class HomePageSportmanController implements Initializable{
 	public void cancellaAccount() throws SQLException, IOException {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("ATTENZIONE");
-		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE");
+		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE DEFINITIVAMENTE");
 		alert.showAndWait();
 		if((alert.getResult() == ButtonType.OK)&&
 			(cancellaAccountBean.deleteAccount(persona.getId()))){
 				alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("SUCCESS");
-				alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO");
+				alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO. A PRESTO");
 				alert.showAndWait();
 				Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));

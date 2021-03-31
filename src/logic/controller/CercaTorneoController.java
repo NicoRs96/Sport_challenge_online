@@ -1,7 +1,6 @@
 package controller;
 
 import bean.CercaTorneoBean;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -150,10 +149,10 @@ public class CercaTorneoController implements Initializable {
             return;
         }
 
-        if(torneo.getEtaMin() > Period.between(this.persona.getData(), LocalDate.now()).getYears()){
+        if(torneo.getEtaMin() > Period.between(this.persona.getDataPersona(), LocalDate.now()).getYears()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("ERRORE ETA");
-            alert.setContentText("Attenzione, l'età  minima per questo torneo è superiore alla tua.");
+            alert.setContentText("Attenzione, età minima torneo superiore alla tua.");
             alert.showAndWait();
             return;
         }

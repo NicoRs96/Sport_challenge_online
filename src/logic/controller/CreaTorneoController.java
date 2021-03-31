@@ -131,7 +131,7 @@ public class CreaTorneoController implements Initializable {
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE DATA");
-            alert.setContentText("Non puoi inserire un campo per una data passata.");
+            alert.setContentText("Non puoi inserire un campo per una data passata");
             alert.showAndWait();
             return;
         }
@@ -158,7 +158,7 @@ public class CreaTorneoController implements Initializable {
         if(etaMin<14){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE ETA MIN");
-            alert.setContentText("Non puoi inserire una età  minima inferiore a 14 anni");
+            alert.setContentText("Non puoi inserire una età minima inferiore a 14 anni");
             alert.showAndWait();
             return;
         }

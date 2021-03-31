@@ -25,16 +25,16 @@ public class ScegliLivelloDao {
         Statement statement = connection.createStatement();
         Statement stm = connection.createStatement();
         String q = "SELECT MAX(ID) AS ID FROM campo";
-        ResultSet rs = stm.executeQuery(q);
-        int id = 0;
-        while(rs.next()){
-            if (rs.getString("ID")==null)
-                id = 0;
-            else id = rs.getInt("ID")+1;
+        ResultSet rsSLD = stm.executeQuery(q);
+        int idSLD = 0;
+        while(rsSLD.next()){
+            if (rsSLD.getString("ID")==null)
+                idSLD = 0;
+            else idSLD = rsSLD.getInt("ID")+1;
         }
 
         String query = String.format("INSERT INTO user_sport (ID, USER, SPORT, LIVELLO, PREFERITO) VALUES(%s, %s, '%s', '%s', 0) ON DUPLICATE KEY UPDATE LIVELLO='%s'",
-                id, utenteId, sport, livello, livello);
+                idSLD, utenteId, sport, livello, livello);
 
         try {
             statement.execute(query);

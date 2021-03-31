@@ -39,7 +39,7 @@ public class InserisciCampoRenterController implements Initializable {
     @FXML
     TextField prezzoS;
     @FXML
-    DatePicker dataDP;
+    DatePicker dataDPICRC;
     @FXML
     ToggleGroup metodoTG;
     @FXML
@@ -68,7 +68,7 @@ public class InserisciCampoRenterController implements Initializable {
                 descrizioneTF.getText().trim().isEmpty() ||
                 oraTF.getText().trim().isEmpty() ||
                 prezzoS.getText().trim().isEmpty() ||
-                dataDP.getValue() == null ||
+                dataDPICRC.getValue() == null ||
                 sportComboBox.getValue() == null ||
                 metodoTG.getSelectedToggle() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -79,11 +79,11 @@ public class InserisciCampoRenterController implements Initializable {
         }
 
 
-        if(dataDP.getValue().getYear() < LocalDateTime.now().getYear() ||
-                (dataDP.getValue().getYear() == LocalDateTime.now().getYear() && dataDP.getValue().getMonth().getValue() < LocalDateTime.now().getMonth().getValue()) ||
-                (dataDP.getValue().getYear() == LocalDateTime.now().getYear()
-                        && dataDP.getValue().getMonth() == LocalDateTime.now().getMonth()
-                        && dataDP.getValue().getDayOfMonth() < LocalDateTime.now().getDayOfMonth()))
+        if(dataDPICRC.getValue().getYear() < LocalDateTime.now().getYear() ||
+                (dataDPICRC.getValue().getYear() == LocalDateTime.now().getYear() && dataDPICRC.getValue().getMonth().getValue() < LocalDateTime.now().getMonth().getValue()) ||
+                (dataDPICRC.getValue().getYear() == LocalDateTime.now().getYear()
+                        && dataDPICRC.getValue().getMonth() == LocalDateTime.now().getMonth()
+                        && dataDPICRC.getValue().getDayOfMonth() < LocalDateTime.now().getDayOfMonth()))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE DATA");
@@ -101,10 +101,11 @@ public class InserisciCampoRenterController implements Initializable {
                         sportComboBox.getValue().toString(),
                         descrizioneTF.getText().trim(),
                         persona.getId(),
-                        dataDP.getValue().toString(),
+                        dataDPICRC.getValue().toString(),
                         ora,
                         selectedRadioButton.getText(),
                         prezzoS.getText(), torneo)){
+                	//nothing
                 }
                 else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);

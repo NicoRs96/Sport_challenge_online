@@ -24,16 +24,16 @@ public class SportPreferitoDao {
         Statement statement = connection.createStatement();
         Statement stm = connection.createStatement();
         String q = "SELECT MAX(ID) AS ID FROM user_sport";
-        ResultSet rs = stm.executeQuery(q);
-        int id = 0;
-        while (rs.next()) {
-            if (rs.getString("ID") == null)
-                id = 0;
-            else id = rs.getInt("ID") + 1;
+        ResultSet rsSPD = stm.executeQuery(q);
+        int idSPD = 0;
+        while (rsSPD.next()) {
+            if (rsSPD.getString("ID") == null)
+                idSPD = 0;
+            else idSPD = rsSPD.getInt("ID") + 1;
         }
 
         String query = String.format("INSERT INTO user_sport (ID, USER, SPORT, LIVELLO, PREFERITO) VALUES(%s, %s, '%s', 'DILETTANTE', 1) ON DUPLICATE KEY UPDATE PREFERITO=1",
-                id, utenteId, sport);
+                idSPD, utenteId, sport);
 
         try {
             statement.execute(query);

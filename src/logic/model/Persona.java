@@ -40,23 +40,23 @@ public class Persona {
 		isRenter = renter;
 	}
 
-	public String getNome() {
+	public String getNomePersona() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNomePersona(String nome) {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
+	public String getCognomePersona() {
 		return cognome;
 	}
 
-	public void setCognome(String cognome) {
+	public void setCognomePersona(String cognome) {
 		this.cognome = cognome;
 	}
 
-	public LocalDate getData() {
+	public LocalDate getDataPersona() {
 		return data;
 	}
 

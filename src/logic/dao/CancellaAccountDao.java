@@ -28,7 +28,6 @@ public class CancellaAccountDao {
     }
 
     public boolean deleteAccount(int id) throws SQLException {
-        TreeMap<String, String> user = new TreeMap<>();
         Statement stm = null;
         try {
         Connection connection = getConnection();

@@ -183,7 +183,7 @@ public class GestisciCampiRenterController implements Initializable {
     }
 
 
-    public void cancellaAffittabilita(ActionEvent event) throws SQLException {
+    public void cancellaAffittabilita() throws SQLException {
         Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
         if(campiTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -210,7 +210,7 @@ public class GestisciCampiRenterController implements Initializable {
         }
     }
 
-    public void cancellaPrenotazione(ActionEvent event)throws SQLException{
+    public void cancellaPrenotazione()throws SQLException{
        if(prenotazioniTV.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE PRENOTAZIONE");

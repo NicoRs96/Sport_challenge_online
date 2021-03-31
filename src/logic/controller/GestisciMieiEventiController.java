@@ -38,15 +38,15 @@ public class GestisciMieiEventiController implements Initializable {
     @FXML
     private TableColumn<Campo, Integer> idCol;
     @FXML
-    private TableColumn<Campo, String> comuneCol;
+    private TableColumn<Campo, String> comuneColGMEC;
     @FXML
-    private TableColumn<Campo, String> indirizzoCol;
+    private TableColumn<Campo, String> indirizzoColGMEC;
     @FXML
-    private TableColumn<Campo, String> descCol;
+    private TableColumn<Campo, String> descColGMEC;
     @FXML
-    private TableColumn<Campo, String> dataCol;
+    private TableColumn<Campo, String> dataColGMEC;
     @FXML
-    private TableColumn<Campo, String> oraCol;
+    private TableColumn<Campo, String> oraColGMEC;
     @FXML
     private TableColumn<Campo, String> sportCol;
     @FXML
@@ -73,7 +73,7 @@ public class GestisciMieiEventiController implements Initializable {
     @FXML
     private TableColumn<Torneo, String> descCol1;
     @FXML
-    private TableView campiTV;
+    private TableView campiTVGMEC;
 
     @FXML
     private TableView torneiTV;
@@ -94,27 +94,27 @@ public class GestisciMieiEventiController implements Initializable {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciMieiEventiBean.getCampi(renterId);
         for (TreeMap<String, String> info : campos.get(renterId)) {
             int id = Integer.parseInt(info.get("ID"));
-            String nome = info.get("NOME");
-            String comune = info.get("COMUNE");
-            String indirizzo = info.get("INDIRIZZO");
-            String desc = info.get("DESC");
-            String date = info.get("DATA");
-            String ora = info.get("ORA");
-            String prezzo = info.get("PREZZO");
-            String modPpagamento = info.get("METODODIPAGAMENTO");
-            String sport = info.get("SPORT");
+            String nomeGMEC = info.get("NOME");
+            String comuneGMEC = info.get("COMUNE");
+            String indirizzoGMEC = info.get("INDIRIZZO");
+            String descGMEC = info.get("DESC");
+            String dateGMEC = info.get("DATA");
+            String oraGMEC = info.get("ORA");
+            String prezzoGMEC = info.get("PREZZO");
+            String modPpagamentoGMEC = info.get("METODODIPAGAMENTO");
+            String sportGMEC = info.get("SPORT");
             int isAffittabile = Integer.parseInt(info.get("AFFITTABILE"));
 
-            Campo campo = new Campo(id, nome, comune, indirizzo,""+renterId,isAffittabile);
-            campo.setDesc(desc);
-            campo.setData(date);
-            campo.setOra(ora);
-            campo.setSport(sport);
-            campo.setPrezzo(prezzo);
-            campo.setModPagamento(modPpagamento);
+            Campo campoGMEC = new Campo(id, nomeGMEC, comuneGMEC, indirizzoGMEC,""+renterId,isAffittabile);
+            campoGMEC.setDesc(descGMEC);
+            campoGMEC.setData(dateGMEC);
+            campoGMEC.setOra(oraGMEC);
+            campoGMEC.setSport(sportGMEC);
+            campoGMEC.setPrezzo(prezzoGMEC);
+            campoGMEC.setModPagamento(modPpagamentoGMEC);
 
-            values.add(campo);
-            campiTV.setItems(values);
+            values.add(campoGMEC);
+            campiTVGMEC.setItems(values);
 
            
         }
@@ -133,11 +133,11 @@ public class GestisciMieiEventiController implements Initializable {
     public void setCampi(){
         idCol.setCellValueFactory(new PropertyValueFactory<Campo,Integer>("id"));
         nomeCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("nome"));
-        comuneCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("comune"));
-        indirizzoCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("indirizzo"));
-        descCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("desc"));
-        dataCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("data"));
-        oraCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("ora"));
+        comuneColGMEC.setCellValueFactory(new PropertyValueFactory<Campo,String>("comune"));
+        indirizzoColGMEC.setCellValueFactory(new PropertyValueFactory<Campo,String>("indirizzo"));
+        descColGMEC.setCellValueFactory(new PropertyValueFactory<Campo,String>("desc"));
+        dataColGMEC.setCellValueFactory(new PropertyValueFactory<Campo,String>("data"));
+        oraColGMEC.setCellValueFactory(new PropertyValueFactory<Campo,String>("ora"));
         sportCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("sport"));
         prezzoCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("prezzo"));
     }
@@ -155,7 +155,7 @@ public class GestisciMieiEventiController implements Initializable {
         confermatoCol.setCellValueFactory(new PropertyValueFactory<Torneo,String>("confermato"));
     }
 
-    public void indietro(ActionEvent actionEvent) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
         Parent root = (Parent) loader.load();
@@ -170,7 +170,7 @@ public class GestisciMieiEventiController implements Initializable {
     }
 
     public void cancellaPrenotazione() throws SQLException, ParseException {
-        if(campiTV.getSelectionModel().getSelectedItem() == null){
+        if(campiTVGMEC.getSelectionModel().getSelectedItem() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE SELEZIONE CAMPO");
             alert.setContentText("Non è stato selezionato nessun campo, per favore riprova.");
@@ -178,7 +178,7 @@ public class GestisciMieiEventiController implements Initializable {
             return;
         }
 
-        Campo campo = (Campo)  campiTV.getSelectionModel().getSelectedItem();
+        Campo campo = (Campo)  campiTVGMEC.getSelectionModel().getSelectedItem();
         if(gestisciMieiEventiBean.cancellaPrenotazioneCampo(campo.getId())){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("PRENOTAZIONE CANCELLATA");

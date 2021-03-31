@@ -34,7 +34,9 @@ public class CercaCampoDao {
         boolean check = false;
         	try {
         		statement = connection.createStatement();
-			} catch (Exception e) {
+			} catch (SQLException throwables) {
+	            throwables.printStackTrace();
+				
 				
 			}
         	finally {
@@ -104,12 +106,12 @@ public class CercaCampoDao {
 
         String query = "SELECT MAX(ID) FROM PRENOTAZIONE_CAMPO";
         ResultSet result = statement.executeQuery(query);
-        int _max = 0;
+        int max = 0;
         if (result.next()) {
-            _max = (result.getString(1) == null) ? 0 : Integer.parseInt(result.getString(1))+1;
+            max = (result.getString(1) == null) ? 0 : Integer.parseInt(result.getString(1))+1;
 
         }
-        query = String.format("INSERT INTO PRENOTAZIONE_CAMPO(ID,User,Campo) VALUES(%s,'%s','%s')", _max, utente, campo);
+        query = String.format("INSERT INTO PRENOTAZIONE_CAMPO(ID,User,Campo) VALUES(%s,'%s','%s')", max, utente, campo);
         statement.execute(query);
         query = String.format("UPDATE CAMPO SET AFFITTABILE = 0 WHERE ID = '%s'", campo);
         statement = connection.prepareStatement(query);

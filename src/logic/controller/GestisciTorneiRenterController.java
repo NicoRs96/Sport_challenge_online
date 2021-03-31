@@ -3,7 +3,6 @@ package controller;
 import bean.GestisciTorneiRenterBean;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -193,7 +192,7 @@ public class GestisciTorneiRenterController implements Initializable {
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Errore");
-        alert.setContentText("Errore nel sistema, contatta un amministratore.");
+        alert.setContentText("Errore nel sistema: contatta un amministratore.");
         alert.showAndWait();
 
 

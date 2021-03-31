@@ -1,7 +1,6 @@
 package controller;
 
 import bean.ScegliLivelloBean;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,13 +35,13 @@ public class ScegliLivelloController implements Initializable {
     }
 
     public void indietro() throws IOException {
-        Stage stage = (Stage) esciBTN.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent root = (Parent) loader.load();
-        HomePageSportmanController homePageSportmanController = loader.getController();
+        Stage stageSLC = (Stage) esciBTN.getScene().getWindow();
+        FXMLLoader loaderSLC = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
+        Parent rootSLC = (Parent) loaderSLC.load();
+        HomePageSportmanController homePageSportmanController = loaderSLC.getController();
         homePageSportmanController.setPersona(persona);
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        Scene scene = new Scene(rootSLC);
+        stageSLC.setScene(scene);
     }
 
     public void conferma() throws SQLException {

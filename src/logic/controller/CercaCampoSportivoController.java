@@ -40,10 +40,10 @@ public class CercaCampoSportivoController implements Initializable {
 
 
     @FXML
-    private DatePicker dataDP;
+    private DatePicker dataDPCCSC;
 
     @FXML
-    private TextField cittaTF;
+    private TextField cittaTFCCSC;
 
     @FXML
     private TableView campiTV;
@@ -51,15 +51,15 @@ public class CercaCampoSportivoController implements Initializable {
     @FXML
     private TableColumn<Campo, String> nomeCol;
     @FXML
-    private TableColumn<Campo, String> comuneCol;
+    private TableColumn<Campo, String> comuneColCCSC;
     @FXML
-    private TableColumn<Campo, String> indirizzoCol;
+    private TableColumn<Campo, String> indirizzoColCCSC;
     @FXML
-    private TableColumn<Campo, String> descCol;
+    private TableColumn<Campo, String> descColCCSC;
     @FXML
-    private TableColumn<Campo, String> dataCol;
+    private TableColumn<Campo, String> dataColCCSC;
     @FXML
-    private TableColumn<Campo, String> oraCol;
+    private TableColumn<Campo, String> oraColCCSC;
     @FXML
     private TableColumn<Campo, String> renterCol;
     @FXML
@@ -83,7 +83,7 @@ public class CercaCampoSportivoController implements Initializable {
 
     	campiTV.getItems().clear();
 
-        if(cittaTF.getText().trim().isEmpty()){
+        if(cittaTFCCSC.getText().trim().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE CITTA");
             alert.setContentText("Seleziona una citta.");
@@ -91,7 +91,7 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
-        if(dataDP == null || dataDP.getValue() == null){
+        if(dataDPCCSC == null || dataDPCCSC.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE DATA");
             alert.setContentText("Seleziona una data.");
@@ -108,8 +108,8 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
-        cercaCampoBean.setCitta(cittaTF.getText().trim());
-        cercaCampoBean.setData(dataDP.getValue());
+        cercaCampoBean.setCitta(cittaTFCCSC.getText().trim());
+        cercaCampoBean.setData(dataDPCCSC.getValue());
         cercaCampoBean.setSport(sportComboBox.getValue().toString());
         
         // DATA PASSATA
@@ -126,7 +126,7 @@ public class CercaCampoSportivoController implements Initializable {
                 observableArrayList();
         
         
-        TreeMap<String, TreeMap<String, String>> campos = cercaCampoDao.getCampo(cittaTF.getText().trim().toUpperCase(), sportComboBox.getValue().toString().toUpperCase(), dataDP.getValue().toString());
+        TreeMap<String, TreeMap<String, String>> campos = cercaCampoDao.getCampo(cittaTFCCSC.getText().trim().toUpperCase(), sportComboBox.getValue().toString().toUpperCase(), dataDPCCSC.getValue().toString());
         for (String name : campos.keySet()) {
             TreeMap<String, String> info = campos.get(name);
             String nome = name;
@@ -196,11 +196,11 @@ public class CercaCampoSportivoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("nome"));
-        comuneCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("comune"));
-        indirizzoCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("indirizzo"));
-        descCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("desc"));
-        dataCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("data"));
-        oraCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("ora"));
+        comuneColCCSC.setCellValueFactory(new PropertyValueFactory<Campo,String>("comune"));
+        indirizzoColCCSC.setCellValueFactory(new PropertyValueFactory<Campo,String>("indirizzo"));
+        descColCCSC.setCellValueFactory(new PropertyValueFactory<Campo,String>("desc"));
+        dataColCCSC.setCellValueFactory(new PropertyValueFactory<Campo,String>("data"));
+        oraColCCSC.setCellValueFactory(new PropertyValueFactory<Campo,String>("ora"));
         renterCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("renter"));
         sportCol.setCellValueFactory(new PropertyValueFactory<Campo,String>("sport"));
     }

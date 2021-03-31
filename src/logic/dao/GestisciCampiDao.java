@@ -14,7 +14,8 @@ public class GestisciCampiDao {
     	//constructor
     }
     
-    String prezzoString="PREZZO";
+    static final String PREZZO_STRING = "PREZZO";
+    
     public Connection getConnection() throws SQLException {
 
 
@@ -45,7 +46,7 @@ public class GestisciCampiDao {
             String date = resultSet.getString("DATA");
             String ora = resultSet.getString("ORA");
             String metodo = resultSet.getString("METODODIPAGAMENTO");
-            String prezzo = resultSet.getString(prezzoString);
+            String prezzo = resultSet.getString(PREZZO_STRING);
             String sport = resultSet.getString("SPORT");
             String affittabile = resultSet.getString("AFFITTABILE");
             TreeMap<String, String> info = new TreeMap<>();
@@ -103,7 +104,7 @@ public class GestisciCampiDao {
             String campo = resultSet.getString("CAMPO");
             String date = resultSet.getString("DATA");
             String ora = resultSet.getString("ORA");
-            String prezzo = resultSet.getString(prezzoString);
+            String prezzo = resultSet.getString(PREZZO_STRING);
             String nomeCliente = resultSet.getString("CLIENTE");
             String cognome = resultSet.getString("COGNOME");
             String telefono = resultSet.getString("TELEFONO");

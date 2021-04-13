@@ -2,6 +2,7 @@ package bean;
 
 import dao.CreaTorneoDao;
 import model.Campo;
+import model.Torneo;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,8 +18,8 @@ public class CreaTorneoBean {
         return creaTorneoDao.getCampyByRenterId(id);
     }
 
-    public boolean inserisciTorneo(String nome, int campo, String data, String ora,  int etaMin, int numMinP, String datascadenza, double prezzo,String metodo, String desc) throws SQLException {
-        return creaTorneoDao.inserisciTorneo(nome, campo, data, ora, etaMin, numMinP, datascadenza, prezzo, metodo, desc);
+    public boolean inserisciTorneo(Torneo torneo) throws SQLException {
+        return creaTorneoDao.inserisciTorneo(torneo);
     }
 
 }

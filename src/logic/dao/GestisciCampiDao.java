@@ -57,7 +57,7 @@ public class GestisciCampiDao {
             info.put("DATA", date);
             info.put("ORA", ora);
             info.put("NOME", name);
-            info.put("PREZZO",prezzo);
+            info.put(PREZZO_STRING,prezzo);
             info.put("METODODIPAGAMENTO",metodo);
             info.put("SPORT",sport);
             info.put("AFFITTABILE", affittabile);

@@ -1,6 +1,7 @@
 package dao;
 
 import model.Campo;
+import model.Torneo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,10 +38,10 @@ public class CreaTorneoDao {
         return campi;
     }
 
-    public boolean inserisciTorneo(String nome, int campo, String data, String ora,  int etaMin, int numMinP, String datascadenza, double prezzo,String metodo, String desc) throws SQLException {
+    public boolean inserisciTorneo(Torneo torneo) throws SQLException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("INSERT INTO torneo(NOME,CAMPO,DATA,ORA,ETA,NUMEROMIN,DATASCADENZA,PREZZO,MODALITAPAGAMENTO,DESCRIZIONE) VALUES('%s',%s, '%s','%s',%s,%s,'%s',%s,'%s','%s')", nome, campo, data,ora,etaMin,numMinP,datascadenza,prezzo,metodo, desc);
+        String query = String.format("INSERT INTO torneo(NOME,CAMPO,DATA,ORA,ETA,NUMEROMIN,DATASCADENZA,PREZZO,MODALITAPAGAMENTO,DESCRIZIONE) VALUES('%s',%s, '%s','%s',%s,%s,'%s',%s,'%s','%s')", torneo.getNome(), torneo.getCampo(), torneo.getData(),torneo.getOra(),torneo.getEtaMin(),torneo.getNumMinPart(),torneo.getDataScadenza(),torneo.getPrezzo(),torneo.getMetodoPagamento(), torneo.getDesc());
         try {
             statement.execute(query);
             return true;

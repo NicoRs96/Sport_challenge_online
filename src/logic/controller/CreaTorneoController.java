@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import jdk.nashorn.internal.ir.Flags;
 import model.Campo;
 import model.Persona;
+import model.Torneo;
 
 import java.io.IOException;
 import java.net.URL;
@@ -169,7 +170,7 @@ public class CreaTorneoController implements Initializable {
         if(etaMin<14){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE ETA MIN");
-            alert.setContentText("Non puoi inserire una età minima inferiore a 14 anni");
+            alert.setContentText("Non puoi inserire un eta inferiore a 14 anni");
             alert.showAndWait();
             return;
         }
@@ -218,9 +219,13 @@ public class CreaTorneoController implements Initializable {
             metodo = "ENTRAMBI";
         else if(carteCB.isSelected())
             metodo = "CARTA DI CREDITO";
-        if(creaTorneoBean.inserisciTorneo(nomeTF.getText(), Integer.parseInt(campiComboBox.getSelectionModel().getSelectedItem().toString()),
-                dataDP.getValue().toString(), oraTF.getText(),etaMin,
-                minPart,datascadenzaDP.getValue().toString(), prezzo,metodo, descTF.getText())){
+        Torneo torneo = new Torneo(nomeTF.getText(), campiComboBox.getSelectionModel().getSelectedItem().toString(), dataDP.getValue().toString(), oraTF.getText(), prezzo, etaMin, minPart);
+        torneo.setDataScadenza(datascadenzaDP.getValue().toString());
+        torneo.setMetodoPagamento(metodo);
+        torneo.setDesc(descTF.getText());
+        
+               
+        if(creaTorneoBean.inserisciTorneo(torneo)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("COMPLETATO");
             alert.setContentText("Complimenti, hai creato con un successo un torneo!");

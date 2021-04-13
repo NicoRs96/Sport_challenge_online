@@ -19,6 +19,19 @@ public class Torneo {
     private int isConfermato;
     private String confermato;
 
+    
+    public Torneo(String nome, String campo, String data, String ora, double prezzo, int etaMin, int numMinPart){
+        
+        this.nome = nome;
+        this.campo = campo;
+        this.data = data;
+        this.ora = ora;
+        this.prezzo = prezzo;
+        this.etaMin = etaMin;
+        this.numMinPart = numMinPart;
+       
+    }
+    
     public Torneo(int id,String nome, String campo, String data, String ora, double prezzo, int etaMin, int numMinPart, String dataScadenza, String metodoPagamento, String desc){
         this.id = id;
         this.nome = nome;

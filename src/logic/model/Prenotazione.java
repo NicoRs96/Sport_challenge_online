@@ -10,7 +10,7 @@ public class Prenotazione {
     private String cognomeCliente;
     private String telefonoCliente;
 
-    public Prenotazione(int id, String nomeCampo, String data, String ora, String prezzo, String nomeCliente, String cognomeCliente, String telefonoCliente) {
+    public Prenotazione(int id, String nomeCampo, String data, String ora, String prezzo, String nomeCliente, String cognomeCliente) {
         this.id = id;
         this.nomeCampo = nomeCampo;
         this.data = data;
@@ -18,7 +18,7 @@ public class Prenotazione {
         this.prezzo = prezzo;
         this.nomeCliente = nomeCliente;
         this.cognomeCliente = cognomeCliente;
-        this.telefonoCliente = telefonoCliente;
+        
     }
 
     public int getId() {

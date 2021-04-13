@@ -32,19 +32,7 @@ public class Torneo {
        
     }
     
-    public Torneo(int id,String nome, String campo, String data, String ora, double prezzo, int etaMin, int numMinPart, String dataScadenza, String metodoPagamento, String desc){
-        this.id = id;
-        this.nome = nome;
-        this.campo = campo;
-        this.data = data;
-        this.ora = ora;
-        this.prezzo = prezzo;
-        this.etaMin = etaMin;
-        this.numMinPart = numMinPart;
-        this.dataScadenza = dataScadenza;
-        this.metodoPagamento = metodoPagamento;
-        this.desc = desc;
-    }
+    
 
     public int getCampoId() {
         return campoId;

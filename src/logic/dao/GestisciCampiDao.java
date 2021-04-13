@@ -114,7 +114,7 @@ public class GestisciCampiDao {
             info.put("DATA", date);
             info.put("ORA", ora);
             info.put("NOMECLIENTE", nomeCliente);
-            info.put("PREZZO",prezzo);
+            info.put(PREZZO_STRING,prezzo);
             info.put("COGNOMECLIENTE",cognome);
             info.put("TELEFONO",telefono);
             prenotazioneInfo.put(idPrenotaz,info);

@@ -143,7 +143,8 @@ public class GestisciCampiRenterController implements Initializable {
             String cognomeCliente = info.get("COGNOMECLIENTE");
             String telefono = info.get("TELEFONO");
 
-            Prenotazione prenotazione = new Prenotazione(id, campo, data, ora, prezzo, nomeCliente, cognomeCliente, telefono);
+            Prenotazione prenotazione = new Prenotazione(id, campo, data, ora, prezzo, nomeCliente, cognomeCliente);
+            prenotazione.setTelefonoCliente(telefono);
             values.add(prenotazione);
             prenotazioniTV.setItems(values);
         }

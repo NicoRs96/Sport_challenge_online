@@ -119,14 +119,18 @@ public class HomePageSportmanController implements Initializable{
 				alert.setTitle("SUCCESS");
 				alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO. A PRESTO");
 				alert.showAndWait();
-				Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
-				Parent root = (Parent) loader.load();
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
+				alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("REINDIRIZZAMENTO");
+				alert.setContentText("STAI PER ESSERE REINDIRIZZATO ALLA HOME PAGE");
+				alert.showAndWait();
+				backHome();
 				return;
 			}
 		
+		backHome();
+	}
+	
+	public void backHome() throws IOException {
 		Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
 		Parent root = (Parent) loader.load();

@@ -32,9 +32,7 @@ public class Persona {
 		this.id = id;
 	}
 
-	public String getRenter() {
-		return isRenter;
-	}
+	
 
 	public void setRenter(String renter) {
 		isRenter = renter;

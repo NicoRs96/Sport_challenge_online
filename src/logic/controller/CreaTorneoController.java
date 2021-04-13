@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.ir.Flags;
 import model.Campo;
 import model.Persona;
 
@@ -101,6 +102,20 @@ public class CreaTorneoController implements Initializable {
         alert.setContentText(campo.toString().replace(";","\n"));
         alert.showAndWait();
     }
+    
+    public boolean checkData() {
+    	boolean flag = true;
+    	if(dataDP.getValue().getYear() < LocalDateTime.now().getYear() ||
+                (dataDP.getValue().getYear() == LocalDateTime.now().getYear() && dataDP.getValue().getMonth().getValue() < LocalDateTime.now().getMonth().getValue()) ||
+                (dataDP.getValue().getYear() == LocalDateTime.now().getYear()
+                        && dataDP.getValue().getMonth() == LocalDateTime.now().getMonth()
+                        && dataDP.getValue().getDayOfMonth() < LocalDateTime.now().getDayOfMonth())) {
+    		return flag;
+    	}
+    	else
+    		{flag= false;
+    		return flag;}
+    }
 
     public void conferma() throws SQLException {
     	
@@ -123,11 +138,7 @@ public class CreaTorneoController implements Initializable {
             return;
         }
 
-        if(dataDP.getValue().getYear() < LocalDateTime.now().getYear() ||
-                (dataDP.getValue().getYear() == LocalDateTime.now().getYear() && dataDP.getValue().getMonth().getValue() < LocalDateTime.now().getMonth().getValue()) ||
-                (dataDP.getValue().getYear() == LocalDateTime.now().getYear()
-                        && dataDP.getValue().getMonth() == LocalDateTime.now().getMonth()
-                        && dataDP.getValue().getDayOfMonth() < LocalDateTime.now().getDayOfMonth()))
+        if(checkData())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERRORE DATA");
@@ -202,12 +213,11 @@ public class CreaTorneoController implements Initializable {
         }
 
 
-        String metodo = "";
+        String metodo = "CONTANTI";
         if(carteCB.isSelected() && contantiCB.isSelected())
             metodo = "ENTRAMBI";
         else if(carteCB.isSelected())
             metodo = "CARTA DI CREDITO";
-        else metodo = "CONTANTI";
         if(creaTorneoBean.inserisciTorneo(nomeTF.getText(), Integer.parseInt(campiComboBox.getSelectionModel().getSelectedItem().toString()),
                 dataDP.getValue().toString(), oraTF.getText(),etaMin,
                 minPart,datascadenzaDP.getValue().toString(), prezzo,metodo, descTF.getText())){

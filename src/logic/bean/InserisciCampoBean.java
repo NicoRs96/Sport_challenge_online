@@ -2,7 +2,6 @@ package bean;
 
 import dao.InserisciCampoDao;
 import model.Campo;
-import model.Torneo;
 
 import java.sql.SQLException;
 

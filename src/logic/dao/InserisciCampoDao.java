@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.Properties;
 
 import model.Campo;
-import model.Torneo;
 
 public class InserisciCampoDao {
 

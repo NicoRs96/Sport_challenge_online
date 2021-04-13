@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class GestisciTorneiRenterController implements Initializable {
-    private List<Torneo> tornei = new ArrayList<Torneo>();
     private Persona persona;
     private GestisciTorneiRenterBean gestisciTorneiRenterBean = new GestisciTorneiRenterBean() ;
 
@@ -92,6 +91,8 @@ public class GestisciTorneiRenterController implements Initializable {
     }
 
     public void getTorneiByRenterId() throws SQLException {
+        List<Torneo> tornei;
+
         tornei = gestisciTorneiRenterBean.getTorneiByRenterId(persona.getId());
         ObservableList<Torneo> values = FXCollections.observableArrayList();
         values.addAll(tornei);
@@ -162,10 +163,7 @@ public class GestisciTorneiRenterController implements Initializable {
             return;
         }
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore");
-        alert.setContentText("Errore nel sistema, contatta un amministratore.");
-        alert.showAndWait();
+        errMessage();
 
     }
 
@@ -190,11 +188,16 @@ public class GestisciTorneiRenterController implements Initializable {
             return;
         }
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        errMessage();
+
+
+    }
+    
+    public void errMessage() {
+    	Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Errore");
         alert.setContentText("Errore nel sistema: contatta un amministratore.");
         alert.showAndWait();
-
-
+    	
     }
 }

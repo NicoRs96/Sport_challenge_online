@@ -63,7 +63,7 @@ public class CercaCampoDao {
 
     }
 
-    public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ParseException {
+    public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException {
         TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
 
         Connection connection = getConnection();

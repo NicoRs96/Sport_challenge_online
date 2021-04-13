@@ -108,7 +108,7 @@ public class HomePageSportmanController implements Initializable{
 		stage.setScene(scene);
 	}
 
-	public void cancellaAccount() throws SQLException, IOException {
+	public void cancellaAccountSportman() throws SQLException, IOException {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("ATTENZIONE");
 		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE DEFINITIVAMENTE");

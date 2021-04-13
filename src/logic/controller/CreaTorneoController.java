@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import jdk.nashorn.internal.ir.Flags;
 import model.Campo;
 import model.Persona;
 import model.Torneo;

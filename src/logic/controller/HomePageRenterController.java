@@ -114,7 +114,7 @@ public class HomePageRenterController implements Initializable{
 	}
 
 
-    public void cancellaAccount() throws SQLException, IOException {
+    public void cancellaAccountRenter() throws SQLException, IOException {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("ATTENZIONE");
 		alert.setContentText("ATTENZIONE, OPERAZIONE IRREVERSIBILE.\nPREMERE OK per CONFERMARE");

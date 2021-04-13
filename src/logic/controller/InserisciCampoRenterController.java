@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Campo;
 import model.Persona;
 
 import java.io.IOException;
@@ -95,16 +96,15 @@ public class InserisciCampoRenterController implements Initializable {
 
         String torneo = ( torneoCB.isSelected()) ? "1" : "0" ;
         for (String ora: oraTF.getText().split(" ")) {
-                if(inseriscoCampoBean.inserisciCampo(nomeCampoTF.getText().trim(),
-                        cittaTF.getText().trim(),
-                        indirizzoTF.getText().trim(),
-                        sportComboBox.getValue().toString(),
-                        descrizioneTF.getText().trim(),
-                        persona.getId(),
-                        dataDPICRC.getValue().toString(),
-                        ora,
-                        selectedRadioButton.getText(),
-                        prezzoS.getText(), torneo)){
+        		Campo campo = new Campo(nomeCampoTF.getText().trim(), cittaTF.getText().trim(), indirizzoTF.getText().trim());
+        		campo.setSport(sportComboBox.getValue().toString());
+        		campo.setDesc(descrizioneTF.getText().trim());
+        		campo.setId(persona.getId());
+        		campo.setData(dataDPICRC.getValue().toString());
+        		campo.setOra(ora);
+        		campo.setPrezzo(prezzoS.getText());
+        		campo.setModPagamento(selectedRadioButton.getText());
+                if(inseriscoCampoBean.inserisciCampo(campo, torneo)){
                 	//nothing
                 }
                 else{

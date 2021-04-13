@@ -3,6 +3,9 @@ package dao;
 import java.sql.*;
 import java.util.Properties;
 
+import model.Campo;
+import model.Torneo;
+
 public class InserisciCampoDao {
 
     public InserisciCampoDao(){
@@ -23,7 +26,7 @@ public class InserisciCampoDao {
         return conn;
     }
 
-    public boolean inserisciCampo(String nome, String comune, String indirizzo,String sport, String descrizione, int renter, String data, String ora, String metodo, String prezzo, String torneo) throws SQLException {
+    public boolean inserisciCampo(Campo campo, String torneo) throws SQLException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
         Statement stm = connection.createStatement();
@@ -38,8 +41,8 @@ public class InserisciCampoDao {
 
 
         String query = String.format("INSERT INTO campo(ID, NOME, COMUNE, INDIRIZZO, SPORT, DESCRIZIONE, RENTER, DATA, ORA, METODODIPAGAMENTO, PREZZO, AFFITTABILE, TORNEO) " +
-                "VALUES('%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s', '%s', 0,'%s')",id , nome.toUpperCase(), comune.toUpperCase(), indirizzo.toUpperCase(),
-                sport.toUpperCase(), descrizione.toUpperCase(),  renter, data, ora, metodo.toUpperCase(), prezzo, torneo);
+                "VALUES('%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s', '%s', 0,'%s')",id , campo.getNome().toUpperCase(), campo.getComune().toUpperCase(), campo.getIndirizzo().toUpperCase(),
+                campo.getSport().toUpperCase(), campo.getDesc().toUpperCase(),  campo.getRenter(), campo.getData(), campo.getOra(), campo.getModPagamento().toUpperCase(), campo.getPrezzo(), torneo);
 
         try {
             statement.execute(query);

@@ -15,23 +15,18 @@ public class Campo {
     private int isAffittabile;
     
 
-    public Campo(int id, String nome, String comune, String indirizzo, String renter, int isAffittabile) {
-        this.id = id;
+   
+    public Campo(String nome, String comune, String indirizzo) {
+        
         this.nome = nome;
         this.comune = comune;
         this.indirizzo = indirizzo;
-        this.renter = renter;
-        this.isAffittabile = isAffittabile;
+       
     }
-    public Campo(int id, String nome, String comune, String indirizzo, String data, String ora) {
-        this.id = id;
-        this.nome = nome;
-        this.comune = comune;
-        this.indirizzo = indirizzo;
-        this.data = data;
-        this.ora = ora;
-    }
-
+    
+    
+   
+    
     public int getId() {
         return id;
     }

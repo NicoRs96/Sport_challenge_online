@@ -49,7 +49,7 @@
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <Button fx:id="disiscriviBTN" onAction="#cancellaAccount" layoutX="838.0" layoutY="719.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Disiscriviti">
+      <Button fx:id="disiscriviBTN" onAction="#cancellaAccountSportman" layoutX="838.0" layoutY="719.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" stylesheets="@bootstrap3.css" text="Disiscriviti">
          <styleClass>
             <String fx:value="action-btn" />
             <String fx:value="warning" />

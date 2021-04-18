@@ -71,20 +71,21 @@ public class GestisciMieiEventiDao {
         String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
         ResultSet resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
-            Torneo torneo = new Torneo(resultSet.getInt("T.ID"),
+            Torneo torneo = new Torneo(
                     resultSet.getString("t.NOME"),
                     resultSet.getString("c.NOME"),
                     resultSet.getString("t.DATA"),
                     resultSet.getString("t.ORA"),
                     resultSet.getDouble("t.PREZZO"),
                     resultSet.getInt("t.ETA"),
-                    resultSet.getInt("t.NUMEROMIN"),
-                    resultSet.getString("t.DATASCADENZA"),
-                    resultSet.getString("t.MODALITAPAGAMENTO"),
-                    resultSet.getString("t.DESCRIZIONE")
+                    resultSet.getInt("t.NUMEROMIN")                    
 
             );
-
+            
+            torneo.setId(resultSet.getInt("T.ID"));
+            torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
+            torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
+            torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
             torneo.setCitta(resultSet.getString("c.COMUNE"));
             torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
             torneo.setSport(resultSet.getString("c.SPORT"));

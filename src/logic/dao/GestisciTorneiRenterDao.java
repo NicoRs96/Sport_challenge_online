@@ -32,15 +32,17 @@ public class GestisciTorneiRenterDao {
         String query = String.format("SELECT * FROM TORNEO t,CAMPO c WHERE c.RENTER = %s AND c.TORNEO = 1 AND t.CAMPO = c.ID", id);
         ResultSet resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
-            Torneo torneo = new Torneo(resultSet.getInt("ID"),resultSet.getString("NOME"),resultSet.getString("c.NOME"),
+            Torneo torneo = new Torneo(resultSet.getString("NOME"),resultSet.getString("c.NOME"),
                     resultSet.getString("DATA"),
                     resultSet.getString("ORA"),
                     resultSet.getDouble("PREZZO"),
                     resultSet.getInt("ETA"),
-                    resultSet.getInt("NUMEROMIN"),
-                    resultSet.getString("DATASCADENZA"),
-                    resultSet.getString("MODALITAPAGAMENTO"),
-                    resultSet.getString("DESCRIZIONE"));
+                    resultSet.getInt("NUMEROMIN"));
+                   
+            torneo.setId(resultSet.getInt("ID"));
+            torneo.setDataScadenza(resultSet.getString("DATASCADENZA"));
+            torneo.setMetodoPagamento(resultSet.getString("MODALITAPAGAMENTO"));
+            torneo.setDesc(resultSet.getString("DESCRIZIONE"));
             tornei.add(torneo);
         }
         return tornei;

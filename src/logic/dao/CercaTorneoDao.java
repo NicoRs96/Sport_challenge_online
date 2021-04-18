@@ -100,7 +100,7 @@ public class CercaTorneoDao {
             String renter = "" + resultSet.getInt(renterString);
             String isAffittabile = "" + resultSet.getString("AFFITTABILE");
             String sport = "" + resultSet.getString(sportString);
-            Campo campo = new Campo(id, name, comune, indirizzo, renter, isAffittabile);
+            Campo campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
             campo.setSport(sport);
             connection.close();
             return campo;

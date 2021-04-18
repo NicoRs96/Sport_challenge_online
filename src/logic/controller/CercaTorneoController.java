@@ -128,7 +128,12 @@ public class CercaTorneoController implements Initializable {
 
             int campoId = Integer.parseInt(info.get("CAMPO"));
             String campo = cercaTorneoBean.getCampoById(campoId).getNome();
-            Torneo torneo = new Torneo(id, nome,campo, date, ora, Double.parseDouble(prezzo), Integer.parseInt(eta),Integer.parseInt(numMin), dataS, mod, desc);
+            Torneo torneo = new Torneo(nome, campo, date, ora, Double.parseDouble(prezzo), Integer.parseInt(eta),Integer.parseInt(numMin));
+            torneo.setId(id);
+            torneo.setDataScadenza(dataS);
+            torneo.setMetodoPagamento(mod);
+            torneo.setDesc(desc);            
+          
             torneo.setCampoId(campoId);
             torneiTV.getItems().add(torneo);
         }

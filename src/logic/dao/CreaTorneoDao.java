@@ -31,8 +31,11 @@ public class CreaTorneoDao {
         String query = String.format("SELECT * FROM CAMPO WHERE renter= %s AND TORNEO = 1", id);
         ResultSet resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
-            Campo campo = new Campo(resultSet.getInt("ID"), resultSet.getString("NOME"), resultSet.getString("COMUNE"),
-                    resultSet.getString("INDIRIZZO"),resultSet.getString("DATA"), resultSet.getString("ORA"));
+            Campo campo = new Campo(resultSet.getString("NOME"), resultSet.getString("COMUNE"),
+                    resultSet.getString("INDIRIZZO"));
+            campo.setData(resultSet.getString("DATA"));
+            campo.setOra(resultSet.getString("ORA"));
+            campo.setId(resultSet.getInt("ID"));
             campi.add(campo);
         }
         return campi;

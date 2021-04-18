@@ -27,7 +27,19 @@ public class Campo {
     
    
     
-    public int getId() {
+    public Campo(int id2, String nomeGMEC, String comuneGMEC, String indirizzoGMEC, String isrenter, int isAffittabile2) {
+    		this.id=id2;
+    		this.nome=nomeGMEC;
+    		this.comune=comuneGMEC;
+    		this.indirizzo=indirizzoGMEC;
+    		this.renter=isrenter;
+    		this.isAffittabile=isAffittabile2;
+    }
+
+
+
+
+	public int getId() {
         return id;
     }
 

@@ -5,6 +5,7 @@ import model.Torneo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiDao {
@@ -24,7 +25,7 @@ public class GestisciMieiEventiDao {
         return conn;
     }
 
-    public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException {
+    public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campoInfo = new TreeMap<>();
         ArrayList<TreeMap<String, String>> infoList = new ArrayList<>();
         Connection connection = getConnection();

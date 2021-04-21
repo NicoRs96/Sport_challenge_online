@@ -99,7 +99,7 @@ public class InserisciCampoRenterController implements Initializable {
         		Campo campo = new Campo(nomeCampoTF.getText().trim(), cittaTF.getText().trim(), indirizzoTF.getText().trim());
         		campo.setSport(sportComboBox.getValue().toString());
         		campo.setDesc(descrizioneTF.getText().trim());
-        		campo.setId(persona.getId());
+        		campo.setRenter(Integer.toString((persona.getId())));
         		campo.setData(dataDPICRC.getValue().toString());
         		campo.setOra(ora);
         		campo.setPrezzo(prezzoS.getText());

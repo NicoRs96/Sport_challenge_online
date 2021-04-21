@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaTorneoController implements Initializable {
@@ -111,7 +112,7 @@ public class CercaTorneoController implements Initializable {
 
 
 
-        TreeMap<Integer, TreeMap<String, String>> tornei = cercaTorneoBean.getTornei(cittaTF.getText().trim().toUpperCase(), dataDP.getValue().toString());
+        SortedMap<Integer, TreeMap<String, String>> tornei = cercaTorneoBean.getTornei(cittaTF.getText().trim().toUpperCase(), dataDP.getValue().toString());
         for (Integer id : tornei.keySet()) {
             TreeMap<String, String> info = tornei.get(id);
             String nome = info.get("NOME");

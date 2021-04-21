@@ -1,6 +1,7 @@
 package bean;
 
 import java.sql.*;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 import dao.LoginDao;
@@ -15,7 +16,7 @@ public class LoginBean {
     private String password;
     
     private LoginDao loginDao = new LoginDao();
-    TreeMap<String, String> user;
+    SortedMap<String, String> user = new TreeMap<>();
 	
     public String getUsername() {
 		return username;
@@ -40,7 +41,7 @@ public class LoginBean {
 	else
 		return 0;
 	}
-	public TreeMap<String, String> getUser() {
+	public SortedMap<String, String> getUser() {
 		return user;
 	}
 }

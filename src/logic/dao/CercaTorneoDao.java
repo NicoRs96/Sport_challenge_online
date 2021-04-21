@@ -4,6 +4,7 @@ import model.Campo;
 
 import java.sql.*;
 import java.util.Properties;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaTorneoDao {
@@ -29,7 +30,7 @@ public class CercaTorneoDao {
 
     }
 
-    public TreeMap<Integer, TreeMap<String, String>> getTornei(String city,String data) throws SQLException {
+    public SortedMap<Integer, TreeMap<String, String>> getTornei(String city,String data) throws SQLException {
         TreeMap<Integer, TreeMap<String, String>> torneoInfo = new TreeMap<>();
 
         Connection connection = getConnection();

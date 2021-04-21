@@ -25,7 +25,7 @@
             <String fx:value="warning" />
          </styleClass>
       </Button>
-      <TextField fx:id="cittaTF" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
+      <TextField fx:id="cittaTFCCSC" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
       <Button fx:id="CercaBTN" layoutX="854.0" layoutY="180.0" mnemonicParsing="false" onAction="#cerca" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca">
          <styleClass>
             <String fx:value="action-btn" />
@@ -49,15 +49,15 @@
          </value>
       </ComboBox>
 	
-      <DatePicker fx:id="dataDP" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
+      <DatePicker fx:id="dataDPCCSC" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
       <TableView fx:id="campiTV" layoutX="37.0" layoutY="296.0" prefHeight="328.0" prefWidth="1094.0" stylesheets="@bootstrap3.css">
         <columns>
           <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />
-          <TableColumn fx:id="comuneCol" prefWidth="122.0" text="COMUNE" />
-           <TableColumn fx:id="indirizzoCol" prefWidth="143.0" text="INDIRIZZO" />
-           <TableColumn fx:id="descCol" prefWidth="308.0" text="DESC" />
-           <TableColumn fx:id="dataCol" prefWidth="110.0" text="DATA" />
-           <TableColumn fx:id="oraCol" prefWidth="90.0" text="ORARIO" />
+          <TableColumn fx:id="comuneColCCSC" prefWidth="122.0" text="COMUNE" />
+           <TableColumn fx:id="indirizzoColCCSC" prefWidth="143.0" text="INDIRIZZO" />
+           <TableColumn fx:id="descColCCSC" prefWidth="308.0" text="DESC" />
+           <TableColumn fx:id="dataColCCSC" prefWidth="110.0" text="DATA" />
+           <TableColumn fx:id="oraColCCSC" prefWidth="90.0" text="ORARIO" />
            <TableColumn fx:id="sportCol" prefWidth="105.0" text="SPORT" />
            <TableColumn fx:id="renterCol" prefWidth="96.0" text="RENTER" />
         </columns>

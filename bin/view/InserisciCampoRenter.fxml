@@ -36,7 +36,7 @@
       <TextField fx:id="nomeCampoTF" layoutX="94.0" layoutY="232.0" prefHeight="33.0" prefWidth="261.0" promptText="Nome Campo" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="indirizzoTF" layoutX="94.0" layoutY="293.0" prefHeight="33.0" prefWidth="261.0" promptText="Indirizzo" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="cittaTF" layoutX="94.0" layoutY="342.0" prefHeight="33.0" prefWidth="261.0" promptText="Città" styleClass="text-field" stylesheets="@bootstrap3.css" />
-      <DatePicker fx:id="dataDP" layoutX="94.0" layoutY="382.0" prefHeight="33.0" prefWidth="261.0" promptText="Data" styleClass="text-field" stylesheets="@bootstrap3.css" />
+      <DatePicker fx:id="dataDPICRC" layoutX="94.0" layoutY="382.0" prefHeight="33.0" prefWidth="261.0" promptText="Data" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="oraTF" layoutX="94.0" layoutY="422.0" prefHeight="33.0" prefWidth="261.0" promptText="Ora" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <TextField fx:id="prezzoS" layoutX="94.0" layoutY="510.0" prefHeight="33.0" prefWidth="261.0" promptText="Prezzo" styleClass="text-field" stylesheets="@bootstrap3.css" />
       <RadioButton fx:id="contantiCB" toggleGroup="$metodoTG" layoutX="94.0" layoutY="555.0" prefHeight="33.0" prefWidth="120.0" styleClass="text-field" stylesheets="@bootstrap3.css" style="-fx-border-color: transparent; -fx-background-color: transparent" text="Contanti" />

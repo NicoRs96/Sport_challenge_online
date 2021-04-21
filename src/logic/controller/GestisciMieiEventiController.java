@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiController implements Initializable {
@@ -90,7 +91,7 @@ public class GestisciMieiEventiController implements Initializable {
                 observableArrayList();
 
         int renterId = persona.getId();
-        TreeMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciMieiEventiBean.getCampi(renterId);
+        SortedMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciMieiEventiBean.getCampi(renterId);
         for (TreeMap<String, String> info : campos.get(renterId)) {
             int id = Integer.parseInt(info.get("ID"));
             String nomeGMEC = info.get("NOME");

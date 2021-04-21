@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.*;
 import java.util.Properties;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class LoginDao {
@@ -24,7 +25,7 @@ public class LoginDao {
 
     }
 
-    public TreeMap<String, String> authenticate(String email, String password) throws SQLException {
+    public SortedMap<String, String> authenticate(String email, String password) throws SQLException {
 
         TreeMap<String, String> user = new TreeMap<>();
         Connection connection = getConnection();

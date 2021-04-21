@@ -43,15 +43,15 @@
             <String fx:value="danger" />
          </styleClass>
       </Button>
-      <TableView fx:id="campiTV" layoutX="50.0" layoutY="194.0" prefHeight="214.0" prefWidth="1092.0" stylesheets="@bootstrap3.css">
+      <TableView fx:id="campiTVGMEC" layoutX="50.0" layoutY="194.0" prefHeight="214.0" prefWidth="1092.0" stylesheets="@bootstrap3.css">
          <columns>
             <TableColumn fx:id="idCol" prefWidth="119.0" text="ID" />
             <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />
-            <TableColumn fx:id="comuneCol" prefWidth="122.0" text="COMUNE" />
-            <TableColumn fx:id="indirizzoCol" prefWidth="143.0" text="INDIRIZZO" />
-            <TableColumn fx:id="descCol" prefWidth="308.0" text="DESC" />
-            <TableColumn fx:id="dataCol" prefWidth="110.0" text="DATA" />
-            <TableColumn fx:id="oraCol" prefWidth="90.0" text="ORARIO" />
+            <TableColumn fx:id="comuneColGMEC" prefWidth="122.0" text="COMUNE" />
+            <TableColumn fx:id="indirizzoColGMEC" prefWidth="143.0" text="INDIRIZZO" />
+            <TableColumn fx:id="descColGMEC" prefWidth="308.0" text="DESC" />
+            <TableColumn fx:id="dataColGMEC" prefWidth="110.0" text="DATA" />
+            <TableColumn fx:id="oraColGMEC" prefWidth="90.0" text="ORARIO" />
             <TableColumn fx:id="sportCol" prefWidth="105.0" text="SPORT" />
             <TableColumn fx:id="prezzoCol" prefWidth="96.0" text="PREZZO" />
          </columns>

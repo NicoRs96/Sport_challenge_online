@@ -5,6 +5,7 @@ import dao.GestisciCampiDao;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciCampiBean {
@@ -13,7 +14,7 @@ public class GestisciCampiBean {
     public GestisciCampiBean(){
     	//constructor
     }
-    public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException, ParseException {
+    public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException, ParseException {
         return gestisciCampiDao.getCampi(renterId);
     }
 
@@ -25,7 +26,7 @@ public class GestisciCampiBean {
         return gestisciCampiDao.setCampoNonAffittabile(id);
     }
 
-    public TreeMap<Integer, TreeMap<String, String>> getPrenotazioni(int id) throws SQLException {
+    public SortedMap<Integer, TreeMap<String, String>> getPrenotazioni(int id) throws SQLException {
         return gestisciCampiDao.getPrenotazioni(id);
     }
 

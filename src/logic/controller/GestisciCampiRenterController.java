@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciCampiRenterController implements Initializable {
@@ -87,7 +88,7 @@ public class GestisciCampiRenterController implements Initializable {
                 observableArrayList();
 
         int renterId = persona.getId();
-        TreeMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciCampiBean.getCampi(renterId);
+        SortedMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciCampiBean.getCampi(renterId);
         for (TreeMap<String, String> info : campos.get(renterId)) {
             int id = Integer.parseInt(info.get("ID"));
             String nome = info.get("NOME");
@@ -132,7 +133,7 @@ public class GestisciCampiRenterController implements Initializable {
         ObservableList<Prenotazione> values = FXCollections.
                 observableArrayList();
 
-        TreeMap<Integer, TreeMap<String, String>> prenotazioni = gestisciCampiBean.getPrenotazioni(persona.getId());
+        SortedMap<Integer, TreeMap<String, String>> prenotazioni = gestisciCampiBean.getPrenotazioni(persona.getId());
         for (int id : prenotazioni.keySet()) {
             TreeMap<String, String> info = prenotazioni.get(id);
             String campo = info.get("CAMPO");

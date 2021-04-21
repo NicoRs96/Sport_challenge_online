@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -128,9 +129,12 @@ public class CercaCampoSportivoController implements Initializable {
         
         
         SortedMap<String, TreeMap<String, String>> campos = cercaCampoDao.getCampo(cittaTFCCSC.getText().trim().toUpperCase(), sportComboBox.getValue().toString().toUpperCase(), dataDPCCSC.getValue().toString());
-        for (String name : campos.keySet()) {
-            TreeMap<String, String> info = campos.get(name);
-            String nome = name;
+        for (Map.Entry<String, TreeMap<String,String>> entry : campos.entrySet()) {
+        	
+            TreeMap<String, String> info = entry.getValue();
+            String nome = entry.getKey();
+            
+            
             int id = Integer.parseInt(info.get("ID"));
             String comune = info.get("COMUNE");
             String indirizzo = info.get("INDIRIZZO");

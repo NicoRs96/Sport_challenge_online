@@ -21,6 +21,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -134,8 +136,11 @@ public class GestisciCampiRenterController implements Initializable {
                 observableArrayList();
 
         SortedMap<Integer, TreeMap<String, String>> prenotazioni = gestisciCampiBean.getPrenotazioni(persona.getId());
-        for (int id : prenotazioni.keySet()) {
-            TreeMap<String, String> info = prenotazioni.get(id);
+        for (Map.Entry<Integer, TreeMap<String, String>> entry : prenotazioni.entrySet()) {
+        	
+        	Integer id = entry.getKey();
+            TreeMap<String, String> info = entry.getValue();
+           
             String campo = info.get("CAMPO");
             String data = info.get("DATA");
             String ora = info.get("ORA");

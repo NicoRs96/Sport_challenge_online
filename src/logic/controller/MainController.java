@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 import bean.LoginBean;
@@ -27,7 +28,7 @@ public class MainController implements Initializable{
 	
 	private final LoginBean loginBean = new LoginBean();
 	
-	TreeMap<String, String> user;
+	SortedMap<String, String> user;
 
 
 	@FXML

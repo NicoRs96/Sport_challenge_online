@@ -6,12 +6,13 @@ import model.Torneo;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiBean {
     private final GestisciMieiEventiDao gestisciMieiEventiDao = new GestisciMieiEventiDao();
 
-    public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException, ParseException {
+    public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException, ParseException {
         return gestisciMieiEventiDao.getCampi(utenteId);
     }
 

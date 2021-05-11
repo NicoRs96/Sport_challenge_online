@@ -27,7 +27,7 @@ public class HomePageSportmanView {
 
 	public void apriHPSportman(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageSportman.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		HomePageSportmanController homePageSportmanController = loader.getController();
 		homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);

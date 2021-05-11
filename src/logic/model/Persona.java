@@ -38,19 +38,19 @@ public class Persona {
 		isRenter = renter;
 	}
 
-	public String getNomePersona() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNomePersona(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getCognomePersona() {
+	public String getCognome() {
 		return cognome;
 	}
 
-	public void setCognomePersona(String cognome) {
+	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
 

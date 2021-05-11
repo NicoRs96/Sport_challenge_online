@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CreaTorneoBean {
-    private CreaTorneoDao creaTorneoDao = new CreaTorneoDao();
+    private final CreaTorneoDao creaTorneoDao = new CreaTorneoDao();
 
     public CreaTorneoBean() {
     	//constructor

@@ -3,9 +3,9 @@ package dao;
 import model.Torneo;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiDao {
@@ -25,7 +25,7 @@ public class GestisciMieiEventiDao {
         return conn;
     }
 
-    public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException {
+    public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campoInfo = new TreeMap<>();
         ArrayList<TreeMap<String, String>> infoList = new ArrayList<>();
         Connection connection = getConnection();
@@ -75,7 +75,7 @@ public class GestisciMieiEventiDao {
             Torneo torneo = new Torneo(
                     resultSet.getString("t.NOME"),
                     resultSet.getString("c.NOME"),
-                    resultSet.getString("t.DATA"),
+                    LocalDate.parse(resultSet.getString("t.DATA")),
                     resultSet.getString("t.ORA"),
                     resultSet.getDouble("t.PREZZO"),
                     resultSet.getInt("t.ETA"),
@@ -83,16 +83,15 @@ public class GestisciMieiEventiDao {
 
             );
             
-            
+            torneo.setId(resultSet.getInt("T.ID"));
+            torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
+            torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
+            torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
             torneo.setCitta(resultSet.getString("c.COMUNE"));
             torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
             torneo.setSport(resultSet.getString("c.SPORT"));
             torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
             torneo.setConfermato();
-            torneo.setId(resultSet.getInt("T.ID"));
-            torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
-            torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
-            torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
 
             connection.close();
             return torneo;

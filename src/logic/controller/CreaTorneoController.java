@@ -67,7 +67,7 @@ public class CreaTorneoController implements Initializable {
     @FXML
     Button esciBTN;
 
-    private CreaTorneoBean creaTorneoBean = new CreaTorneoBean();
+    private final CreaTorneoBean creaTorneoBean = new CreaTorneoBean();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -78,7 +78,7 @@ public class CreaTorneoController implements Initializable {
     public void indietro(ActionEvent event) throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageRenterController homePageRenterController = loader.getController();
         homePageRenterController.setPersona(persona);
         Scene scene = new Scene(root);
@@ -218,7 +218,7 @@ public class CreaTorneoController implements Initializable {
             metodo = "ENTRAMBI";
         else if(carteCB.isSelected())
             metodo = "CARTA DI CREDITO";
-        Torneo torneo = new Torneo(nomeTF.getText(), campiComboBox.getSelectionModel().getSelectedItem().toString(), dataDP.getValue().toString(), oraTF.getText(), prezzo, etaMin, minPart);
+        Torneo torneo = new Torneo(nomeTF.getText(), campiComboBox.getSelectionModel().getSelectedItem().toString(), dataDP.getValue(), oraTF.getText(), prezzo, etaMin, minPart);
         torneo.setDataScadenza(datascadenzaDP.getValue().toString());
         torneo.setMetodoPagamento(metodo);
         torneo.setDesc(descTF.getText());

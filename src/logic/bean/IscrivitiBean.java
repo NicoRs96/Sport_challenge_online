@@ -15,7 +15,7 @@ public class IscrivitiBean {
 	//nothing
 	}
 	
-	private IscrizioneDao iscrizioneDao = new IscrizioneDao();
+	private final IscrizioneDao iscrizioneDao = new IscrizioneDao();
 
 
 	String nome;

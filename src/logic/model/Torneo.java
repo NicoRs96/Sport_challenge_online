@@ -1,11 +1,13 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Torneo {
     private int id;
     private String nome;
     private String campo;
     private int campoId;
-    private String data;
+    private LocalDate data;
     private String ora;
     private double prezzo;
     private int etaMin;
@@ -20,7 +22,7 @@ public class Torneo {
     private String confermato;
 
     
-    public Torneo(String nome, String campo, String data, String ora, double prezzo, int etaMin, int numMinPart){
+    public Torneo(String nome, String campo, LocalDate data, String ora, double prezzo, int etaMin, int numMinPart){
         
         this.nome = nome;
         this.campo = campo;
@@ -74,11 +76,11 @@ public class Torneo {
         this.campo = campo;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

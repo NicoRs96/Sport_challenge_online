@@ -49,7 +49,7 @@ public class InserisciCampoRenterController implements Initializable {
     @FXML
     Button confermaBTN;
 
-    private InserisciCampoBean inseriscoCampoBean = new InserisciCampoBean();
+    private final InserisciCampoBean inseriscoCampoBean = new InserisciCampoBean();
 
     @FXML
     public void indietro(ActionEvent event) {
@@ -99,11 +99,12 @@ public class InserisciCampoRenterController implements Initializable {
         		Campo campo = new Campo(nomeCampoTF.getText().trim(), cittaTF.getText().trim(), indirizzoTF.getText().trim());
         		campo.setSport(sportComboBox.getValue().toString());
         		campo.setDesc(descrizioneTF.getText().trim());
-        		campo.setRenter(Integer.toString((persona.getId())));
+        		campo.setId(persona.getId());
         		campo.setData(dataDPICRC.getValue().toString());
         		campo.setOra(ora);
         		campo.setPrezzo(prezzoS.getText());
         		campo.setModPagamento(selectedRadioButton.getText());
+        		campo.setRenter(persona.getId()+"");
                 if(inseriscoCampoBean.inserisciCampo(campo, torneo)){
                 	//nothing
                 }
@@ -124,7 +125,7 @@ public class InserisciCampoRenterController implements Initializable {
     public void esci() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageRenterController homePageRenterController = loader.getController();
         homePageRenterController.setPersona(persona);
         Scene scene = new Scene(root);

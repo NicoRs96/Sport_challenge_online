@@ -33,7 +33,7 @@ public class GestisciTorneiRenterDao {
         ResultSet resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             Torneo torneo = new Torneo(resultSet.getString("NOME"),resultSet.getString("c.NOME"),
-                    resultSet.getString("DATA"),
+                    LocalDate.parse(resultSet.getString("DATA")),
                     resultSet.getString("ORA"),
                     resultSet.getDouble("PREZZO"),
                     resultSet.getInt("ETA"),

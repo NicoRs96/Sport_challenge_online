@@ -5,13 +5,15 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 import bean.LoginBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -24,9 +26,9 @@ import view.Iscrivitiview;
 
 public class MainController implements Initializable{
 	
-	private LoginBean loginBean = new LoginBean();
+	private final LoginBean loginBean = new LoginBean();
 	
-	SortedMap<String, String> user = new TreeMap<>();
+	TreeMap<String, String> user;
 
 
 	@FXML
@@ -98,8 +100,13 @@ public class MainController implements Initializable{
 
 		//modificare view e mettere quella dello sportsman
 		Stage stage = (Stage) loginBtn.getScene().getWindow();
-		HomePageSportmanView homePageSportmanView = new HomePageSportmanView(persona);
-        homePageSportmanView.apriHPSportman(stage);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
+		Parent root = loader.load();
+		HomePageSportmanController homePageSportmanController = loader.getController();
+		homePageSportmanController.setPersona(persona);
+		homePageSportmanController.sendNotification();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
         
 		
 	}

@@ -20,7 +20,7 @@ import model.Persona;
 
 public class HomePageRenterController implements Initializable{
 	private Persona persona;
-	private CancellaAccountBean cancellaAccountBean = new CancellaAccountBean();
+	private final CancellaAccountBean cancellaAccountBean = new CancellaAccountBean();
 	
 	@FXML
 	private Button esciBTN;
@@ -59,7 +59,7 @@ public class HomePageRenterController implements Initializable{
 	private void inserisci(ActionEvent event) throws IOException {
 		Stage stage = (Stage) inserisciCSBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/InserisciCampoRenter.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		InserisciCampoRenterController inserisciCampoRenterController = loader.getController();
 		inserisciCampoRenterController.setPersonas(persona);
 		Scene scene = new Scene(root);
@@ -70,7 +70,7 @@ public class HomePageRenterController implements Initializable{
 	private void gestisci(ActionEvent event) throws IOException {
 		Stage stage = (Stage) gesticiCSBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GestisciCampiRenter.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		GestisciCampiRenterController gestisciCampiRenterController = loader.getController();
 		gestisciCampiRenterController.setPersona(persona);
 		Scene scene = new Scene(root);
@@ -81,7 +81,7 @@ public class HomePageRenterController implements Initializable{
 	private void creaTorneo(ActionEvent event) throws IOException, SQLException {
 		Stage stage = (Stage) creaTornBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreaTorneo.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		CreaTorneoController creaTorneoController = loader.getController();
 		creaTorneoController.setPersona(persona);
 		creaTorneoController.getCampiByRenterId();
@@ -93,7 +93,7 @@ public class HomePageRenterController implements Initializable{
 	private void gestisciTorneo(ActionEvent event) throws IOException, SQLException {
 		Stage stage = (Stage) gestisciTornBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GestisciTorneiRenter.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		GestisciTorneiRenterController gestisciTorneiRenterController = loader.getController();
 		gestisciTorneiRenterController.setPersona(persona);
 		gestisciTorneiRenterController.getTorneiByRenterId();
@@ -127,7 +127,7 @@ public class HomePageRenterController implements Initializable{
 				alert.showAndWait();
 				Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
-				Parent root = (Parent) loader.load();
+				Parent root = loader.load();
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				return;
@@ -135,7 +135,7 @@ public class HomePageRenterController implements Initializable{
 		
 		Stage stage = (Stage) disiscriviBTN.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(percorso));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		

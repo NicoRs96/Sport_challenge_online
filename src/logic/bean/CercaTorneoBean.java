@@ -4,13 +4,12 @@ import dao.CercaTorneoDao;
 import model.Campo;
 
 import java.sql.SQLException;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaTorneoBean {
-    private CercaTorneoDao cercaTorneoDao = new CercaTorneoDao();
+    private final CercaTorneoDao cercaTorneoDao = new CercaTorneoDao();
 
-    public SortedMap<Integer, TreeMap<String, String>> getTornei(String city,String data) throws SQLException {
+    public TreeMap<Integer, TreeMap<String, String>> getTornei(String city,String data) throws SQLException {
         return cercaTorneoDao.getTornei(city, data);
     }
 

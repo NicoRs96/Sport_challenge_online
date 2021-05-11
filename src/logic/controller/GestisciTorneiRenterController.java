@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class GestisciTorneiRenterController implements Initializable {
     private Persona persona;
-    private GestisciTorneiRenterBean gestisciTorneiRenterBean = new GestisciTorneiRenterBean() ;
+    private final GestisciTorneiRenterBean gestisciTorneiRenterBean = new GestisciTorneiRenterBean() ;
 
     @FXML
     private Button esciBTN;
@@ -121,7 +121,7 @@ public class GestisciTorneiRenterController implements Initializable {
     public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageRenterController homePageRenterController = loader.getController();
         homePageRenterController.setPersona(persona);
         Scene scene = new Scene(root);

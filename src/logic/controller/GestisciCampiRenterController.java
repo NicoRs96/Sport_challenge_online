@@ -21,13 +21,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciCampiRenterController implements Initializable {
-    private GestisciCampiBean gestisciCampiBean = new GestisciCampiBean();
+    private final GestisciCampiBean gestisciCampiBean = new GestisciCampiBean();
 
     @FXML
     private Button esciBTN;
@@ -89,7 +87,7 @@ public class GestisciCampiRenterController implements Initializable {
                 observableArrayList();
 
         int renterId = persona.getId();
-        SortedMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciCampiBean.getCampi(renterId);
+        TreeMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciCampiBean.getCampi(renterId);
         for (TreeMap<String, String> info : campos.get(renterId)) {
             int id = Integer.parseInt(info.get("ID"));
             String nome = info.get("NOME");
@@ -134,12 +132,9 @@ public class GestisciCampiRenterController implements Initializable {
         ObservableList<Prenotazione> values = FXCollections.
                 observableArrayList();
 
-        SortedMap<Integer, TreeMap<String, String>> prenotazioni = gestisciCampiBean.getPrenotazioni(persona.getId());
-        for (Map.Entry<Integer, TreeMap<String, String>> entry : prenotazioni.entrySet()) {
-        	
-        	Integer id = entry.getKey();
-            TreeMap<String, String> info = entry.getValue();
-           
+        TreeMap<Integer, TreeMap<String, String>> prenotazioni = gestisciCampiBean.getPrenotazioni(persona.getId());
+        for (int id : prenotazioni.keySet()) {
+            TreeMap<String, String> info = prenotazioni.get(id);
             String campo = info.get("CAMPO");
             String data = info.get("DATA");
             String ora = info.get("ORA");
@@ -281,7 +276,7 @@ public class GestisciCampiRenterController implements Initializable {
     public void esci() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageRenterController homePageRenterController = loader.getController();
         homePageRenterController.setPersona(persona);
         Scene scene = new Scene(root);

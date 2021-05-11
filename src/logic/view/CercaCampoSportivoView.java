@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import model.Persona;
 
 public class CercaCampoSportivoView {
-	private Persona persona;
+	private final Persona persona;
 	public CercaCampoSportivoView(Persona persona) {
 		this.persona = persona;
 		//nothing
@@ -18,7 +18,7 @@ public class CercaCampoSportivoView {
 
 	public void apriCercaCampoSportivo(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CercaCampoSportivo.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		CercaCampoSportivoController cercaCampoSportivoController = loader.getController();
 		cercaCampoSportivoController.setPersona(persona);
 		Scene scene = new Scene(root);

@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SportPreferitoController implements Initializable {
-    private SportPreferitoBean sportPreferitoBean = new SportPreferitoBean();
+    private final SportPreferitoBean sportPreferitoBean = new SportPreferitoBean();
     private Persona persona;
 
     @FXML
@@ -41,7 +41,7 @@ public class SportPreferitoController implements Initializable {
     public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageSportmanController homePageSportmanController = loader.getController();
         homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);

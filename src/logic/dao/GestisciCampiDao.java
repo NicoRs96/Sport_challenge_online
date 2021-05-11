@@ -4,7 +4,6 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciCampiDao {
@@ -31,7 +30,7 @@ public class GestisciCampiDao {
         return conn;
     }
 
-    public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException {
+    public TreeMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campoInfo = new TreeMap<>();
         ArrayList<TreeMap<String, String>> infoList = new ArrayList<>();
         Connection connection = getConnection();
@@ -94,7 +93,7 @@ public class GestisciCampiDao {
         return true;
     }
 
-    public SortedMap<Integer, TreeMap<String, String>> getPrenotazioni(int id) throws SQLException {
+    public TreeMap<Integer, TreeMap<String, String>> getPrenotazioni(int id) throws SQLException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
         String query = String.format("select p.id, c.NOME as 'CAMPO', c.`DATA`, c.ora as 'ORA', u.NOME as 'CLIENTE', u.COGNOME , c.PREZZO, u.TELEFONO from sportchallengeonline.prenotazione_campo p , sportchallengeonline.campo c , sportchallengeonline.`user` u where p.campo = c.ID and p.`user` = u.ID and c.renter = '%s'", id);

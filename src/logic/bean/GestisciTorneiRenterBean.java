@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GestisciTorneiRenterBean {
-    private GestisciTorneiRenterDao gestisciTorneiRenterDao = new GestisciTorneiRenterDao();
+    private final GestisciTorneiRenterDao gestisciTorneiRenterDao = new GestisciTorneiRenterDao();
 
     public GestisciTorneiRenterBean() {
     	//constructor

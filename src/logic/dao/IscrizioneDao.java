@@ -44,7 +44,7 @@ public class IscrizioneDao {
 
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("INSERT INTO USER(NOME, COGNOME, DATADINASCITA,EMAIL,PASSWORD, TELEFONO, RENT) VALUES('%s','%s','%s','%s','%s','%s',%s)", name, surname, date, email, password,telephone, isRent);
+        String query = String.format("INSERT INTO USER(NOME, COGNOME, DATADINASCITA,EMAIL,PASSWORD, TELEFONO, RENT) VALUES('%s','%s','%s','%s','%s','%s',%s)", name, surname, date, email.toLowerCase(), password,telephone, isRent);
 
         statement.execute(query);
         connection.close();

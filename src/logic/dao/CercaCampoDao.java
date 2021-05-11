@@ -2,7 +2,6 @@ package dao;
 
 import java.sql.*;
 import java.util.Properties;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaCampoDao {
@@ -63,7 +62,7 @@ public class CercaCampoDao {
 
     }
 
-    public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException {
+    public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException {
         TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
 
         Connection connection = getConnection();

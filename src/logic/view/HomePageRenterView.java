@@ -26,7 +26,7 @@ public class HomePageRenterView {
 
 	public void apriHPRenter(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePageRenter.fxml"));
-		Parent root = (Parent) loader.load();
+		Parent root = loader.load();
 		HomePageRenterController homePageRenterController = loader.getController();
 		homePageRenterController.setPersona(persona);
 		Scene scene = new Scene(root);

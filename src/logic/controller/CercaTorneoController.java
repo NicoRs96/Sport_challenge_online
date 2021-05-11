@@ -18,13 +18,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaTorneoController implements Initializable {
-    private CercaTorneoBean cercaTorneoBean = new CercaTorneoBean();
+    private final CercaTorneoBean cercaTorneoBean = new CercaTorneoBean();
     private Persona persona;
 
     @FXML
@@ -38,6 +36,9 @@ public class CercaTorneoController implements Initializable {
 
     @FXML
     private TableView torneiTV;
+
+    @FXML
+    private Button confermaBTN;
 
     @FXML
     private TableColumn<Torneo, String> nomeCol;
@@ -113,13 +114,9 @@ public class CercaTorneoController implements Initializable {
 
 
 
-        SortedMap<Integer, TreeMap<String, String>> tornei = cercaTorneoBean.getTornei(cittaTF.getText().trim().toUpperCase(), dataDP.getValue().toString());
-        for (Map.Entry<Integer, TreeMap<String, String>> entry : tornei.entrySet()) {
-            
-        	Integer id = entry.getKey();
-        	TreeMap<String, String> info = entry.getValue();
-            
-            
+        TreeMap<Integer, TreeMap<String, String>> tornei = cercaTorneoBean.getTornei(cittaTF.getText().trim().toUpperCase(), dataDP.getValue().toString());
+        for (Integer id : tornei.keySet()) {
+            TreeMap<String, String> info = tornei.get(id);
             String nome = info.get("NOME");
 
           
@@ -133,12 +130,15 @@ public class CercaTorneoController implements Initializable {
             String mod = info.get("METODODIPAGAMENTO");
 
             int campoId = Integer.parseInt(info.get("CAMPO"));
-            String campo = cercaTorneoBean.getCampoById(campoId).getNome();
-            Torneo torneo = new Torneo(nome, campo, date, ora, Double.parseDouble(prezzo), Integer.parseInt(eta),Integer.parseInt(numMin));
+            Campo campo = cercaTorneoBean.getCampoById(campoId);
+            String nomeCampo = campo.getNome();
+            Torneo torneo = new Torneo(nome, nomeCampo, LocalDate.parse(date), ora, Double.parseDouble(prezzo), Integer.parseInt(eta),Integer.parseInt(numMin));
             torneo.setId(id);
             torneo.setDataScadenza(dataS);
             torneo.setMetodoPagamento(mod);
-            torneo.setDesc(desc);            
+            torneo.setDesc(desc);
+            torneo.setSport(campo.getSport());
+            torneo.setCitta(campo.getComune());
           
             torneo.setCampoId(campoId);
             torneiTV.getItems().add(torneo);
@@ -149,7 +149,7 @@ public class CercaTorneoController implements Initializable {
         this.persona = persona;
     }
 
-    public void iscriviti() throws SQLException {
+    public void conferma() throws SQLException, IOException {
         Torneo torneo = (Torneo) torneiTV.getSelectionModel().getSelectedItem();
 
         if(torneo == null){
@@ -176,30 +176,40 @@ public class CercaTorneoController implements Initializable {
             return;
         }
 
-        int numIscritti = cercaTorneoBean.getNumIscritti(torneo.getId());
-        Campo campo = cercaTorneoBean.getCampoById(torneo.getCampoId());
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("RIEPILOGO ISCRIZIONE");
-        String information = String.format("Riepilogo:\n----------\nNome Torneo: %s\n----------\nNumero Iscritti: %s\n----------\nCitta: %s\nPrezzo: %s\nModalita di pagamento: %s\nData: %s\nOra: %s\nSport: %s",
-                torneo.getNome(),
-                numIscritti,
-                campo.getComune(),
-                torneo.getPrezzo(),
-                torneo.getMetodoPagamento(),
-                torneo.getData(),
-                torneo.getOra(),
-                campo.getSport());
-        alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
-        alert.showAndWait();
-        if((alert.getResult() == ButtonType.OK)&&
-            (cercaTorneoBean.confermaIscrizione(persona.getId(),torneo.getId()))) {
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("SUCCESS");
-                alert.setContentText("Iscrizione avvenuta con successo");
-                alert.showAndWait();
-                torneiTV.getItems().remove(torneiTV.getSelectionModel().getSelectedItem());
-            }
-        
+        Stage stage = (Stage) confermaBTN.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PartecipantiTorneo.fxml"));
+        Parent root = loader.load();
+        PartecipantiTorneoController partecipantiTorneoController = loader.getController();
+        partecipantiTorneoController.setPersona(persona);
+        partecipantiTorneoController.setTorneo(torneo);
+        partecipantiTorneoController.setInfo();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+//        int numIscritti = cercaTorneoBean.getNumIscritti(torneo.getId());
+//        Campo campo = cercaTorneoBean.getCampoById(torneo.getCampoId());
+//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("RIEPILOGO ISCRIZIONE");
+//        String information = String.format("Riepilogo:\n----------\nNome Torneo: %s\n----------\nNumero Iscritti: %s\n----------\nCitta: %s\nPrezzo: %s\nModalita di pagamento: %s\nData: %s\nOra: %s\nSport: %s",
+//                torneo.getNome(),
+//                numIscritti,
+//                campo.getComune(),
+//                torneo.getPrezzo(),
+//                torneo.getMetodoPagamento(),
+//                torneo.getData(),
+//                torneo.getOra(),
+//                campo.getSport());
+//        alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
+//        alert.showAndWait();
+//        if((alert.getResult() == ButtonType.OK)&&
+//            (cercaTorneoBean.confermaIscrizione(persona.getId(),torneo.getId()))) {
+//                alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("SUCCESS");
+//                alert.setContentText("Iscrizione avvenuta con successo");
+//                alert.showAndWait();
+//                torneiTV.getItems().remove(torneiTV.getSelectionModel().getSelectedItem());
+//            }
+
 
 
     }

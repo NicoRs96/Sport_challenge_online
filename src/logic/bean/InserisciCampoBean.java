@@ -6,7 +6,7 @@ import model.Campo;
 import java.sql.SQLException;
 
 public class InserisciCampoBean {
-    private InserisciCampoDao inserisciCampoDao = new InserisciCampoDao();
+    private final InserisciCampoDao inserisciCampoDao = new InserisciCampoDao();
 
     public InserisciCampoBean(){
     	//constructor

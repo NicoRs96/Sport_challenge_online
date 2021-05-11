@@ -6,33 +6,41 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Campo;
 
 import bean.CercaCampoBean;
 import dao.CercaCampoDao;
 import model.Persona;
+import model.Torneo;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.Map;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class CercaCampoSportivoController implements Initializable {
     
 	private Persona persona;
 
-	private CercaCampoDao cercaCampoDao = new CercaCampoDao();
+	private final CercaCampoDao cercaCampoDao = new CercaCampoDao();
 
-	private CercaCampoBean cercaCampoBean = new CercaCampoBean();
+	private final CercaCampoBean cercaCampoBean = new CercaCampoBean();
 	
 	@FXML
 	private Button esciBTN;
@@ -128,13 +136,10 @@ public class CercaCampoSportivoController implements Initializable {
                 observableArrayList();
         
         
-        SortedMap<String, TreeMap<String, String>> campos = cercaCampoDao.getCampo(cittaTFCCSC.getText().trim().toUpperCase(), sportComboBox.getValue().toString().toUpperCase(), dataDPCCSC.getValue().toString());
-        for (Map.Entry<String, TreeMap<String,String>> entry : campos.entrySet()) {
-        	
-            TreeMap<String, String> info = entry.getValue();
-            String nome = entry.getKey();
-            
-            
+        TreeMap<String, TreeMap<String, String>> campos = cercaCampoDao.getCampo(cittaTFCCSC.getText().trim().toUpperCase(), sportComboBox.getValue().toString().toUpperCase(), dataDPCCSC.getValue().toString());
+        for (String name : campos.keySet()) {
+            TreeMap<String, String> info = campos.get(name);
+            String nome = name;
             int id = Integer.parseInt(info.get("ID"));
             String comune = info.get("COMUNE");
             String indirizzo = info.get("INDIRIZZO");
@@ -166,7 +171,7 @@ public class CercaCampoSportivoController implements Initializable {
     }
 
 
-    public void prenota() throws SQLException {
+    public void prenota() throws SQLException, IOException {
 
         Campo campo = (Campo) campiTV.getSelectionModel().getSelectedItem();
 
@@ -178,23 +183,17 @@ public class CercaCampoSportivoController implements Initializable {
             return;
         }
 
+        Stage stage = (Stage) esciBTN.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ConfermaPrenotazioneCampo.fxml"));
+        Parent root =  loader.load();
+        ConfermaPrenotazioneCampoController confermaPrenotazioneCampoController = loader.getController();
+        confermaPrenotazioneCampoController.setPersona(persona);
+        confermaPrenotazioneCampoController.setCampo(campo);
+        confermaPrenotazioneCampoController.fill();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("RIEPILOGO PRENOTAZIONE");
-        String information = String.format("Riepilogo ordine\n----------\nCitta: %s\nPrezzo: %s\nModalita di pagamento: %s\nData: %s\nOra: %s\nSport: %s", campo.getComune(), campo.getPrezzo(),campo.getModPagamento(), campo.getData(), campo.getOra(), campo.getSport());
-        alert.setContentText(information + "\n\nPREMERE OK per CONFERMARE");
-        alert.showAndWait();
-        if((alert.getResult() == ButtonType.OK) &&
-            (cercaCampoBean.confermaPrenotazione(persona.getId(),campo.getId()))) {
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("SUCCESS");
-                alert.setContentText("Prenotazione avvenuta con successo");
-                alert.showAndWait();
-                          
-        }
-        
-
+        return;
     }
 
 

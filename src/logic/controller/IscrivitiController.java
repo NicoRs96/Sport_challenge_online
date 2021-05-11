@@ -20,7 +20,7 @@ import bean.IscrivitiBean;
 
 public class IscrivitiController implements Initializable {
 
-	private IscrivitiBean iscrivitiBean = new IscrivitiBean();
+	private final IscrivitiBean iscrivitiBean = new IscrivitiBean();
 	
 	
     @FXML

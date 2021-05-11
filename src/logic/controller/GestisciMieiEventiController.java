@@ -24,12 +24,11 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiController implements Initializable {
     private Persona persona;
-    private GestisciMieiEventiBean gestisciMieiEventiBean = new GestisciMieiEventiBean();
+    private final GestisciMieiEventiBean gestisciMieiEventiBean = new GestisciMieiEventiBean();
 
     @FXML
     private Button esciBTN;
@@ -91,7 +90,7 @@ public class GestisciMieiEventiController implements Initializable {
                 observableArrayList();
 
         int renterId = persona.getId();
-        SortedMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciMieiEventiBean.getCampi(renterId);
+        TreeMap<Integer, ArrayList<TreeMap<String, String>>> campos = gestisciMieiEventiBean.getCampi(renterId);
         for (TreeMap<String, String> info : campos.get(renterId)) {
             int id = Integer.parseInt(info.get("ID"));
             String nomeGMEC = info.get("NOME");
@@ -158,7 +157,7 @@ public class GestisciMieiEventiController implements Initializable {
     public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         HomePageSportmanController homePageSportmanController = loader.getController();
         homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(root);

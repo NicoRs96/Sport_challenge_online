@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 import dao.CercaCampoDao;
@@ -15,7 +14,7 @@ public class CercaCampoBean {
 		//nothing
 	}
 	
-	private CercaCampoDao cercaCampoDao = new CercaCampoDao();
+	private final CercaCampoDao cercaCampoDao = new CercaCampoDao();
 	
 	String citta;
 	String sport;
@@ -63,7 +62,7 @@ public class CercaCampoBean {
 	
 	}
 
-	public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ParseException {
+	public TreeMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ParseException {
 		return cercaCampoDao.getCampo(city, sport, data);
 	}
 

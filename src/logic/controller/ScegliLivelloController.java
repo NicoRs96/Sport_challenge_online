@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ScegliLivelloController implements Initializable {
-    private ScegliLivelloBean scegliLivelloBean = new ScegliLivelloBean();
+    private final ScegliLivelloBean scegliLivelloBean = new ScegliLivelloBean();
     private Persona persona;
 
     @FXML
@@ -37,7 +37,7 @@ public class ScegliLivelloController implements Initializable {
     public void indietro() throws IOException {
         Stage stageSLC = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loaderSLC = new FXMLLoader(getClass().getResource("/view/HomepageSportman.fxml"));
-        Parent rootSLC = (Parent) loaderSLC.load();
+        Parent rootSLC = loaderSLC.load();
         HomePageSportmanController homePageSportmanController = loaderSLC.getController();
         homePageSportmanController.setPersona(persona);
         Scene scene = new Scene(rootSLC);

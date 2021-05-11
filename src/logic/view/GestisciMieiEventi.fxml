@@ -43,7 +43,7 @@
             <String fx:value="danger" />
          </styleClass>
       </Button>
-      <TableView fx:id="campiTVGMEC" layoutX="50.0" layoutY="194.0" prefHeight="214.0" prefWidth="1092.0" stylesheets="@bootstrap3.css">
+      <TableView fx:id="campiTV" layoutX="50.0" layoutY="194.0" prefHeight="214.0" prefWidth="1092.0" stylesheets="@bootstrap3.css">
          <columns>
             <TableColumn fx:id="idCol" prefWidth="119.0" text="ID" />
             <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />

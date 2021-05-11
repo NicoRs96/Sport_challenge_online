@@ -1,7 +1,6 @@
 package controller;
 
 import bean.PartecipantiTorneoBean;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,12 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Campo;
 import model.Persona;
 import model.Torneo;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -33,6 +32,7 @@ public class PartecipantiTorneoController implements Initializable {
     private Torneo torneo;
     private List<Persona> iscritti;
     private final PartecipantiTorneoBean partecipantiTorneoBean = new PartecipantiTorneoBean();
+    private String errore = "ERRORE";
 
     @FXML
     private Button esciBTN;
@@ -102,7 +102,7 @@ public class PartecipantiTorneoController implements Initializable {
         partecipantiTXT.setText("PARTECIPANTI: " + iscritti.size());
     }
 
-    public void indietro(ActionEvent event) throws IOException {
+    public void indietro() throws IOException {
         Stage stage = (Stage) esciBTN.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CercaTorneo.fxml"));
         Parent root = loader.load();
@@ -123,10 +123,10 @@ public class PartecipantiTorneoController implements Initializable {
         setPartecipanti();
     }
 
-    public void invita(MouseEvent mouseEvent) throws SQLException {
+    public void invita() throws SQLException {
         if (amicoTF.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE");
+            alert.setTitle(errore);
             alert.setContentText("Inserisci un'email.");
             alert.showAndWait();
             return;
@@ -136,7 +136,7 @@ public class PartecipantiTorneoController implements Initializable {
         Persona invitato = partecipantiTorneoBean.getPersonaByEmail(email);
         if (invitato == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE");
+            alert.setTitle(errore);
             alert.setContentText("Nessun utente trovato con questa email.");
             alert.showAndWait();
             return;
@@ -144,7 +144,7 @@ public class PartecipantiTorneoController implements Initializable {
 
         if (iscritti.stream().filter(x -> x.getId() == invitato.getId()).findAny().isPresent()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERRORE");
+            alert.setTitle(errore);
             alert.setContentText("L'utente è gia iscritto a questo torneo.");
             alert.showAndWait();
             return;
@@ -162,13 +162,12 @@ public class PartecipantiTorneoController implements Initializable {
         }
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("ERRORE");
+        alert.setTitle(errore);
         alert.setContentText("Hai gia invitato questo utente al torneo.");
         alert.showAndWait();
-        return;
     }
 
-    public void iscriviti(MouseEvent mouseEvent) throws SQLException {
+    public void iscriviti() throws SQLException {
 
         int numIscritti = iscritti.size();
         Campo campo = partecipantiTorneoBean.getCampoById(torneo.getCampoId());

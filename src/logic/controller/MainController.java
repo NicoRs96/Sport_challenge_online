@@ -21,7 +21,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Persona;
 import view.HomePageRenterView;
-import view.HomePageSportmanView;
 import view.Iscrivitiview;
 
 public class MainController implements Initializable{

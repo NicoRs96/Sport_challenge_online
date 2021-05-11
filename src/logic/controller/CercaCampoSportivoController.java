@@ -6,31 +6,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Campo;
 
 import bean.CercaCampoBean;
 import dao.CercaCampoDao;
 import model.Persona;
-import model.Torneo;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDate;
+
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
@@ -193,7 +185,6 @@ public class CercaCampoSportivoController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
-        return;
     }
 
 

@@ -21,13 +21,13 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import model.Invito;
 import model.Persona;
-import model.Torneo;
-import view.CercaCampoSportivoView;
+
 
 public class HomePageSportmanController implements Initializable {
     private Persona persona;
     private final CancellaAccountBean cancellaAccountBean = new CancellaAccountBean();
     private final InviteNotificationBean inviteBean = new InviteNotificationBean();
+    private String successo = "SUCCESS";
 
     @FXML
     private Button esciBTN;
@@ -125,7 +125,7 @@ public class HomePageSportmanController implements Initializable {
         if ((alert.getResult() == ButtonType.OK) &&
                 (cancellaAccountBean.deleteAccount(persona.getId()))) {
             alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS");
+            alert.setTitle(successo);
             alert.setContentText("ACCOUNT CANCELLATO CON SUCCESSO. A PRESTO");
             alert.showAndWait();
             alert = new Alert(Alert.AlertType.INFORMATION);
@@ -172,16 +172,17 @@ public class HomePageSportmanController implements Initializable {
             if (alert.getResult() == ButtonType.YES) {
                 inviteBean.acceptInvite(persona, invito.getTorneo());
                 Alert newalert = new Alert(Alert.AlertType.INFORMATION);
-                newalert.setTitle("SUCCESS");
+                newalert.setTitle(successo);
                 newalert.setContentText("Complimenti, ti sei iscritto con successo al torneo.");
                 break;
             }
-            else if (alert.getResult() == ButtonType.YES) {
+            else 
+            	{if (alert.getResult() == ButtonType.NO) {
                 inviteBean.removeInvite(invito.getId());
                 Alert newalert = new Alert(Alert.AlertType.INFORMATION);
-                newalert.setTitle("SUCCESS");
+                newalert.setTitle(successo);
                 newalert.setContentText("Hai rifiutato l'invito al torneo.");
-                break;
+                break;}
             }
         }
     }

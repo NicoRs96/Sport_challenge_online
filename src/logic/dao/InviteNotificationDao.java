@@ -34,7 +34,6 @@ public class InviteNotificationDao {
         ResultSet resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
-            int receiverId = resultSet.getInt("receiverId");
             int senderId = resultSet.getInt("senderId");
             int torneoId = resultSet.getInt("torneoId");
             byte isRead = resultSet.getByte("isRead");

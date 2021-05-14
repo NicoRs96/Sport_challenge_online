@@ -7,6 +7,10 @@ import java.util.Properties;
 
 public class ConfermaPrenotazioneCampoDao {
 
+	public ConfermaPrenotazioneCampoDao() {
+		//nothing
+	}
+	
     public Connection getConnection() throws SQLException {
         Connection conn = null;
         Properties connectionProps = new Properties();

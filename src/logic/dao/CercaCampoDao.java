@@ -100,7 +100,7 @@ public class CercaCampoDao {
         return campoInfo;
     }
 
-    public boolean confermaPrenotazione(int utente, int campo) throws SQLException {
+    /*public boolean confermaPrenotazione(int utente, int campo) throws SQLException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
 
@@ -122,6 +122,6 @@ public class CercaCampoDao {
         connection.close();
         return true;
 
-    }
+    }*/
 
 }

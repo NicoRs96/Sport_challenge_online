@@ -56,15 +56,15 @@ public class InviteNotificationDao {
         String query = String.format("SELECT * FROM user WHERE id = %s", id);
         ResultSet resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
-            String nome = resultSet.getString("NOME");
-            String cognome = resultSet.getString("COGNOME");
-            String datadinascita = resultSet.getString("DATADINASCITA");
-            String telefono = "" + resultSet.getString("TELEFONO");
-            String email = "" + resultSet.getString("EMAIL");
-            String isRenter = "" + resultSet.getString("RENT");
-            Persona persona = new Persona(id, nome, cognome, email, Date.valueOf(datadinascita).toLocalDate(), telefono, isRenter);
+            String nomeInd = resultSet.getString("NOME");
+            String cognomeInd = resultSet.getString("COGNOME");
+            String datadinascitaInd = resultSet.getString("DATADINASCITA");
+            String telefonoInd = "" + resultSet.getString("TELEFONO");
+            String emailInd = "" + resultSet.getString("EMAIL");
+            String isRenterInd = "" + resultSet.getString("RENT");
+            Persona personaInd = new Persona(id, nomeInd, cognomeInd, emailInd, Date.valueOf(datadinascitaInd).toLocalDate(), telefonoInd, isRenterInd);
             connection.close();
-            return persona;
+            return personaInd;
         }
         return null;
     }

@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import jdk.internal.org.objectweb.asm.tree.JumpInsnNode;
 import model.Invito;
 import model.Persona;
 
@@ -175,15 +176,18 @@ public class HomePageSportmanController implements Initializable {
                 newalert.setTitle(successo);
                 newalert.setContentText("Complimenti, ti sei iscritto con successo al torneo.");
                 break;
-            }
+               }
             else 
-            	{if (alert.getResult() == ButtonType.NO) {
+            {
+            	if (alert.getResult() == ButtonType.NO) {
                 inviteBean.removeInvite(invito.getId());
                 Alert newalert = new Alert(Alert.AlertType.INFORMATION);
                 newalert.setTitle(successo);
                 newalert.setContentText("Hai rifiutato l'invito al torneo.");
-                break;}
+                break;
+                }
             }
         }
     }
+    
 }

@@ -8,6 +8,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import dao.CercaCampoDao;
+import dao.ConfermaPrenotazioneCampoDao;
 
 public class CercaCampoBean {
 	
@@ -16,6 +17,7 @@ public class CercaCampoBean {
 	}
 	
 	private final CercaCampoDao cercaCampoDao = new CercaCampoDao();
+	private final ConfermaPrenotazioneCampoDao confermaPrenotazioneCampoDao = new ConfermaPrenotazioneCampoDao();
 	
 	String citta;
 	String sport;
@@ -68,6 +70,6 @@ public class CercaCampoBean {
 	}
 
 	public boolean confermaPrenotazione(int utente, int campo) throws SQLException {
-		return cercaCampoDao.confermaPrenotazione(utente, campo);
+		return confermaPrenotazioneCampoDao.confermaPrenotazione(utente, campo);
 	}
 }

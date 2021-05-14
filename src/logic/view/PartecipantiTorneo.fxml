@@ -65,12 +65,12 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <TableView fx:id="partecipantiTV" layoutX="83.0" layoutY="309.0" prefHeight="329.0" prefWidth="543.0">
+      <TableView fx:id="partecipantiTVptc" layoutX="83.0" layoutY="309.0" prefHeight="329.0" prefWidth="543.0">
         <columns>
-           <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
-          <TableColumn fx:id="nomeCol" prefWidth="150.0" text="NOME" />
-          <TableColumn fx:id="cognomeCol" minWidth="0.0" prefWidth="173.0" text="COGNOME" />
-            <TableColumn fx:id="livelloCol" prefWidth="219.0" text="LIVELLO" />
+           <TableColumn fx:id="idColptc" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="nomeColptc" prefWidth="150.0" text="NOME" />
+          <TableColumn fx:id="cognomeColptc" minWidth="0.0" prefWidth="173.0" text="COGNOME" />
+            <TableColumn fx:id="livelloColptc" prefWidth="219.0" text="LIVELLO" />
         </columns>
       </TableView>
       <TextField fx:id="amicoTF" layoutX="756.0" layoutY="409.0" prefHeight="31.0" prefWidth="238.0" promptText="Inserisci email" />

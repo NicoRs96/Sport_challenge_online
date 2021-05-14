@@ -12,18 +12,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Campo;
+import model.Meteo;
 import model.Persona;
 import model.Torneo;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -54,15 +51,15 @@ public class PartecipantiTorneoController implements Initializable {
     private Text tMaxTXT;
 
     @FXML
-    private TableView partecipantiTV;
+    private TableView partecipantiTVptc;
     @FXML
-    private TableColumn<Persona, Integer> idCol;
+    private TableColumn<Persona, Integer> idColptc;
     @FXML
-    private TableColumn<Persona, String> nomeCol;
+    private TableColumn<Persona, String> nomeColptc;
     @FXML
-    private TableColumn<Persona, String> cognomeCol;
+    private TableColumn<Persona, String> cognomeColptc;
     @FXML
-    private TableColumn<Persona, Integer> livelloCol;
+    private TableColumn<Persona, Integer> livelloColptc;
 
     @FXML
     private ImageView soleIV;
@@ -80,10 +77,10 @@ public class PartecipantiTorneoController implements Initializable {
     }
 
     public void setPartecipanti() {
-        idCol.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("id"));
-        nomeCol.setCellValueFactory(new PropertyValueFactory<Persona, String>("nome"));
-        cognomeCol.setCellValueFactory(new PropertyValueFactory<Persona, String>("cognome"));
-        livelloCol.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("livello"));
+        idColptc.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("id"));
+        nomeColptc.setCellValueFactory(new PropertyValueFactory<Persona, String>("nome"));
+        cognomeColptc.setCellValueFactory(new PropertyValueFactory<Persona, String>("cognome"));
+        livelloColptc.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("livello"));
     }
 
     public void setInfo() throws SQLException, IOException {
@@ -96,9 +93,9 @@ public class PartecipantiTorneoController implements Initializable {
     }
 
     public void getIscritti() throws SQLException {
-        partecipantiTV.getItems().clear();
+        partecipantiTVptc.getItems().clear();
         iscritti = partecipantiTorneoBean.getIscrittiByTorneoId(torneo);
-        partecipantiTV.getItems().addAll(iscritti);
+        partecipantiTVptc.getItems().addAll(iscritti);
         partecipantiTXT.setText("PARTECIPANTI: " + iscritti.size());
     }
 
@@ -195,49 +192,31 @@ public class PartecipantiTorneoController implements Initializable {
     }
 
     public void getMeteo(Torneo torneo) throws IOException {
-        Document doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + torneo.getCitta()).get();
-        if (doc == null) {
-            meteoTXT.setVisible(true);
-            meteoTXT.setText("METEO NON DISPONIBILE");
-            meteoTXT.setLayoutX(20);
-            meteoTXT.setLayoutY(80);
-            return;
-        }
-        Elements newsHeadlines = doc.getElementsByTag("li");
-        for (Element headline : newsHeadlines) {
-            if (headline.text().split(" ").length > 2) {
-                String tmax = headline.getElementsByClass("tmax").text();
-                String tmin = headline.getElementsByClass("tmin").text();
-                String giorno = headline.getElementsByTag("span").first() != null ? headline.getElementsByTag("span").first().text() : "";
-                boolean rain  = headline.getElementsByClass("s flag_pioggia").isEmpty();
-                boolean nuvoloso  = headline.getElementsByClass("s ss3").isEmpty();
-                boolean sole  = headline.getElementsByClass("s ss1").isEmpty();
-                if(tmax.isEmpty() || tmin.isEmpty())
-                    continue;
-
-                if(torneo.getData().getMonth() == LocalDate.now().getMonth() && torneo.getData().getDayOfMonth() <= LocalDate.now().getDayOfMonth()+15) {
-                    if(giorno.split(" ")[1].equals(""+torneo.getData().getDayOfMonth())) {
-                        if(!rain)
+        
+    	MeteoController meteoController = new MeteoController(torneo);
+    	
+    	Meteo meteo = meteoController.getMeteoTorneo();
+    	
+    	
+    	
+                        if(meteo.getT()!= "1")
                             pioggiaIV.setVisible(true);
-                        else if(!nuvoloso)
+                        else if(meteo.getT()!="2")
                             nuvoleIV.setVisible(true);
-                        else if(!sole)
+                        else if(meteo.getT()!="3")
                             soleIV.setVisible(true);
                         tMinTXT.setVisible(true);
                         tMaxTXT.setVisible(true);
-                        tMinTXT.setText("Temperatura minima: " + tmin);
-                        tMaxTXT.setText("Temperatura massima: " + tmax);
+                        tMinTXT.setText("Temperatura minima: " + meteo.gettMin());
+                        tMaxTXT.setText("Temperatura massima: " + meteo.gettMax());
                         meteoTXT.setVisible(true);
-                        meteoTXT.setText("METEO: " + torneo.getCitta());
-                        return;
-                    }
-                }
-            }
-        }
-        meteoTXT.setVisible(true);
-        meteoTXT.setText("METEO NON DISPONIBILE");
-        meteoTXT.setLayoutX(20);
-        meteoTXT.setLayoutY(80);
+                        meteoTXT.setText("METEO: " + torneo.getCitta());                   
+                
+            
+        
+      
     }
+    
+    
 
 }

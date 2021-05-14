@@ -9,11 +9,11 @@ import java.util.TreeMap;
 
 public class CercaTorneoDao {
 	
-	String comuneString ="COMUNE";
-	String renterString ="RENTER";
-	String indirizzoString = "INDIRIZZO";
-	String prezzoString = "PREZZO";
-	String sportString = "SPORT";
+	String comuneStringCtd ="COMUNE";
+	String renterStringCtd ="RENTER";
+	String indirizzoStringCtd = "INDIRIZZO";
+	String prezzoStringCtd = "PREZZO";
+	String sportStringCtd = "SPORT";
 
     public Connection getConnection() throws SQLException {
 
@@ -40,19 +40,19 @@ public class CercaTorneoDao {
         while (resultSet.next()) {
             String nome = resultSet.getString("NOME");
             int id = resultSet.getInt("ID");
-            String comune = resultSet.getString(comuneString);
+            String comune = resultSet.getString(comuneStringCtd);
             String campo = resultSet.getString("c.ID");
-            String indirizzo = resultSet.getString(indirizzoString);
+            String indirizzo = resultSet.getString(indirizzoStringCtd);
             String desc = resultSet.getString("DESCRIZIONE");
-            String renter = "" + resultSet.getInt(renterString);
+            String renter = "" + resultSet.getInt(renterStringCtd);
             String date = resultSet.getString("DATA");
             String ora = resultSet.getString("ORA");
             String metodo = resultSet.getString("MODALITAPAGAMENTO");
-            String prezzo = resultSet.getString(prezzoString);
+            String prezzo = resultSet.getString(prezzoStringCtd);
             String eta = resultSet.getString("ETA");
             String numMin = resultSet.getString("NUMEROMIN");
             String dataS = resultSet.getString("DATASCADENZA");
-            String sport = resultSet.getString(sportString);
+            String sport = resultSet.getString(sportStringCtd);
             TreeMap<String, String> info = new TreeMap<>();
             info.put("NOME", nome);
             info.put("CAMPO", campo);
@@ -96,11 +96,11 @@ public class CercaTorneoDao {
         ResultSet resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
-            String comune = resultSet.getString(comuneString);
-            String indirizzo = resultSet.getString(indirizzoString);
-            String renter = "" + resultSet.getInt(renterString);
+            String comune = resultSet.getString(comuneStringCtd);
+            String indirizzo = resultSet.getString(indirizzoStringCtd);
+            String renter = "" + resultSet.getInt(renterStringCtd);
             String isAffittabile = "" + resultSet.getString("AFFITTABILE");
-            String sport = "" + resultSet.getString(sportString);
+            String sport = "" + resultSet.getString(sportStringCtd);
             Campo campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
             campo.setSport(sport);
             connection.close();

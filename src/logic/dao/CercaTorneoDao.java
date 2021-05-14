@@ -95,7 +95,7 @@ public class CercaTorneoDao {
         String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
         ResultSet resultSet = statement.executeQuery(query);
         Campo campo = null;
-        boolean var=false;
+        boolean variabile=false;
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String comune = resultSet.getString(comuneStringCtd);
@@ -105,10 +105,10 @@ public class CercaTorneoDao {
             String sport = "" + resultSet.getString(sportStringCtd);
             campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
             campo.setSport(sport);
-            var=true;
+            variabile=true;
             connection.close();
         }
-        if (var) {
+        if (variabile) {
         	return campo;
         }else {
         	return null;}

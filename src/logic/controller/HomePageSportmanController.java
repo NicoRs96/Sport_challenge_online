@@ -174,7 +174,6 @@ public class HomePageSportmanController implements Initializable {
                 Alert newalert = new Alert(Alert.AlertType.INFORMATION);
                 newalert.setTitle(successo);
                 newalert.setContentText("Complimenti, ti sei iscritto con successo al torneo.");
-                break;
                }
             else 
             {
@@ -183,9 +182,9 @@ public class HomePageSportmanController implements Initializable {
                 Alert newalert = new Alert(Alert.AlertType.INFORMATION);
                 newalert.setTitle(successo);
                 newalert.setContentText("Hai rifiutato l'invito al torneo.");
-                break;
                 }
             }
+            break;
         }
     }
     

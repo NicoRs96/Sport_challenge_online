@@ -72,8 +72,9 @@ public class GestisciMieiEventiDao {
         Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
         ResultSet resultSet = statement.executeQuery(query);
+        Torneo torneo =null;
         while(resultSet.next()) {
-            Torneo torneo = new Torneo(
+            torneo = new Torneo(
                     resultSet.getString("t.NOME"),
                     resultSet.getString("c.NOME"),
                     LocalDate.parse(resultSet.getString("t.DATA")),

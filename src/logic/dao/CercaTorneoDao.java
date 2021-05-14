@@ -94,6 +94,8 @@ public class CercaTorneoDao {
         Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
         ResultSet resultSet = statement.executeQuery(query);
+        Campo campo = null;
+        boolean var=false;
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String comune = resultSet.getString(comuneStringCtd);
@@ -101,12 +103,15 @@ public class CercaTorneoDao {
             String renter = "" + resultSet.getInt(renterStringCtd);
             String isAffittabile = "" + resultSet.getString("AFFITTABILE");
             String sport = "" + resultSet.getString(sportStringCtd);
-            Campo campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
+            campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
             campo.setSport(sport);
+            var=true;
             connection.close();
-            return campo;
         }
-        return null;
+        if (var) {
+        	return campo;
+        }else {
+        	return null;}
     }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException {

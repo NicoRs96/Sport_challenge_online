@@ -100,28 +100,6 @@ public class CercaCampoDao {
         return campoInfo;
     }
 
-    /*public boolean confermaPrenotazione(int utente, int campo) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
 
-        String query = "SELECT MAX(ID) FROM PRENOTAZIONE_CAMPO";
-        ResultSet result = statement.executeQuery(query);
-        int max = 0;
-        if (result.next()) {
-            max = (result.getString(1) == null) ? 0 : Integer.parseInt(result.getString(1))+1;
-
-        }
-        query = String.format("INSERT INTO PRENOTAZIONE_CAMPO(ID,User,Campo) VALUES(%s,'%s','%s')", max, utente, campo);
-        statement.execute(query);
-        query = String.format("UPDATE CAMPO SET AFFITTABILE = 0 WHERE ID = '%s'", campo);
-        statement = connection.prepareStatement(query);
-        if (statement.executeUpdate(query) == 0) {
-            connection.close();
-            return false;
-        }
-        connection.close();
-        return true;
-
-    }*/
 
 }

@@ -3,7 +3,6 @@ package dao;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -17,27 +16,21 @@ public class GestisciCampiDao {
     
     static final String PREZZO_STRING = "PREZZO";
     
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-    }
+    
 
     public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int renterId) throws SQLException {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campoInfo = new TreeMap<>();
         ArrayList<TreeMap<String, String>> infoList = new ArrayList<>();
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+        
+        Connection connection;
+        Statement statement=null;
+        ResultSet resultSet=null;
+        
+        try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
         String query = String.format("SELECT * FROM CAMPO WHERE renter= %s AND TORNEO = 0", renterId);
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             String id = ""+ resultSet.getInt("ID");
             String name = resultSet.getString("NOME");
@@ -66,40 +59,77 @@ public class GestisciCampiDao {
 
         }
         campoInfo.put(renterId,infoList);
-        connection.close();
+        }
+        catch (Exception e) {
+			// nothing
+		}
+        finally {
+        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        
         return campoInfo;
     }
 
     public boolean setCampoAffittabile(int id) throws SQLException {
-        Connection connection = getConnection();
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
         String query = String.format("UPDATE CAMPO SET AFFITTABILE = 1 WHERE id = '%s'", id);
-        Statement statement = connection.prepareStatement(query);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
+            risultato=false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+			// nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
     }
 
     public boolean setCampoNonAffittabile(int id) throws SQLException {
-        Connection connection = getConnection();
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+    	connection = DBConnectionSingleton.getConnectionInstance();
         String query = String.format("UPDATE CAMPO SET AFFITTABILE = 0 WHERE id = '%s'", id);
-        Statement statement = connection.prepareStatement(query);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
-            connection.close();
-            return false;
+            risultato= false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+    		//nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
     }
 
     public SortedMap<Integer, TreeMap<String, String>> getPrenotazioni(int id) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("select p.id, c.NOME as 'CAMPO', c.`DATA`, c.ora as 'ORA', u.NOME as 'CLIENTE', u.COGNOME , c.PREZZO, u.TELEFONO from sportchallengeonline.prenotazione_campo p , sportchallengeonline.campo c , sportchallengeonline.`user` u where p.campo = c.ID and p.`user` = u.ID and c.renter = '%s'", id);
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	ResultSet resultSet = null;
         TreeMap<Integer, TreeMap<String, String>> prenotazioneInfo = new TreeMap<>();
-        ResultSet resultSet = statement.executeQuery(query);
+
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
+        String query = String.format("select p.id, c.NOME as 'CAMPO', c.`DATA`, c.ora as 'ORA', u.NOME as 'CLIENTE', u.COGNOME , c.PREZZO, u.TELEFONO from sportchallengeonline.prenotazione_campo p , sportchallengeonline.campo c , sportchallengeonline.`user` u where p.campo = c.ID and p.`user` = u.ID and c.renter = '%s'", id);
+         resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             int idPrenotaz = resultSet.getInt("ID");
             String campo = resultSet.getString("CAMPO");
@@ -119,22 +149,38 @@ public class GestisciCampiDao {
             info.put("COGNOMECLIENTE",cognome);
             info.put("TELEFONO",telefono);
             prenotazioneInfo.put(idPrenotaz,info);
-        }
+        }}
+    	catch (Exception e) {
+			// nothing
+		}
+    	finally {
+    		 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
 
-        connection.close();
         return prenotazioneInfo;
     }
 
     public boolean cancellaPrenotazione(int id) throws SQLException {
-        Connection connection = getConnection();
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
         String query = String.format("DELETE FROM PRENOTAZIONE_CAMPO WHERE id = '%s'", id);
-        Statement statement = connection.prepareStatement(query);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
-        }
-        connection.close();
-        return true;
+            risultato= false;
+        }}
+    	catch (Exception e) {
+			// nothing
+		}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
     }
 
 

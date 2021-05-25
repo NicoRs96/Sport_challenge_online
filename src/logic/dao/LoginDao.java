@@ -1,9 +1,9 @@
 package dao;
 
 import java.sql.*;
-import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
+
 
 public class LoginDao {
 
@@ -11,27 +11,19 @@ public class LoginDao {
     	//nothing
     }
 
-    public Connection getConnection() throws SQLException {
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-
-    }
+    
 
     public SortedMap<String, String> authenticate(String email, String password) throws SQLException {
 
         TreeMap<String, String> user = new TreeMap<>();
-        Connection connection = getConnection();
-        Statement stm = connection.createStatement();
+        Connection connection;
+        Statement stm=null;
+        ResultSet resultSet=null;
+        try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         stm = connection.createStatement();
         String query = String.format("SELECT * FROM USER WHERE email = '%s' AND password='%s'",email, password);
-        ResultSet resultSet = stm.executeQuery(query);
+         resultSet = stm.executeQuery(query);
         while(resultSet.next()) {
             user.put("ID", ""+resultSet.getInt("ID"));
             user.put("NOME", resultSet.getString("NOME"));
@@ -42,6 +34,14 @@ public class LoginDao {
             user.put("TELEFONO", resultSet.getString("TELEFONO"));
             user.put("RENT", "" +resultSet.getInt("RENT"));
         }
+        }
+        catch (Exception e) {
+			// TODO: handle exception
+		}
+        finally {
+        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	     try { if (stm!=null) stm.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return user;
     }
 

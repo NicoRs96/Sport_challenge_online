@@ -7,30 +7,21 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class GestisciTorneiRenterDao {
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-    }
+  
 
     public List<Torneo> getTorneiByRenterId(int id) throws SQLException {
         List<Torneo> tornei = new ArrayList<>();
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+        Connection connection;
+        Statement statement=null;
+        ResultSet resultSet=null;
+        try {
+        	connection = DBConnectionSingleton.getConnectionInstance();
+        	statement = connection.createStatement();
         String query = String.format("SELECT * FROM TORNEO t,CAMPO c WHERE c.RENTER = %s AND c.TORNEO = 1 AND t.CAMPO = c.ID", id);
-        ResultSet resultSet = statement.executeQuery(query);
+        	resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             Torneo torneo = new Torneo(resultSet.getString("NOME"),resultSet.getString("c.NOME"),
                     LocalDate.parse(resultSet.getString("DATA")),
@@ -45,17 +36,31 @@ public class GestisciTorneiRenterDao {
             torneo.setDesc(resultSet.getString("DESCRIZIONE"));
             tornei.add(torneo);
         }
+        }
+        catch (Exception e) {
+			// nothing
+		}
+        finally {
+        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return tornei;
     }
 
     public List<Persona> getIscrittiByTorneoId(int id) throws SQLException {
         List<Persona> iscritti = new ArrayList<>();
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        Connection connection;
+        Statement statement=null;
+        ResultSet resultSet=null;
+        ResultSet resultSet2=null;
+        
+        try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO pt," +
                 "USER u, CAMPO c, TORNEO t, USER_SPORT su " +
                 "WHERE pt.TORNEO = %s AND pt.USER = U.ID AND pt.TORNEO = t.ID AND t.CAMPO = c.ID AND c.SPORT = su.SPORT AND su.USER = u.ID", id);
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         if(resultSet.next()){
             resultSet.beforeFirst();
             while(resultSet.next()) {
@@ -75,48 +80,89 @@ public class GestisciTorneiRenterDao {
         else{
             query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO pt," +
                     "USER u WHERE pt.TORNEO = %s AND pt.USER = U.ID" , id);
-            resultSet = statement.executeQuery(query);
+            resultSet2 = statement.executeQuery(query);
                 while(resultSet.next()) {
                     Persona persona = new Persona(resultSet.getInt("pt.USER"),
-                            resultSet.getString("u.NOME"),
-                            resultSet.getString("u.COGNOME"),
-                            resultSet.getString("u.EMAIL"),
+                            resultSet2.getString("u.NOME"),
+                            resultSet2.getString("u.COGNOME"),
+                            resultSet2.getString("u.EMAIL"),
                             LocalDate.parse(resultSet.getString("u.DATADINASCITA")),
-                            resultSet.getString("u.TELEFONO"),
-                            resultSet.getString("u.RENT")
+                            resultSet2.getString("u.TELEFONO"),
+                            resultSet2.getString("u.RENT")
                     );
                     persona.setLivello("DILETTANTE");
                     iscritti.add(persona);
                 }
 
         }
+        }
+        catch (Exception e) {
+			// nothing
+		}
+        finally {
+        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+        	try { if(resultSet2!=null) resultSet2.close(); } catch (Exception e) { /* Ignored */ }
+
+    	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
 
 
-        connection.close();
         return iscritti;
     }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException{
-        Connection connection = getConnection();
-        String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO =1 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
-        Statement statement = connection.prepareStatement(query);
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO =1 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
+            risultato=false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+			// nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
+    	
     }
+    	
+        
+    
 
     public boolean cancellaIscrizione(int utenteId, int torneoId) throws SQLException{
-        Connection connection = getConnection();
-        String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO = 0 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
-        Statement statement = connection.prepareStatement(query);
+        
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO = 0 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
+            risultato=false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+			// nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
+    	
     }
+    	
+    	
+    	
 }

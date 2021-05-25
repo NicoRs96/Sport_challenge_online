@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.*;
-import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -11,66 +10,54 @@ public class CercaCampoDao {
         //nothing
     }
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-
-    }
+    
 
     public Boolean isCityAvailable(String city) throws SQLException {
         String query = String.format("SELECT * FROM COMUNE WHERE NOME='%s'", city);
-        Connection connection = getConnection();        
+        Connection connection;        
         Statement statement = null;
         ResultSet result = null;
         boolean check = false;
-        	try {
-        		statement = connection.createStatement();
-			} catch (SQLException throwables) {
-	            throwables.printStackTrace();
-				
-				
-			}
-        	finally {
-        		
-        		try {
-        			result = statement.executeQuery(query);
-				} 
-        		catch (SQLException throwables) {
-		            throwables.printStackTrace();
-				}
-        		finally {
-	        		statement.close();
-	        		if (result !=null && result.next()){
-	        			check=true;
-		        		result.close();
-		        		}
-
-	        		}
-        		
-				}
         
-        connection.close();
+        try {
+			connection = DBConnectionSingleton.getConnectionInstance();
+			statement = connection.createStatement();
+			result = statement.executeQuery(query);       	
+			
+			if (result.next()){
+    			check=true;}
+        	
+		} catch (Exception e) {
+			// nothing
+		}
+        finally {   	   
+    		
+    	    try { if(result!=null) result.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        
         return check;
-
-    }
-
+        
+    }   
+        
+        
+        
+        
     public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException {
         TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
-
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+        
         String query = String.format("SELECT * FROM CAMPO WHERE COMUNE='%s' AND SPORT='%s' AND DATA >= '%s' AND TORNEO = 0", city, sport, data);
-        ResultSet resultSet = statement.executeQuery(query);
-        while (resultSet.next()) {
+        
+        
+        Connection connection;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+          connection = DBConnectionSingleton.getConnectionInstance();
+          statement = connection.createStatement();
+          resultSet = statement.executeQuery(query);
+         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String id = "" + resultSet.getInt("ID");
             String comune = resultSet.getString("COMUNE");
@@ -96,9 +83,20 @@ public class CercaCampoDao {
             campoInfo.put(name, info);
 
         }
-        connection.close();
-        return campoInfo;
+        
     }
+        catch (Exception e) {
+        	
+		}
+        
+       finally {   	   
+		
+    	    try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+       
+        return campoInfo;
+       }
 
 
 

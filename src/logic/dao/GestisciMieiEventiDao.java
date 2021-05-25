@@ -5,34 +5,26 @@ import model.Torneo;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class GestisciMieiEventiDao {
 
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-    }
+         
 
     public SortedMap<Integer, ArrayList<TreeMap<String, String>>> getCampi(int utenteId) throws SQLException {
         TreeMap<Integer, ArrayList<TreeMap<String, String>>> campoInfo = new TreeMap<>();
         ArrayList<TreeMap<String, String>> infoList = new ArrayList<>();
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+        
+        Connection connection;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
         String query = String.format("SELECT * FROM PRENOTAZIONE_CAMPO p, CAMPO c WHERE c.ID = p.CAMPO AND p.USER = %s", utenteId);
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             String idGMEDao = ""+ resultSet.getInt("p.ID");
             String nameGMEDao = resultSet.getString("NOME");
@@ -60,19 +52,31 @@ public class GestisciMieiEventiDao {
             infoList.add(info);
 
         }
-        campoInfo.put(utenteId,infoList);
-        connection.close();
+        campoInfo.put(utenteId,infoList);}
+        catch (Exception e) {
+			//nothing
+		}
+        finally {
+        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return campoInfo;
     }
 
 
     public Torneo getTorneoByUtenteId(int id) throws SQLException {
-
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
-        ResultSet resultSet = statement.executeQuery(query);
+    	
+    	Connection connection;
+        Statement statement = null;
+        ResultSet resultSet = null;
         Torneo torneo =null;
+
+        try {
+
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
+        String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
+         resultSet = statement.executeQuery(query);
         while(resultSet.next()) {
             torneo = new Torneo(
                     resultSet.getString("t.NOME"),
@@ -95,35 +99,70 @@ public class GestisciMieiEventiDao {
             torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
             torneo.setConfermato();
 
-            connection.close();
-            return torneo;
+            
         }
-        connection.close();
-        return null;
+        }
+        catch (Exception e) {
+			// nothing
+		}
+        finally {
+        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return torneo;
     }
 
 
     public boolean cancellaPrenotazioneCampo(int id)  throws SQLException{
-        Connection connection = getConnection();
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
         String query = String.format("DELETE FROM PRENOTAZIONE_CAMPO WHERE id = %s", id);
-        Statement statement = connection.prepareStatement(query);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
+            risultato=false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+			// nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
+    	
+    	
+    	
     }
 
     public boolean cancellaPrenotazioneTorneo(int torneoId, int utenteId )  throws SQLException{
-        Connection connection = getConnection();
-        String query = String.format("DELETE FROM PRENOTAZIONE_TORNEO WHERE TORNEO = %s AND USER = %s", torneoId, utenteId);
-        Statement statement = connection.prepareStatement(query);
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean risultato=true;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         String query = String.format("DELETE FROM PRENOTAZIONE_TORNEO WHERE TORNEO = %s AND USER = %s", torneoId, utenteId);
+         statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
-            return false;
+            risultato=false;
         }
-        connection.close();
-        return true;
+    	}
+    	catch (Exception e) {
+			// nothing
+    	}
+    	finally {
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return risultato;
+    	
     }
+        
 }

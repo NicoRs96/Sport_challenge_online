@@ -184,7 +184,6 @@ public class HomePageSportmanController implements Initializable {
                 newalert.setContentText("Hai rifiutato l'invito al torneo.");
                 }
             }
-            break;
         }
     }
     

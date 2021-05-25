@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.*;
-import java.util.Properties;
 
 import model.Campo;
 
@@ -11,26 +10,20 @@ public class InserisciCampoDao {
     	//constructor
     }
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-    }
+    
 
     public boolean inserisciCampo(Campo campo, String torneo) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        Statement stm = connection.createStatement();
+    	Connection connection;
+    	Statement statement=null;
+    	Statement stm=null;
+    	ResultSet rs=null;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
+         stm=connection.createStatement();
         String q = "SELECT MAX(ID) AS ID FROM campo";
-        ResultSet rs = stm.executeQuery(q);
+        rs = stm.executeQuery(q);
         int id = 0;
         while(rs.next()){
             if (rs.getString("ID")==null)
@@ -43,14 +36,19 @@ public class InserisciCampoDao {
                 "VALUES('%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s', '%s', 0,'%s')",id , campo.getNome().toUpperCase(), campo.getComune().toUpperCase(), campo.getIndirizzo().toUpperCase(),
                 campo.getSport().toUpperCase(), campo.getDesc().toUpperCase(),  campo.getRenter(), campo.getData(), campo.getOra(), campo.getModPagamento().toUpperCase(), campo.getPrezzo(), torneo);
 
-        try {
-            statement.execute(query);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return false;
-        }
+        statement.execute(query);
+       }
+    	catch (Exception e) {
+		// nothing
+    	}
+    	finally {
+        	try { if(rs!=null) rs.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (stm!=null) stm.close(); } catch (Exception e) { /* Ignored */ }
 
-        connection.close();
+
+		}
+
         return true;
 
     }

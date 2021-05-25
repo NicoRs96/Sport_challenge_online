@@ -3,9 +3,9 @@ package dao;
 import model.Campo;
 
 import java.sql.*;
-import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
+
 
 public class CercaTorneoDao {
 	
@@ -15,28 +15,19 @@ public class CercaTorneoDao {
 	String prezzoStringCtd = "PREZZO";
 	String sportStringCtd = "SPORT";
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-
-    }
+    
 
     public SortedMap<Integer, TreeMap<String, String>> getTornei(String city,String data) throws SQLException {
         TreeMap<Integer, TreeMap<String, String>> torneoInfo = new TreeMap<>();
 
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+    Connection connection;
+	Statement statement = null;
+	ResultSet resultSet = null;
+	try {
+    	 connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
         String query = String.format("SELECT * FROM TORNEO t,CAMPO c WHERE c.COMUNE='%s' AND t.DATA >= '%s' AND c.TORNEO = 1 AND t.campo = c.id", city, data);
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             String nome = resultSet.getString("NOME");
             int id = resultSet.getInt("ID");
@@ -71,31 +62,60 @@ public class CercaTorneoDao {
             torneoInfo.put(id, info);
 
         }
-        connection.close();
+       }
+       catch (Exception e) {
+		// nothing
+	}
+       finally {
+    	   try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	   try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+	}
+      
         return torneoInfo;
     }
 
     public int getNumIscritti(int id) throws SQLException {
         int count = 0;
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+        
+        Connection connection;
+		Statement statement = null;
+		ResultSet resultSet = null;
+        try{
+        	connection = DBConnectionSingleton.getConnectionInstance();
+        
+        statement = connection.createStatement();
         String query = String.format("SELECT count(*) AS NUM FROM prenotazione_torneo WHERE TORNEO = %s", id);
-        ResultSet resultSet = statement.executeQuery(query);
+        resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             count = resultSet.getInt("NUM");
         }
-        connection.close();
+        }
+        
+        catch (Exception e) {
+        	//nothing
+        	}
+        finally {
+        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return count;
     }
 
 
     public Campo getCampoById(int id) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
-        ResultSet resultSet = statement.executeQuery(query);
-        Campo campo = null;
         boolean variabile=false;
+        Campo campo = null;
+
+    	Connection connection;
+    	Statement statement = null;
+    	ResultSet resultSet = null;
+    	
+    	try {
+    	
+    	 connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
+        String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String comune = resultSet.getString(comuneStringCtd);
@@ -108,6 +128,14 @@ public class CercaTorneoDao {
             variabile=true;
             connection.close();
         }
+        }
+    	catch (Exception e) {
+			// nothing
+		}
+    	finally {
+    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+     	   try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         if (variabile) {
         	return campo;
         }else {
@@ -115,11 +143,23 @@ public class CercaTorneoDao {
     }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("INSERT INTO PRENOTAZIONE_TORNEO(User,Torneo) VALUES('%s','%s')", utenteId, torneoId);
-        statement.execute(query);
-        connection.close();
+    	
+    	Connection connection;
+    	Statement statement = null;
+
+    	try {
+    		connection = DBConnectionSingleton.getConnectionInstance();
+            statement = connection.createStatement();
+            String query = String.format("INSERT INTO PRENOTAZIONE_TORNEO(User,Torneo) VALUES('%s','%s')", utenteId, torneoId);
+            statement.execute(query);
+		} 
+    	catch (Exception e) {
+			// niente
+		}
+    	finally {
+    		
+     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return true;
 
     }

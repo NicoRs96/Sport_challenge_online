@@ -65,7 +65,7 @@ public class PartecipantiTorneoDao {
         ResultSet resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             livello = resultSet.getString("LIVELLO");
-            break;
+            
         }
         connection.close();
         return livello;
@@ -76,6 +76,7 @@ public class PartecipantiTorneoDao {
         Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = String.format("SELECT * FROM user WHERE email = '%s'", email.toLowerCase());
         ResultSet resultSet = statement.executeQuery(query);
+        Persona persona =null;
         while (resultSet.next()) {
             int id = resultSet.getInt("ID");
             String nome = resultSet.getString("NOME");
@@ -83,12 +84,11 @@ public class PartecipantiTorneoDao {
             String datadinascita = resultSet.getString("DATADINASCITA");
             String telefono = "" + resultSet.getString("TELEFONO");
             String isRenter = "" + resultSet.getString("RENT");
-            Persona persona = new Persona(id, nome, cognome, email, Date.valueOf(datadinascita).toLocalDate(), telefono, isRenter);
-            connection.close();
-            return persona;
+            persona = new Persona(id, nome, cognome, email, Date.valueOf(datadinascita).toLocalDate(), telefono, isRenter);
+            
         }
-        return null;
-
+        connection.close();
+        return persona;
     }
 
     public boolean sendInvite(Persona p, Torneo t, Persona invitato) throws SQLException {
@@ -110,6 +110,7 @@ public class PartecipantiTorneoDao {
         Statement statement = connection.createStatement();
         String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
         ResultSet resultSet = statement.executeQuery(query);
+        Campo campo =null;
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String comune = resultSet.getString(comuneString);
@@ -117,13 +118,12 @@ public class PartecipantiTorneoDao {
             String renter = "" + resultSet.getInt(renterString);
             String isAffittabile = "" + resultSet.getString("AFFITTABILE");
             String sport = "" + resultSet.getString(sportString);
-            Campo campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
+            campo = new Campo(id, name, comune, indirizzo, renter, Integer.parseInt(isAffittabile));
             campo.setSport(sport);
-            connection.close();
-            return campo;
+            
         }
-        return null;
-    }
+        connection.close();
+        return campo;    }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException {
         Connection connection = getConnection();

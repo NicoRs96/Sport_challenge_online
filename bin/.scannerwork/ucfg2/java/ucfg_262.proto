@@ -1,41 +1,0 @@
-
-bean.IscrivitiBean#checkData()Ie
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaH H("3*Û
-2e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaK
- K("o
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaK K(
-""*‹
-3e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaJ J(Þ
-Û
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaJ J(
-%0java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeÅÂ
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaJ J(#	
-%1int""java.time.LocalDateTime#getYear()I*
-
-%0java.time.LocalDateTime2	getYear()­
-ª
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaJ& J(*
-%2java.time.LocalDate"__id* *
-bean.IscrivitiBean"
-data½º
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaJ& J(4	
-%3int"java.time.LocalDate#getYear()I*
-
-%2java.time.LocalDate2	getYear()*
-2
-1*Û
-1e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaM	 M(
-"o
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaM M(
-""B
-bean.IscrivitiBean

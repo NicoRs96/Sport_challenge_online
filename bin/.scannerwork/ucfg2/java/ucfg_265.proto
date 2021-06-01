@@ -1,87 +1,0 @@
-
-$bean.IscrivitiBean#aggiungiUtente()Ie
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javab b("3*Û
-2e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javae
- e("o
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javae e(
-""*±
-3e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javac c(ª
-§
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javac c( 
-%0java.lang.String"__id* *
-bean.IscrivitiBean"
-nomeÝÚ
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javac c(.
-%1java.lang.String"0java.lang.String#toUpperCase()Ljava/lang/String;*
-
-%0java.lang.String2toUpperCase()­
-ª
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javac0 c(7
-%2java.lang.String"__id*#*!
-bean.IscrivitiBean"	
-cognomeÝÚ
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javac0 c(E
-%3java.lang.String"0java.lang.String#toUpperCase()Ljava/lang/String;*
-
-%2java.lang.String2toUpperCase()ª
-§
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad d(
-%4java.lang.String"__id* *
-bean.IscrivitiBean"
-mail­
-ª
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad
- d(
-%5java.time.LocalDate"__id* *
-bean.IscrivitiBean"
-dataÝÚ
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad
- d(
-%6java.lang.String"0java.time.LocalDate#toString()Ljava/lang/String;*
-
-%5java.time.LocalDate2
-toString()¨
-¥
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad d(
-%7java.lang.String"__id**
-bean.IscrivitiBean"
-pw®
-«
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad d(&
-%8java.lang.String"__id*$*"
-bean.IscrivitiBean"
-
-telefono©
-¦
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad( d(*
-%9java.lang.Boolean"__id**
-bean.IscrivitiBean"
-cbÚ×
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javad( d(5
-%10java.lang.String".java.lang.Boolean#toString()Ljava/lang/String;*
-
-%9java.lang.Boolean2
-toString()*
-2
-1*Û
-1e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javag	 g(
-"o
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javag g(
-""B
-bean.IscrivitiBean

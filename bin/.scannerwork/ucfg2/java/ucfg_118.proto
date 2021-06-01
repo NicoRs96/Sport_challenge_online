@@ -1,61 +1,0 @@
-
-:dao.InserisciCampoDao#getConnection()Ljava/sql/Connection;h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (#"1*ë
-1h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (˜
-•
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (
-connjava.sql.Connection"__id*
-""Ÿœ
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java) (3
-%0java.util.Properties"java.util.Properties±
-®
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java% (5
-%1"java.util.Properties#<init>()V*
-
-%0java.util.Propertiesº
-·
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (6'
-connectionPropsjava.util.Properties"__id*
-
-%0java.util.PropertiesÎ
-Ë
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (+
-%2java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-user*
-rootÓ
-Ð
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (0
-%3java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-
-password*	
-adminê
-ç
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java ( 
-%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
-java.sql.DriverManager*42
-0jdbc:mysql://localhost:3306/sportchallengeonline*)
-'
-connectionPropsjava.util.Properties­
-ª
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java ( 
-connjava.sql.Connection"__id*
-
-%4java.sql.Connection"‰
-h
-^C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/InserisciCampoDao.java (
-
-connjava.sql.ConnectionB
-dao.InserisciCampoDao

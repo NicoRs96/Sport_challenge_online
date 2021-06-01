@@ -1,80 +1,0 @@
-
-9dao.GestisciMieiEventiDao#cancellaPrenotazioneTorneo(II)Zl
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javau u(-"3*µ
-2l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javaz z(ÉÆ
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javaz z(
-
-%4void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"v
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java{ {(
-""*Ö
-3l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javav  v(-üù
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javav  v(/
-%0java.sql.Connection">dao.GestisciMieiEventiDao#getConnection()Ljava/sql/Connection;*
-dao.GestisciMieiEventiDao2getConnection()·
-´
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javav v(0!
-
-connectionjava.sql.Connection"__id*
-
-%0java.sql.ConnectionÆ
-Ã
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javaw w({
-%1java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
-java.lang.String*CA
-?DELETE FROM PRENOTAZIONE_TORNEO WHERE TORNEO = %s AND USER = %s*
-""*
-""¬
-©
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javaw w(|
-queryjava.lang.String"__id*
-
-%1java.lang.StringÑÎ
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javax x(@ 
-%2java.sql.PreparedStatement"Tjava.sql.Connection#prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;*#
-!
-
-connectionjava.sql.Connection*
-
-queryjava.lang.String2$prepareStatement(Ljava/lang/String;)¼
-¹
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javax x(A
-	statementjava.sql.Statement"__id*"
- 
-%2java.sql.PreparedStatement–“
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.javay y()	
-%3int"5java.sql.Statement#executeUpdate(Ljava/lang/String;)I*!
-
-	statementjava.sql.Statement*
-
-queryjava.lang.String2!executeUpdate(Ljava/lang/String;)*
-2
-1*µ
-1l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java} }(ÉÆ
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java} }(
-
-%5void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"v
-l
-bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java~ ~(
-"":
-"":
-""B
-dao.GestisciMieiEventiDao

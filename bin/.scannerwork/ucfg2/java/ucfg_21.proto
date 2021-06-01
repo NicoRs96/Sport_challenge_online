@@ -1,61 +1,0 @@
-
-6dao.CreaTorneoDao#getConnection()Ljava/sql/Connection;d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (#"1*Ã
-1d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (”
-‘
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (
-connjava.sql.Connection"__id*
-""›˜
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java) (3
-%0java.util.Properties"java.util.Properties­
-ª
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java% (5
-%1"java.util.Properties#<init>()V*
-
-%0java.util.Properties¶
-³
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (6'
-connectionPropsjava.util.Properties"__id*
-
-%0java.util.PropertiesÊ
-Ç
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (+
-%2java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-user*
-rootÏ
-Ì
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (0
-%3java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-
-password*	
-adminæ
-ã
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java ( 
-%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
-java.sql.DriverManager*42
-0jdbc:mysql://localhost:3306/sportchallengeonline*)
-'
-connectionPropsjava.util.Properties©
-¦
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java ( 
-connjava.sql.Connection"__id*
-
-%4java.sql.Connection"…
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CreaTorneoDao.java (
-
-connjava.sql.ConnectionB
-dao.CreaTorneoDao

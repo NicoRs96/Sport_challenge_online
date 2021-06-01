@@ -1,91 +1,0 @@
-
-cdao.IscrizioneDao#checkIfUserAlreadyExists(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (+"3*ù
-2d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java$ $(¡æ
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java$ $(
-
-%5void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"n
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java% %(
-""*’
-3d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java  (-‰·
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java  (/
-%0java.sql.Connection"6dao.IscrizioneDao#getConnection()Ljava/sql/Connection;*
-dao.IscrizioneDao2getConnection()Ø
-¨
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (0!
-
-connectionjava.sql.Connection"__id*
-
-%0java.sql.ConnectionˆÛ
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (:
-%1java.sql.Statement"9java.sql.Connection#createStatement()Ljava/sql/Statement;*#
-!
-
-connectionjava.sql.Connection2createStatement()¨
-©
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (;
-	statementjava.sql.Statement"__id*
-
-%1java.sql.Statement›
-⁄
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (j
-%2java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
-java.lang.String*75
-3SELECT * FROM USER WHERE NOME='%s' AND COGNOME='%s'*
-
-namejava.lang.String*
-
-surnamejava.lang.String§
-°
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java (k
-queryjava.lang.String"__id*
-
-%2java.lang.StringÆ´
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java! !(8
-%3java.sql.ResultSet"Gjava.sql.Statement#executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet;*!
-
-	statementjava.sql.Statement*
-
-queryjava.lang.String2 executeQuery(Ljava/lang/String;)©
-¶
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java! !(9
-resultjava.sql.ResultSet"__id*
-
-%3java.sql.ResultSetºπ
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java# #(
-%4boolean"java.sql.ResultSet#next()Z*
-
-resultjava.sql.ResultSet2next()*
-2
-1*ù
-1d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java' '(¡æ
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java' '(
-
-%6void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"n
-d
-ZC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/IscrizioneDao.java( ((
-"":
-namejava.lang.String:
-surnamejava.lang.StringB
-dao.IscrizioneDao

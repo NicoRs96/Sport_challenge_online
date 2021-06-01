@@ -1,80 +1,0 @@
-
-3dao.GestisciTorneiRenterDao#cancellaIscrizione(II)Zn
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javao o(%"3*»
-2n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javat t(ËÈ
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javat t(
-
-%4void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"x
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javau u(
-""*û
-3n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javap  p(-‚ÿ
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javap  p(/
-%0java.sql.Connection"@dao.GestisciTorneiRenterDao#getConnection()Ljava/sql/Connection;*
-dao.GestisciTorneiRenterDao2getConnection()¹
-¶
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javap p(0!
-
-connectionjava.sql.Connection"__id*
-
-%0java.sql.ConnectionØ
-Õ
-o
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javaq q(Š
-%1java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
-java.lang.String*RP
-NUPDATE PRENOTAZIONE_TORNEO SET CONFERMATO = 0 WHERE USER = %s AND TORNEO = %s *
-""*
-""¯
-¬
-o
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javaq q(‹
-queryjava.lang.String"__id*
-
-%1java.lang.StringÓÐ
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javar r(@ 
-%2java.sql.PreparedStatement"Tjava.sql.Connection#prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;*#
-!
-
-connectionjava.sql.Connection*
-
-queryjava.lang.String2$prepareStatement(Ljava/lang/String;)¾
-»
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javar r(A
-	statementjava.sql.Statement"__id*"
- 
-%2java.sql.PreparedStatement˜•
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javas s()	
-%3int"5java.sql.Statement#executeUpdate(Ljava/lang/String;)I*!
-
-	statementjava.sql.Statement*
-
-queryjava.lang.String2!executeUpdate(Ljava/lang/String;)*
-2
-1*»
-1n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javaw w(ËÈ
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javaw w(
-
-%5void"java.sql.Connection#close()V*#
-!
-
-connectionjava.sql.Connection2close()"x
-n
-dC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciTorneiRenterDao.javax x(
-"":
-"":
-""B
-dao.GestisciTorneiRenterDao

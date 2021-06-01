@@ -8,7 +8,6 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class PartecipantiTorneoDao {
     String comuneString = "COMUNE";
@@ -17,27 +16,21 @@ public class PartecipantiTorneoDao {
     String prezzoString = "PREZZO";
     String sportString = "SPORT";
 
-    public Connection getConnection() throws SQLException {
-
-
-        Connection conn = null;
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "admin");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sportchallengeonline",
-                connectionProps);
-        return conn;
-    }
-
+    
     public List<Persona> getIscrittiByTorneoId(Torneo torneo) throws SQLException {
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	ResultSet resultSet=null;
+    	
         List<Persona> iscritti = new ArrayList<>();
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        try {
+          connection = DBConnectionSingleton.getConnectionInstance();
+          
+         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO pt," +
                 "USER u WHERE pt.TORNEO = %s AND pt.USER = U.ID", torneo.getId());
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             Persona persona = new Persona(resultSet.getInt("pt.USER"),
                     resultSet.getString("u.NOME"),
@@ -52,31 +45,57 @@ public class PartecipantiTorneoDao {
             persona.setLivello(livello);
             iscritti.add(persona);
         }
-
-        connection.close();
+        }
+        catch (Exception e) {
+			// TODO: handle exception
+		}
+        
+        finally {
+        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return iscritti;
     }
 
     private String getLivelloByPersonaIdAndSport(int id, String sport) throws SQLException {
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	ResultSet resultSet=null;
+    	
         String livello = "DILETTANTE";
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = String.format("SELECT * from user_sport where user = %s and sport = '%s'", id, sport);
-        ResultSet resultSet = statement.executeQuery(query);
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             livello = resultSet.getString("LIVELLO");
             
         }
-        connection.close();
+        }
+        catch (Exception e) {
+			// TODO: handle exception
+		}
+        finally {
+        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return livello;
     }
 
     public Persona getPersonaByEmail(String email) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	ResultSet resultSet=null;
+    	Persona persona = null;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = String.format("SELECT * FROM user WHERE email = '%s'", email.toLowerCase());
-        ResultSet resultSet = statement.executeQuery(query);
-        Persona persona =null;
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             int id = resultSet.getInt("ID");
             String nome = resultSet.getString("NOME");
@@ -87,30 +106,52 @@ public class PartecipantiTorneoDao {
             persona = new Persona(id, nome, cognome, email, Date.valueOf(datadinascita).toLocalDate(), telefono, isRenter);
             
         }
-        connection.close();
+    	}
+    	catch (Exception e) {
+			// TODO: handle exception
+		}
+    	finally {
+    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return persona;
     }
 
     public boolean sendInvite(Persona p, Torneo t, Persona invitato) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        String query = String.format("INSERT INTO user_invite(senderId, receiverId, torneoId, isRead) VALUES (%s,%s,%s,0)", p.getId(), invitato.getId(), t.getId(), 0);
-        try {
-            statement.execute(query);
-            return true;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return false;
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	boolean check=false;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = String.format("INSERT INTO user_invite(senderId, receiverId, torneoId, isRead) VALUES (%s,%s,%s,0)", p.getId(), invitato.getId(), t.getId());
+        statement.execute(query);
+         check=true;
+        } 
+    	catch (Exception e) {
+            e.printStackTrace();
+            return check;
         }
-
+    	finally {
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+    	return check;
     }
 
     public Campo getCampoById(int id) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
-        ResultSet resultSet = statement.executeQuery(query);
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	ResultSet resultSet=null;
         Campo campo =null;
+
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
+        String query = String.format("SELECT * FROM campo WHERE ID = %s", id);
+         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             String name = resultSet.getString("NOME");
             String comune = resultSet.getString(comuneString);
@@ -122,15 +163,36 @@ public class PartecipantiTorneoDao {
             campo.setSport(sport);
             
         }
-        connection.close();
+    	}
+    	catch (Exception e) {
+			// TODO: handle exception
+		}
+    	finally {
+    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
         return campo;    }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException {
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement();
+    	
+    	Connection connection;
+    	Statement statement=null;
+    	
+    	try {
+         connection = DBConnectionSingleton.getConnectionInstance();
+         statement = connection.createStatement();
         String query = String.format("INSERT INTO PRENOTAZIONE_TORNEO(User,Torneo) VALUES('%s','%s')", utenteId, torneoId);
         statement.execute(query);
         connection.close();
-        return true;
     }
+    	catch (Exception e) {
+			// TODO: handle exception
+		}
+    	finally {
+    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+		}
+        return true;
+
+    }
+    
 }

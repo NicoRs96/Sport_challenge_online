@@ -1,0 +1,62 @@
+
+*dao.CercaTorneoDao#confermaIscrizione(II)Ze
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javap p(%"1*Ú
+1e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javaq  q(-çä
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javaq  q(/
+%0java.sql.Connection"7dao.CercaTorneoDao#getConnection()Ljava/sql/Connection;*
+dao.CercaTorneoDao2getConnection()°
+­
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javaq q(0!
+
+connectionjava.sql.Connection"__id*
+
+%0java.sql.Connection÷ô
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javar r(:
+%1java.sql.Statement"9java.sql.Connection#createStatement()Ljava/sql/Statement;*#
+!
+
+connectionjava.sql.Connection2createStatement()­
+ª
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javar r(;
+	statementjava.sql.Statement"__id*
+
+%1java.sql.Statement¾
+»
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javas s(z
+%2java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
+java.lang.String*B@
+>INSERT INTO PRENOTAZIONE_TORNEO(User,Torneo) VALUES('%s','%s')*
+""*
+""¥
+¢
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javas s({
+queryjava.lang.String"__id*
+
+%2java.lang.String‡„
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javat t( 
+%3boolean"/java.sql.Statement#execute(Ljava/lang/String;)Z*!
+
+	statementjava.sql.Statement*
+
+queryjava.lang.String2execute(Ljava/lang/String;)Â¿
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javau u(
+
+%4void"java.sql.Connection#close()V*#
+!
+
+connectionjava.sql.Connection2close()"o
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.javav v(
+"":
+"":
+""B
+dao.CercaTorneoDao

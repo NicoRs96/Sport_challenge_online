@@ -1,0 +1,61 @@
+
+>dao.GestisciMieiEventiDao#getConnection()Ljava/sql/Connection;l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (#"1*ì
+1l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (ú
+ô
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (
+connjava.sql.Connection"__id*
+""£†
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java) (3
+%0java.util.Properties"java.util.Propertiesµ
+≤
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java% (5
+%1"java.util.Properties#<init>()V*
+
+%0java.util.Propertiesæ
+ª
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (6'
+connectionPropsjava.util.Properties"__id*
+
+%0java.util.Properties“
+œ
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (+
+%2java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+user*
+root◊
+‘
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (0
+%3java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+
+password*	
+adminÓ
+Î
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java ( 
+%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
+java.sql.DriverManager*42
+0jdbc:mysql://localhost:3306/sportchallengeonline*)
+'
+connectionPropsjava.util.Properties±
+Æ
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java ( 
+connjava.sql.Connection"__id*
+
+%4java.sql.Connection"ç
+l
+bC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciMieiEventiDao.java (
+
+connjava.sql.ConnectionB
+dao.GestisciMieiEventiDao

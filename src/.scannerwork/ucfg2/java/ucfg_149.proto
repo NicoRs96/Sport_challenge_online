@@ -1,0 +1,135 @@
+
+Gdao.ScegliLivelloDao#setLivello(ILjava/lang/String;Ljava/lang/String;)Zg
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java ("10*˝
+4g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java( ((âÜ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java( (($
+%8boolean"/java.sql.Statement#execute(Ljava/lang/String;)Z*!
+
+	statementjava.sql.Statement*
+
+queryjava.lang.String2execute(Ljava/lang/String;)*
+1*¸
+5g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java$ $(ﬁ
+€
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java$ %(9
+%7java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
+java.lang.String*ÑÅ
+INSERT INTO user_sport (ID, USER, SPORT, LIVELLO, PREFERITO) VALUES(%s, %s, '%s', '%s', 0) ON DUPLICATE KEY UPDATE LIVELLO='%s'*
+""*
+""*
+
+sportjava.lang.String*
+
+livellojava.lang.String*
+
+livellojava.lang.Stringß
+§
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java$ %(:
+queryjava.lang.String"__id*
+
+%7java.lang.String*
+4*ﬁ
+6g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java! !(ÍÁ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java! !(+	
+%6int".java.sql.ResultSet#getInt(Ljava/lang/String;)I*
+
+rsSLDjava.sql.ResultSet*
+ID2getInt(Ljava/lang/String;)*
+9*Ö
+8g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (éã
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (%
+%5java.lang.String"Bjava.sql.ResultSet#getString(Ljava/lang/String;)Ljava/lang/String;*
+
+rsSLDjava.sql.ResultSet*
+ID2getString(Ljava/lang/String;)*
+6
+9*µ
+9g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (æª
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (
+%4boolean"java.sql.ResultSet#next()Z*
+
+rsSLDjava.sql.ResultSet2next()*
+5
+8*ˆ
+10g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java  (-ÌÍ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java  (/
+%0java.sql.Connection"9dao.ScegliLivelloDao#getConnection()Ljava/sql/Connection;*
+dao.ScegliLivelloDao2getConnection()≤
+Ø
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (0!
+
+connectionjava.sql.Connection"__id*
+
+%0java.sql.Connection˘ˆ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (:
+%1java.sql.Statement"9java.sql.Connection#createStatement()Ljava/sql/Statement;*#
+!
+
+connectionjava.sql.Connection2createStatement()Ø
+¨
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (;
+	statementjava.sql.Statement"__id*
+
+%1java.sql.Statement˘ˆ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (4
+%2java.sql.Statement"9java.sql.Connection#createStatement()Ljava/sql/Statement;*#
+!
+
+connectionjava.sql.Connection2createStatement()©
+¶
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (5
+stmjava.sql.Statement"__id*
+
+%2java.sql.StatementÆ
+´
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (5
+qjava.lang.String"__id*#!
+SELECT MAX(ID) AS ID FROM campoß§
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (-
+%3java.sql.ResultSet"Gjava.sql.Statement#executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet;*
+
+stmjava.sql.Statement*
+
+qjava.lang.String2 executeQuery(Ljava/lang/String;)´
+®
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java (.
+rsSLDjava.sql.ResultSet"__id*
+
+%3java.sql.ResultSet*
+9*ß
+1g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java. .(≈¬
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java. .(
+%10void"java.sql.Connection#close()V*#
+!
+
+connectionjava.sql.Connection2close()"q
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ScegliLivelloDao.java/ /(
+"":
+"":
+sportjava.lang.String:
+livellojava.lang.StringB
+dao.ScegliLivelloDao

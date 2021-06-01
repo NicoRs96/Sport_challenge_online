@@ -115,36 +115,11 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
     public void getMeteo(Campo campo) throws IOException {
         Document doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + campo.getComune()).get();
         if (doc != null) {
-            LocalDate campoData = LocalDate.parse(campo.getData());
-            List<Element> newsHeadlines = doc.getElementsByTag("li").stream().filter(x -> x.text().split(" ").length > 2).collect(Collectors.toList());
-            for (Element headline : newsHeadlines) {
-                String tmax = headline.getElementsByClass("tmax").text();
-                String tmin = headline.getElementsByClass("tmin").text();
-                String giorno = headline.getElementsByTag("span").first() != null ? headline.getElementsByTag("span").first().text() : "";
-                boolean rain = headline.getElementsByClass("s flag_pioggia").isEmpty()
-                            && headline.getElementsByClass("s ss10").isEmpty()
-                            && headline.getElementsByClass("s ss16").isEmpty();
-                boolean nuvoloso = headline.getElementsByClass("s ss3").isEmpty();
-                boolean sole = headline.getElementsByClass("s ss1").isEmpty();
-                if (tmax.isEmpty() || tmin.isEmpty())
-                    continue;
-
-                if (campoData.getMonth() == LocalDate.now().getMonth() && campoData.getDayOfMonth() <= LocalDate.now().getDayOfMonth() + 15 && giorno.split(" ")[1].equals("" + campoData.getDayOfMonth())) {
-                    if (!rain)
-                        pioggiaIV.setVisible(true);
-                    else if (!nuvoloso)
-                        nuvoleIV.setVisible(true);
-                    else if (!sole)
-                        soleIV.setVisible(true);
-                    tMinTXT.setVisible(true);
-                    tMaxTXT.setVisible(true);
-                    tMinTXT.setText("Temperatura minima: \n" + tmin);
-                    tMaxTXT.setText("Temperatura massima: \n" + tmax);
-                    meteoTXT.setVisible(true);
+            makeMeteo(doc);
                     return;
                 }
-            }
-        }
+            
+        
         meteoNDTXT.setVisible(true);
     }
 
@@ -173,4 +148,35 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
         alert.showAndWait();
         indietro();
     }
+    
+    private void makeMeteo(Document doc) {
+    	LocalDate campoData = LocalDate.parse(campo.getData());
+        List<Element> newsHeadlines = doc.getElementsByTag("li").stream().filter(x -> x.text().split(" ").length > 2).collect(Collectors.toList());
+        for (Element headline : newsHeadlines) {
+            String tmax = headline.getElementsByClass("tmax").text();
+            String tmin = headline.getElementsByClass("tmin").text();
+            String giorno = headline.getElementsByTag("span").first() != null ? headline.getElementsByTag("span").first().text() : "";
+            boolean rain = headline.getElementsByClass("s flag_pioggia").isEmpty()
+                        && headline.getElementsByClass("s ss10").isEmpty()
+                        && headline.getElementsByClass("s ss16").isEmpty();
+            boolean nuvoloso = headline.getElementsByClass("s ss3").isEmpty();
+            boolean sole = headline.getElementsByClass("s ss1").isEmpty();
+            if (tmax.isEmpty() || tmin.isEmpty())
+                continue;
+
+            if (campoData.getMonth() == LocalDate.now().getMonth() && campoData.getDayOfMonth() <= LocalDate.now().getDayOfMonth() + 15 && giorno.split(" ")[1].equals("" + campoData.getDayOfMonth())) {
+                if (!rain)
+                    pioggiaIV.setVisible(true);
+                else if (!nuvoloso)
+                    nuvoleIV.setVisible(true);
+                else if (!sole)
+                    soleIV.setVisible(true);
+                tMinTXT.setVisible(true);
+                tMaxTXT.setVisible(true);
+                tMinTXT.setText("Temperatura minima: \n" + tmin);
+                tMaxTXT.setText("Temperatura massima: \n" + tmax);
+                meteoTXT.setVisible(true);
+		
+	}
+        }}
 }

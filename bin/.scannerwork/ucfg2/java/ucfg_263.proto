@@ -1,0 +1,72 @@
+
+bean.IscrivitiBean#checkMail()Ie
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaP P("4*Û
+2e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaU U("o
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaU U(
+""*¦
+3e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaR R(†
+ƒ
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaR R(4
+%2java.util.regex.Pattern"Ljava.util.regex.Pattern#compile(Ljava/lang/String;)Ljava/util/regex/Pattern;*"
+java.util.regex.Pattern*
+^.+@.+\\..+$µ
+²
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaR R(5"
+patternjava.util.regex.Pattern"__id*
+
+%2java.util.regex.Patternª
+§
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaS% S()
+%3java.lang.String"__id* *
+bean.IscrivitiBean"
+mailÀ½
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaS S(*
+%4java.util.regex.Matcher"Rjava.util.regex.Pattern#matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;*$
+"
+patternjava.util.regex.Pattern*
+
+%3java.lang.String2!matcher(Ljava/lang/CharSequence;)µ
+²
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaS S(+"
+matcherjava.util.regex.Matcher"__id*
+
+%4java.util.regex.MatcherÈÅ
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaT T(
+%5boolean"java.util.regex.Matcher#find()Z*$
+"
+matcherjava.util.regex.Matcher2find()*
+2
+1*Ý
+4e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaQ Q(
+ª
+§
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaQ Q(
+
+%0java.lang.String"__id* *
+bean.IscrivitiBean"
+mail»¸
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaQ Q(
+%1boolean"java.lang.String#isEmpty()Z*
+
+%0java.lang.String2	isEmpty()*
+3
+1*Û
+1e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaW	 W(
+"o
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaW W(
+""B
+bean.IscrivitiBean

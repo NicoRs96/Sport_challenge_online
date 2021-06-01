@@ -100,10 +100,7 @@ public class GestisciTorneiRenterDao {
 			// nothing
 		}
         finally {
-        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-        	try { if(resultSet2!=null) resultSet2.close(); } catch (Exception e) { /* Ignored */ }
-
-    	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	closeDBthings(statement, resultSet, resultSet2);
 		}
 
 
@@ -162,7 +159,12 @@ public class GestisciTorneiRenterDao {
         return risultato;
     	
     }
-    	
+    private void closeDBthings(Statement statement, ResultSet resultSet, ResultSet resultSet2) {
+    	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+    	try { if(resultSet2!=null) resultSet2.close(); } catch (Exception e) { /* Ignored */ }
+
+	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+	}
     	
     	
 }

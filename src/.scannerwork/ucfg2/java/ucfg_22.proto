@@ -1,0 +1,63 @@
+
+Edao.ConfermaPrenotazioneCampoDao#getConnection()Ljava/sql/Connection;s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java
+ 
+(#"1*Ù
+1s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (£
+ 
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (
+connjava.sql.Connection"__id*
+""ª§
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java) (3
+%0java.util.Properties"java.util.Properties¼
+¹
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java% (5
+%1"java.util.Properties#<init>()V*
+
+%0java.util.PropertiesÅ
+Â
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (6'
+connectionPropsjava.util.Properties"__id*
+
+%0java.util.PropertiesÙ
+Ö
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (+
+%2java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+user*
+rootÞ
+Û
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (0
+%3java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+
+password*	
+adminõ
+ò
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java ( 
+%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
+java.sql.DriverManager*42
+0jdbc:mysql://localhost:3306/sportchallengeonline*)
+'
+connectionPropsjava.util.Properties¸
+µ
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java ( 
+connjava.sql.Connection"__id*
+
+%4java.sql.Connection"”
+s
+iC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/ConfermaPrenotazioneCampoDao.java (
+
+connjava.sql.ConnectionB$"
+ dao.ConfermaPrenotazioneCampoDao

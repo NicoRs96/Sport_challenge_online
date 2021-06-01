@@ -30,7 +30,7 @@ public class ScegliLivelloDao {
         String query = String.format("INSERT INTO user_sport (ID, USER, SPORT, LIVELLO, PREFERITO) VALUES(%s, %s, '%s', '%s', 0) ON DUPLICATE KEY UPDATE LIVELLO='%s'",
                 idSLD, utenteId, sport, livello, livello);
 
-        if (statement.execute(query)== true) {
+        if (statement.execute(query)) {
         	risultato=true;
         }
         

@@ -1,0 +1,61 @@
+
+9dao.GestisciCampiDao#getConnection()Ljava/sql/Connection;g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (#"1*á
+1g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (—
+”
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (
+connjava.sql.Connection"__id*
+""ž›
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java) (3
+%0java.util.Properties"java.util.Properties°
+­
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java% (5
+%1"java.util.Properties#<init>()V*
+
+%0java.util.Properties¹
+¶
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (6'
+connectionPropsjava.util.Properties"__id*
+
+%0java.util.PropertiesÍ
+Ê
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (+
+%2java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+user*
+rootÒ
+Ï
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (0
+%3java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+
+password*	
+adminé
+æ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java ( 
+%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
+java.sql.DriverManager*42
+0jdbc:mysql://localhost:3306/sportchallengeonline*)
+'
+connectionPropsjava.util.Properties¬
+©
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java ( 
+connjava.sql.Connection"__id*
+
+%4java.sql.Connection"ˆ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java (
+
+connjava.sql.ConnectionB
+dao.GestisciCampiDao

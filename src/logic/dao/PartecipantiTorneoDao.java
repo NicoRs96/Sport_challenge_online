@@ -51,8 +51,8 @@ public class PartecipantiTorneoDao {
 		}
         
         finally {
-        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return iscritti;
     }
@@ -78,8 +78,8 @@ public class PartecipantiTorneoDao {
 			// TODO: handle exception
 		}
         finally {
-        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return livello;
     }
@@ -111,8 +111,8 @@ public class PartecipantiTorneoDao {
 			// TODO: handle exception
 		}
     	finally {
-    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return persona;
     }
@@ -135,8 +135,7 @@ public class PartecipantiTorneoDao {
             return check;
         }
     	finally {
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
     	return check;
     }
 
@@ -168,8 +167,8 @@ public class PartecipantiTorneoDao {
 			// TODO: handle exception
 		}
     	finally {
-    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return campo;    }
 
@@ -189,7 +188,7 @@ public class PartecipantiTorneoDao {
 			// TODO: handle exception
 		}
     	finally {
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return true;
 

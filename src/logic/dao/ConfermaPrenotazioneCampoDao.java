@@ -39,8 +39,8 @@ public class ConfermaPrenotazioneCampoDao {
 			// nothing
 		}
     	finally {
-    		 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
 		return null;
         
@@ -81,9 +81,9 @@ public class ConfermaPrenotazioneCampoDao {
 			// nothing
 		}
     	finally {
-    		 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-     	     try { if (statement2!=null) statement2.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
+       		DBConnectionSingleton.closeSTMT(statement2);
 
 		}
     return risultato;

@@ -64,8 +64,8 @@ public class GestisciCampiDao {
 			// nothing
 		}
         finally {
-        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         
         return campoInfo;
@@ -90,8 +90,7 @@ public class GestisciCampiDao {
 			// nothing
     	}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return risultato;
     }
 
@@ -113,8 +112,7 @@ public class GestisciCampiDao {
     		//nothing
     	}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return risultato;
     }
 
@@ -154,8 +152,8 @@ public class GestisciCampiDao {
 			// nothing
 		}
     	finally {
-    		 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
 
         return prenotazioneInfo;
@@ -178,8 +176,7 @@ public class GestisciCampiDao {
 			// nothing
 		}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return risultato;
     }
 

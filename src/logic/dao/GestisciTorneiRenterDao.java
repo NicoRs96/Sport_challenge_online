@@ -41,8 +41,8 @@ public class GestisciTorneiRenterDao {
 			// nothing
 		}
         finally {
-        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return tornei;
     }
@@ -126,8 +126,8 @@ public class GestisciTorneiRenterDao {
 			// nothing
     	}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);
+    	}
         return risultato;
     	
     }
@@ -154,8 +154,7 @@ public class GestisciTorneiRenterDao {
 			// nothing
     	}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return risultato;
     	
     }

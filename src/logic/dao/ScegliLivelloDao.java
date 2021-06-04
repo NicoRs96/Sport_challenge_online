@@ -39,9 +39,10 @@ public class ScegliLivelloDao {
 			// TODO: handle exception
 		}
     	finally {
-    		try { if(rsSLD!=null) rsSLD.close(); } catch (Exception e) { /* Ignored */ }
-    	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-    	     try { if (stm!=null) stm.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(rsSLD);
+       		DBConnectionSingleton.closeSTMT(statement);
+       		DBConnectionSingleton.closeSTMT(stm);
+    		
 
 		}
         return risultato;

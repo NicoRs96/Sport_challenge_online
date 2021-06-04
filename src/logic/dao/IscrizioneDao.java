@@ -33,8 +33,8 @@ public class IscrizioneDao {
     	catch (Exception e) {
     		//nothing
 		}
-    	 try { if(result!=null) result.close(); } catch (Exception e) { /* Ignored */ }
- 	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    	DBConnectionSingleton.closeRS(result);
+   		DBConnectionSingleton.closeSTMT(statement);
         return rs;
     }
 
@@ -56,8 +56,7 @@ public class IscrizioneDao {
     		
 		}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return true;
 
     }

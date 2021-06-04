@@ -36,8 +36,8 @@ public class CreaTorneoDao {
 			// nothing
 		}
         finally {
-        	 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return campi;
     }
@@ -57,8 +57,7 @@ public class CreaTorneoDao {
 			// nothing
 		}
         finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return check;}
 
     

@@ -67,8 +67,8 @@ public class CercaTorneoDao {
 		// nothing
 	}
        finally {
-    	   try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	   try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    	   DBConnectionSingleton.closeRS(resultSet);
+      		DBConnectionSingleton.closeSTMT(statement);
 	}
       
         return torneoInfo;
@@ -95,8 +95,8 @@ public class CercaTorneoDao {
         	//nothing
         	}
         finally {
-        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return count;
     }
@@ -133,8 +133,8 @@ public class CercaTorneoDao {
 			// nothing
 		}
     	finally {
-    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	   try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         if (variabile) {
         	return campo;
@@ -158,8 +158,7 @@ public class CercaTorneoDao {
 		}
     	finally {
     		
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
         return true;
 
     }

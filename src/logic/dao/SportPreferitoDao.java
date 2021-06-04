@@ -36,9 +36,10 @@ public class SportPreferitoDao {
 			// return false
 		}
     	finally {
-    		 try { if(rsSPD!=null) rsSPD.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (stm!=null) stm.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(rsSPD);
+       		DBConnectionSingleton.closeSTMT(statement);
+       		DBConnectionSingleton.closeSTMT(stm);
+    		
 
 		}
         return true;

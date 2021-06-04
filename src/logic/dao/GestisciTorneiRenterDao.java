@@ -107,7 +107,7 @@ public class GestisciTorneiRenterDao {
         return iscritti;
     }
 
-    public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException{
+    public boolean confermaOCancellaIscrizione(int utenteId, int torneoId, int number) throws SQLException{
     	
     	Connection connection;
     	Statement statement=null;
@@ -115,7 +115,7 @@ public class GestisciTorneiRenterDao {
     	
     	try {
          connection = DBConnectionSingleton.getConnectionInstance();
-         String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO =1 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
+         String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO =%s WHERE USER = %s AND TORNEO = %s ",number, utenteId, torneoId);
          statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();
@@ -126,12 +126,7 @@ public class GestisciTorneiRenterDao {
 			// nothing
     	}
     	finally {
-    			if (statement!=null) {
-    			 try {
-					statement.close();
-				} catch (Exception e2) {
-					// ignored
-				}}
+       		DBConnectionSingleton.closeSTMT(statement);
     	}
         return risultato;
     	
@@ -140,29 +135,7 @@ public class GestisciTorneiRenterDao {
         
     
 
-    public boolean cancellaIscrizione(int utenteId, int torneoId) throws SQLException{
-        
-    	Connection connection;
-    	Statement statement=null;
-    	boolean risultato=true;
-    	
-    	try {
-         connection = DBConnectionSingleton.getConnectionInstance();
-         String query = String.format("UPDATE PRENOTAZIONE_TORNEO SET CONFERMATO = 0 WHERE USER = %s AND TORNEO = %s ", utenteId, torneoId);
-         statement = connection.prepareStatement(query);
-        if(statement.executeUpdate(query) == 0) {
-            connection.close();
-            risultato=false;
-        }
-    	}
-    	catch (Exception e) {
-			// nothing
-    	}
-    	finally {
-       		DBConnectionSingleton.closeSTMT(statement);		}
-        return risultato;
-    	
-    }
+   
     private void closeDBthings(Statement statement, ResultSet resultSet, ResultSet resultSet2) {
     	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
     	try { if(resultSet2!=null) resultSet2.close(); } catch (Exception e) { /* Ignored */ }

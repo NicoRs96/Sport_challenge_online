@@ -23,10 +23,10 @@ public class GestisciTorneiRenterBean {
     }
 
     public boolean confermaIscrizione(int utenteId, int torneoId) throws SQLException{
-        return gestisciTorneiRenterDao.confermaIscrizione(utenteId, torneoId);
+        return gestisciTorneiRenterDao.confermaOCancellaIscrizione(utenteId, torneoId,1);
     }
 
     public boolean cancellaIscrizione(int utenteId, int torneoId) throws SQLException{
-        return gestisciTorneiRenterDao.cancellaIscrizione(utenteId, torneoId);
+        return gestisciTorneiRenterDao.confermaOCancellaIscrizione(utenteId, torneoId,0);
     }
 }

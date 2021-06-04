@@ -71,28 +71,7 @@ public class GestisciCampiDao {
         return campoInfo;
     }
 
-    public boolean setCampoAffittabile(int id) throws SQLException {
-    	
-    	Connection connection;
-    	Statement statement=null;
-    	boolean risultato=true;
-    	
-    	try {
-         connection = DBConnectionSingleton.getConnectionInstance();
-        String query = String.format("UPDATE CAMPO SET AFFITTABILE = 1 WHERE id = '%s'", id);
-         statement = connection.prepareStatement(query);
-        if(statement.executeUpdate(query) == 0) {
-            connection.close();
-            risultato=false;
-        }
-    	}
-    	catch (Exception e) {
-			// nothing
-    	}
-    	finally {
-       		DBConnectionSingleton.closeSTMT(statement);		}
-        return risultato;
-    }
+  
 
     public boolean setCampoNonAffittabile(int id) throws SQLException {
     	
@@ -159,14 +138,14 @@ public class GestisciCampiDao {
         return prenotazioneInfo;
     }
 
-    public boolean cancellaPrenotazione(int id) throws SQLException {
+    public boolean aggiornaOrCancellaPrenotazione(String query) throws SQLException {
     	Connection connection;
     	Statement statement=null;
     	boolean risultato=true;
     	
     	try {
          connection = DBConnectionSingleton.getConnectionInstance();
-        String query = String.format("DELETE FROM PRENOTAZIONE_CAMPO WHERE id = '%s'", id);
+        
          statement = connection.prepareStatement(query);
         if(statement.executeUpdate(query) == 0) {
             connection.close();

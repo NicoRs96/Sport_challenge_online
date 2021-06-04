@@ -19,7 +19,8 @@ public class GestisciCampiBean {
     }
 
     public boolean setCampoAffittabile(int id) throws SQLException {
-        return gestisciCampiDao.setCampoAffittabile(id);
+        return gestisciCampiDao.aggiornaOrCancellaPrenotazione(String.format("UPDATE CAMPO SET AFFITTABILE = 1 WHERE id = '%s'", id));
+
     }
 
     public boolean setCampoNonAffittabile(int id) throws SQLException {
@@ -31,6 +32,6 @@ public class GestisciCampiBean {
     }
 
     public boolean cancellaPrenotazione(int id) throws SQLException {
-        return gestisciCampiDao.cancellaPrenotazione(id);
+        return gestisciCampiDao.aggiornaOrCancellaPrenotazione(String.format("DELETE FROM PRENOTAZIONE_CAMPO WHERE id = '%s'",id));
     }
 }

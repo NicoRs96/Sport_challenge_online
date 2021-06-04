@@ -42,8 +42,8 @@ public class InviteNotificationDao {
 			// nothing
 		}
         finally {
-        	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
 
         return inviti;
@@ -76,8 +76,8 @@ public class InviteNotificationDao {
 			// TODO: handle exception
 		}
     	finally {
-    		 try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return personaInd;
         }
@@ -111,8 +111,8 @@ public class InviteNotificationDao {
 			// TODO: handle exception
 		}
     	finally {
-    		try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
         return torneo;    
         }
@@ -136,8 +136,8 @@ public class InviteNotificationDao {
 			// TODO: handle exception
 		}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-     	    try { if (statement2!=null) statement2.close(); } catch (Exception e) { /* Ignored */ }
+    		DBConnectionSingleton.closeSTMT(statement2);
+       		DBConnectionSingleton.closeSTMT(statement);
 
 		}
 
@@ -160,8 +160,7 @@ public class InviteNotificationDao {
 			// nothing
     	}
     	finally {
-     	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
-		}
+       		DBConnectionSingleton.closeSTMT(statement);		}
     }
     	
     	

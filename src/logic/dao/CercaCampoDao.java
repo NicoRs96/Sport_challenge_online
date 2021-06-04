@@ -32,8 +32,8 @@ public class CercaCampoDao {
 		}
         finally {   	   
     		
-    	    try { if(result!=null) result.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+        	DBConnectionSingleton.closeRS(result);
+        	DBConnectionSingleton.closeSTMT(statement);
 		}
         
         return check;
@@ -91,8 +91,8 @@ public class CercaCampoDao {
         
        finally {   	   
 		
-    	    try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
-    	    try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+    	   DBConnectionSingleton.closeRS(resultSet);
+       		DBConnectionSingleton.closeSTMT(statement);
 		}
        
         return campoInfo;

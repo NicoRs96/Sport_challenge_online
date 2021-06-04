@@ -2,8 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 import exception.ConnectionClosedException;
 
@@ -45,6 +46,15 @@ public class DBConnectionSingleton {
 		
 		}
 		return conn;
+	}
+	
+	public static void closeRS(ResultSet resultSet) {
+    	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }
+
+	}
+	public static void closeSTMT(Statement statement) {
+	     try { if (statement!=null) statement.close(); } catch (Exception e) { /* Ignored */ }
+
 	}
 	
 

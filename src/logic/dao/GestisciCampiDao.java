@@ -112,7 +112,7 @@ public class GestisciCampiDao {
     		//nothing
     	}
     	finally {
-       		DBConnectionSingleton.closeSTMT(statement);		}
+       		 if (statement!=null) try {statement.close();} catch (Exception e2) {/*ignored*/}		}
         return risultato;
     }
 

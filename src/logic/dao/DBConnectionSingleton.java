@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import exception.ConnectionClosedException;
+import exception.ConnectionClosedFXException;
 
 public class DBConnectionSingleton {
 	
@@ -30,9 +30,9 @@ public class DBConnectionSingleton {
 	public static boolean connectionExist(){
 		return (conn != null);
 	}
-	public static Connection getConnectionInstance() throws ConnectionClosedException 
+	public static Connection getConnectionInstance() throws ConnectionClosedFXException, SQLException 
 	{
-		if (DBConnectionSingleton.conn == null)
+		if (DBConnectionSingleton.conn == null || DBConnectionSingleton.conn.isClosed())
 		{
 			 try 
 		     {
@@ -40,7 +40,7 @@ public class DBConnectionSingleton {
 		     }
 			 catch (SQLException e) 
 		     {
-				 throw new ConnectionClosedException("Problema alla connessione col DB:"+e.getMessage());
+				 throw new ConnectionClosedFXException("Problema alla connessione col DB:"+e.getMessage());
 				 
 		     }
 		

@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import exception.ConnectionClosedFXException;
+
 public class CercaCampoDao {
 
     public CercaCampoDao() {
@@ -43,7 +45,7 @@ public class CercaCampoDao {
         
         
         
-    public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException {
+    public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ConnectionClosedFXException {
         TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
         
         String query = String.format("SELECT * FROM CAMPO WHERE COMUNE='%s' AND SPORT='%s' AND DATA >= '%s' AND TORNEO = 0", city, sport, data);
@@ -85,7 +87,8 @@ public class CercaCampoDao {
         }
         
     }
-        catch (Exception e) {
+        catch (ConnectionClosedFXException e) {
+			 throw new ConnectionClosedFXException("Problema alla connessione col DB:"+e.getMessage());
         	
 		}
         

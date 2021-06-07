@@ -69,6 +69,7 @@ public class MainController implements Initializable{
 			alert.setTitle("ERRORE LOGIN");
 			alert.setContentText("Non esiste nessun utente associato a questa combinazione email/password.");
 			alert.showAndWait();
+			return;
 		}
 		else {
 		    user = loginBean.getUser(); 

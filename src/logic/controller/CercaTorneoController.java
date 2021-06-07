@@ -1,6 +1,7 @@
 package controller;
 
 import bean.CercaTorneoBean;
+import exception.MeteoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,7 +38,7 @@ public class CercaTorneoController implements Initializable {
     private TextField cittaTF;
 
     @FXML
-    private TableView torneiTV;
+    private TableView<Torneo> torneiTV;
 
     @FXML
     private Button confermaBTN;
@@ -153,7 +154,7 @@ public class CercaTorneoController implements Initializable {
         this.persona = persona;
     }
 
-    public void conferma() throws SQLException, IOException {
+    public void conferma() throws SQLException, IOException, MeteoNotFoundException {
         Torneo torneo = (Torneo) torneiTV.getSelectionModel().getSelectedItem();
 
         if(torneo == null){

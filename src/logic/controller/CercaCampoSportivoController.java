@@ -15,6 +15,7 @@ import model.Campo;
 
 import bean.CercaCampoBean;
 import dao.CercaCampoDao;
+import exception.ConnectionClosedFXException;
 import model.Persona;
 
 
@@ -49,7 +50,7 @@ public class CercaCampoSportivoController implements Initializable {
     private TextField cittaTFCCSC;
 
     @FXML
-    private TableView campiTV;
+    private TableView<Campo> campiTV;
 
     @FXML
     private TableColumn<Campo, String> nomeCol;
@@ -82,7 +83,7 @@ public class CercaCampoSportivoController implements Initializable {
 
 
     @FXML
-    private void cerca(ActionEvent event) throws SQLException, ParseException {
+    private void cerca(ActionEvent event) throws SQLException, ParseException, ConnectionClosedFXException {
 
     	campiTV.getItems().clear();
 

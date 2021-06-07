@@ -17,7 +17,7 @@ public class MeteoController {
 	Torneo torneo;
 	Campo campo;
 	String cittaString;
-	
+
 	
 
 	public MeteoController(Torneo torneo) {
@@ -43,8 +43,9 @@ public class MeteoController {
 		        }
 		    }
 	    } catch (IOException e) {
-	        e.printStackTrace();
+	    	System.out.println("cazzoooneo");
 	    }
+	    
 	    
 	    return meteo;
 	}

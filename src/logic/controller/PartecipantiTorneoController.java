@@ -1,6 +1,7 @@
 package controller;
 
 import bean.PartecipantiTorneoBean;
+import exception.MeteoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,7 +52,7 @@ public class PartecipantiTorneoController implements Initializable {
     private Text tMaxTXT;
 
     @FXML
-    private TableView partecipantiTVptc;
+    private TableView<Persona> partecipantiTVptc;
     @FXML
     private TableColumn<Persona, Integer> idColptc;
     @FXML
@@ -83,7 +84,7 @@ public class PartecipantiTorneoController implements Initializable {
         livelloColptc.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("livello"));
     }
 
-    public void setInfo() throws SQLException, IOException {
+    public void setInfo() throws SQLException, IOException, MeteoNotFoundException {
         torneoTXT.setText(torneo.getNome());
         dataTXT.setText(torneo.getData().toString());
         oraTXT.setText(torneo.getOra());
@@ -191,27 +192,44 @@ public class PartecipantiTorneoController implements Initializable {
         }
     }
 
-    public void getMeteo(Torneo torneo) throws IOException {
+    public void getMeteo(Torneo torneo) throws MeteoNotFoundException  {
         
     	MeteoController meteoController = new MeteoController(torneo);
     	
     	Meteo meteo = meteoController.getMeteoTorneo();
     	
     	
-    	
-                        if(meteo.getT()!= "1")
+    	try {
+                        if(meteo.getT().equals("1"))
                             pioggiaIV.setVisible(true);
-                        else if(meteo.getT()!="2")
+                        else if(meteo.getT().equals("2"))
                             nuvoleIV.setVisible(true);
-                        else if(meteo.getT()!="3")
+                        else if(meteo.getT().equals("3"))
                             soleIV.setVisible(true);
                         tMinTXT.setVisible(true);
                         tMaxTXT.setVisible(true);
                         tMinTXT.setText("Temperatura minima: " + meteo.gettMin());
                         tMaxTXT.setText("Temperatura massima: " + meteo.gettMax());
                         meteoTXT.setVisible(true);
-                        meteoTXT.setText("METEO: " + torneo.getCitta());                   
-                
+                        meteoTXT.setText("METEO: " + torneo.getCitta());    }
+    	catch (Exception e) {
+    		
+    		    		
+    	MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException(meteo);
+    	meteoNotFoundException.showMessage();
+    		
+    	}
+        
+    	finally {
+    		tMinTXT.setVisible(true);
+            tMaxTXT.setVisible(true);
+            tMinTXT.setText("Temperatura minima: " + meteo.gettMin());
+            tMaxTXT.setText("Temperatura massima: " + meteo.gettMax());
+            meteoTXT.setVisible(true);
+            meteoTXT.setText("METEO: " + torneo.getCitta()); 
+		}
+    
+    	
             
         
       

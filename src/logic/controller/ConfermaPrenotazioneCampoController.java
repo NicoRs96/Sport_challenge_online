@@ -113,11 +113,16 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
     }
 
     public void getMeteo(Campo campo) throws IOException {
-        Document doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + campo.getComune()).get();
-        if (doc != null) {
-            makeMeteo(doc);
-                    return;
-                }
+    	try {
+    		Document doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + campo.getComune()).get();
+            if (doc != null) {
+                makeMeteo(doc);
+                        return;
+                    }
+		} catch (IOException e) {
+	    	System.out.println("cazzoooo");
+		}
+        
             
         
         meteoNDTXT.setVisible(true);

@@ -118,7 +118,6 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
     		Document doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + campo.getComune()).get();
             if (doc != null) {
                 makeMeteo(doc);
-                        return;
                     }
 		} catch (IOException e) {
 			MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException();

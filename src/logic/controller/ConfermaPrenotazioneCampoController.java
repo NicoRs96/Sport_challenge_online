@@ -1,6 +1,7 @@
 package controller;
 
 import bean.ConfermaPrenotazioneCampoBean;
+import exception.MeteoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -120,12 +121,13 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
                         return;
                     }
 		} catch (IOException e) {
-	    	System.out.println("cazzoooo");
+			MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException();
+	    	meteoNotFoundException.showMessage();
 		}
         
-            
+        finally {    
         
-        meteoNDTXT.setVisible(true);
+        meteoNDTXT.setVisible(true);}
     }
 
     public void indietro() throws IOException {

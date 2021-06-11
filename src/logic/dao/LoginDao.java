@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import exception.ConnectionClosedFXException;
 
 
 public class LoginDao {
@@ -38,7 +37,7 @@ public class LoginDao {
         }
         }
         catch (Exception e) {
-			
+        	//nothing
         }
         finally {
         	try { if(resultSet!=null) resultSet.close(); } catch (Exception e) { /* Ignored */ }

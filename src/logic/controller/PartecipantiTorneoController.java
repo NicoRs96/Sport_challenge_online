@@ -1,6 +1,7 @@
 package controller;
 
 import bean.PartecipantiTorneoBean;
+import exception.MeteoIncompleteException;
 import exception.MeteoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,7 +85,7 @@ public class PartecipantiTorneoController implements Initializable {
         livelloColptc.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("livello"));
     }
 
-    public void setInfo() throws SQLException, IOException, MeteoNotFoundException {
+    public void setInfo() throws SQLException, IOException, MeteoIncompleteException {
         torneoTXT.setText(torneo.getNome());
         dataTXT.setText(torneo.getData().toString());
         oraTXT.setText(torneo.getOra());
@@ -192,12 +193,13 @@ public class PartecipantiTorneoController implements Initializable {
         }
     }
 
-    public void getMeteo(Torneo torneo) throws MeteoNotFoundException  {
+    public void getMeteo(Torneo torneo) throws MeteoIncompleteException, MeteoNotFoundException  {
         
     	MeteoController meteoController = new MeteoController(torneo);
     	
     	Meteo meteo = meteoController.getMeteoTorneo();
     	
+    	if (meteo.gettMin()!=null || meteo.gettMax()!=null) {
     	
     	try {
                         if(meteo.getT().equals("1"))
@@ -215,8 +217,8 @@ public class PartecipantiTorneoController implements Initializable {
     	catch (Exception e) {
     		
     		    		
-    	MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException(meteo);
-    	meteoNotFoundException.showMessage();
+    	MeteoIncompleteException meteoIncompleteException = new MeteoIncompleteException(meteo);
+    	meteoIncompleteException.showMessage();
     		
     	}
         
@@ -228,6 +230,7 @@ public class PartecipantiTorneoController implements Initializable {
             meteoTXT.setVisible(true);
             meteoTXT.setText("METEO: " + torneo.getCitta()); 
 		}
+    	}
     
     	
             

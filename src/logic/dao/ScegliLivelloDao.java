@@ -36,7 +36,7 @@ public class ScegliLivelloDao {
         
         }
     	catch (Exception e) {
-			// TODO: handle exception
+			//nothing
 		}
     	finally {
     		DBConnectionSingleton.closeRS(rsSLD);

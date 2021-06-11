@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import exception.MeteoNotFoundException;
 import model.Campo;
 import model.Meteo;
 import model.Torneo;
@@ -29,13 +30,13 @@ public class MeteoController {
 		this.cittaString=campo.getComune();
 	}
 	
-	public Meteo getMeteoTorneo() {
+	public Meteo getMeteoTorneo() throws MeteoNotFoundException {
 
 	    Meteo meteo = new Meteo(cittaString);
 
 	    Document doc = null;
 	    try {
-	        doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + torneo.getCitta()).get();
+	        doc = Jsoup.connect("https://www.ilmPLeteo.it/meteo/" + torneo.getCitta()).get();
 	        Elements newsHeadlines = doc.getElementsByTag("li");
 		    for (Element headline : newsHeadlines) {
 		        if (headline.text().split(" ").length > 2) {
@@ -43,7 +44,8 @@ public class MeteoController {
 		        }
 		    }
 	    } catch (IOException e) {
-	    	System.out.println("cazzoooneo");
+	    	MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException();
+	    	meteoNotFoundException.showMessage();
 	    }
 	    
 	    

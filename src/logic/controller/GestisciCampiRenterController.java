@@ -70,10 +70,10 @@ public class GestisciCampiRenterController implements Initializable {
     private TableColumn<Prenotazione, String> telefonoClienteCol;
 
     @FXML
-    private TableView campiTV;
+    private TableView<Campo> campiTV;
 
     @FXML
-    private TableView prenotazioniTV;
+    private TableView<Prenotazione> prenotazioniTV;
 
     private Persona persona;
     

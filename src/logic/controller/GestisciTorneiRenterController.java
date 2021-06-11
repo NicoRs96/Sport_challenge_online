@@ -39,10 +39,10 @@ public class GestisciTorneiRenterController implements Initializable {
 
 
     @FXML
-    private TableView torneiTV;
+    private TableView<Torneo> torneiTV;
 
     @FXML
-    private TableView partecipantiTV;
+    private TableView<Persona> partecipantiTV;
     @FXML
     private TableColumn<Persona, Integer> idCol;
     @FXML

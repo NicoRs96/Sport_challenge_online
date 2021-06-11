@@ -47,7 +47,7 @@ public class PartecipantiTorneoDao {
         }
         }
         catch (Exception e) {
-			// TODO: handle exception
+			//nothing
 		}
         
         finally {
@@ -75,7 +75,7 @@ public class PartecipantiTorneoDao {
         }
         }
         catch (Exception e) {
-			// TODO: handle exception
+			// nothing
 		}
         finally {
         	DBConnectionSingleton.closeRS(resultSet);
@@ -108,7 +108,7 @@ public class PartecipantiTorneoDao {
         }
     	}
     	catch (Exception e) {
-			// TODO: handle exception
+			//nothing
 		}
     	finally {
     		DBConnectionSingleton.closeRS(resultSet);
@@ -164,7 +164,7 @@ public class PartecipantiTorneoDao {
         }
     	}
     	catch (Exception e) {
-			// TODO: handle exception
+			// nothing
 		}
     	finally {
     		DBConnectionSingleton.closeRS(resultSet);
@@ -185,7 +185,7 @@ public class PartecipantiTorneoDao {
         connection.close();
     }
     	catch (Exception e) {
-			// TODO: handle exception
+			// nothing
 		}
     	finally {
        		DBConnectionSingleton.closeSTMT(statement);

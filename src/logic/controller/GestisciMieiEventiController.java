@@ -73,10 +73,10 @@ public class GestisciMieiEventiController implements Initializable {
     @FXML
     private TableColumn<Torneo, String> descCol1;
     @FXML
-    private TableView campiTVGMEC;
+    private TableView<Campo> campiTVGMEC;
 
     @FXML
-    private TableView torneiTV;
+    private TableView<Torneo> torneiTV;
 
 
     @Override

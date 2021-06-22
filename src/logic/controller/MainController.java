@@ -51,14 +51,14 @@ public class MainController implements Initializable{
 	}
 
 	@FXML
-	private void login(ActionEvent event) throws SQLException, IOException {
+	private boolean login(ActionEvent event) throws SQLException, IOException {
 
 		if (emailTF.getText().trim().isEmpty() || pwTF.getText().trim().isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERRORE INSERIMENTO DATI");
 			alert.setContentText("Il sistema non accetta campi vuoti, per favore riprova.");
 			alert.showAndWait();
-			return;
+			return false;
 		}
 		
 		loginBean.setUsername(emailTF.getText().trim());
@@ -69,7 +69,7 @@ public class MainController implements Initializable{
 			alert.setTitle("ERRORE LOGIN");
 			alert.setContentText("Non esiste nessun utente associato a questa combinazione email/password.");
 			alert.showAndWait();
-			return;
+			return false;
 		}
 		else {
 		    user = loginBean.getUser(); 
@@ -95,7 +95,7 @@ public class MainController implements Initializable{
 			Stage stage = (Stage) loginBtn.getScene().getWindow();
 			HomePageRenterView homePageRenterView = new HomePageRenterView(persona);
             homePageRenterView.apriHPRenter(stage);
-			return;
+			return true;
 		}
 
 		//modificare view e mettere quella dello sportsman
@@ -107,7 +107,7 @@ public class MainController implements Initializable{
 		homePageSportmanController.sendNotification();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-        
+        return true;
 		
 	}
 	 

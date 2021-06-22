@@ -122,11 +122,10 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
 		} catch (IOException e) {
 			MeteoNotFoundException meteoNotFoundException = new MeteoNotFoundException();
 	    	meteoNotFoundException.showMessage();
+	    	meteoNDTXT.setVisible(true);
 		}
         
-        finally {    
         
-        meteoNDTXT.setVisible(true);}
     }
 
     public void indietro() throws IOException {
@@ -165,7 +164,6 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
             boolean rain = headline.getElementsByClass("s flag_pioggia").isEmpty()
                         && headline.getElementsByClass("s ss10").isEmpty()
                         && headline.getElementsByClass("s ss16").isEmpty();
-            boolean nuvoloso = headline.getElementsByClass("s ss3").isEmpty();
             boolean sole = headline.getElementsByClass("s ss1").isEmpty();
             if (tmax.isEmpty() || tmin.isEmpty())
                 continue;
@@ -173,10 +171,11 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
             if (campoData.getMonth() == LocalDate.now().getMonth() && campoData.getDayOfMonth() <= LocalDate.now().getDayOfMonth() + 15 && giorno.split(" ")[1].equals("" + campoData.getDayOfMonth())) {
                 if (!rain)
                     pioggiaIV.setVisible(true);
-                else if (!nuvoloso)
-                    nuvoleIV.setVisible(true);
                 else if (!sole)
                     soleIV.setVisible(true);
+                else {
+					meteoTXT.setText("METEO\ninfo disponibili");
+				}
                 tMinTXT.setVisible(true);
                 tMaxTXT.setVisible(true);
                 tMinTXT.setText("Temperatura minima: \n" + tmin);

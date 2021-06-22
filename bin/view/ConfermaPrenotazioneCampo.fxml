@@ -96,7 +96,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="meteoNDTXT" layoutX="14.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NON DISPONIBILE" textAlignment="CENTER" visible="false" wrappingWidth="310.96875" y="35.0">
+      <Text fx:id="meteoNDTXT" layoutX="14.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="METEO NON DISPONIBILE" textAlignment="CENTER" visible="false" wrappingWidth="310.96875" y="35.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

@@ -217,7 +217,7 @@ public class PartecipantiTorneoController implements Initializable {
     	catch (Exception e) {
     		
     		    		
-    	MeteoIncompleteException meteoIncompleteException = new MeteoIncompleteException(meteo);
+    	MeteoIncompleteException meteoIncompleteException = new MeteoIncompleteException();
     	meteoIncompleteException.showMessage();
     		
     	}

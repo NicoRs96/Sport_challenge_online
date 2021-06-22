@@ -36,7 +36,7 @@ public class MeteoController {
 
 	    Document doc = null;
 	    try {
-	        doc = Jsoup.connect("https://www.ilmPLeteo.it/meteo/" + torneo.getCitta()).get();
+	        doc = Jsoup.connect("https://www.ilmeteo.it/meteo/" + cittaString).get();
 	        Elements newsHeadlines = doc.getElementsByTag("li");
 		    for (Element headline : newsHeadlines) {
 		        if (headline.text().split(" ").length > 2) {

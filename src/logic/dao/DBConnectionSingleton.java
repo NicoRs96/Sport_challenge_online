@@ -30,16 +30,18 @@ public class DBConnectionSingleton {
 	public static boolean connectionExist(){
 		return (conn != null);
 	}
-	public static Connection getConnectionInstance() throws ConnectionClosedFXException, SQLException 
+	public static Connection getConnectionInstance() throws ConnectionClosedFXException, SQLException, ClassNotFoundException 
 	{
 		if (DBConnectionSingleton.conn == null || DBConnectionSingleton.conn.isClosed())
 		{
 			 try 
 		     {
+				 Class.forName("com.mysql.jdbc.Driver");
 				 conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		     }
 			 catch (SQLException e) 
 		     {
+				 
 				 throw new ConnectionClosedFXException("Problema alla connessione col DB:"+e.getMessage());
 				 
 		     }

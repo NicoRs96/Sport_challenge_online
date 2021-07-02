@@ -5,10 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
-
 </head>
 <body>
-	
-	
+	Renter
 </body>
 </html>

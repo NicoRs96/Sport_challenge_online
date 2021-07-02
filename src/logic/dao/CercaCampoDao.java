@@ -45,7 +45,7 @@ public class CercaCampoDao {
         
         
         
-    public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ConnectionClosedFXException {
+    public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ConnectionClosedFXException, ClassNotFoundException {
         TreeMap<String, TreeMap<String, String>> campoInfo = new TreeMap<>();
         
         String query = String.format("SELECT * FROM CAMPO WHERE COMUNE='%s' AND SPORT='%s' AND DATA = '%s' AND TORNEO = 0", city, sport, data);

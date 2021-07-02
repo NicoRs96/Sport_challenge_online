@@ -83,7 +83,7 @@ public class CercaCampoSportivoController implements Initializable {
 
 
     @FXML
-    private void cerca(ActionEvent event) throws SQLException, ParseException, ConnectionClosedFXException {
+    private void cerca(ActionEvent event) throws SQLException, ParseException, ConnectionClosedFXException, ClassNotFoundException {
 
     	campiTV.getItems().clear();
 

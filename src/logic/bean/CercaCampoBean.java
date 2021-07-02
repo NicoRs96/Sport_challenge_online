@@ -65,7 +65,7 @@ public class CercaCampoBean {
 	
 	}
 
-	public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ConnectionClosedFXException {
+	public SortedMap<String, TreeMap<String, String>> getCampo(String city, String sport, String data) throws SQLException, ConnectionClosedFXException, ClassNotFoundException {
 		return cercaCampoDao.getCampo(city, sport, data);
 	}
 

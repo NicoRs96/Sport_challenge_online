@@ -6,8 +6,8 @@
 <meta charset="ISO-8859-1">
 <title>Sport Challenge Online</title>
 </head>
-<body style="height: 574px; ">
-	<h1><p align="center" style="height: px; color: Red">Sport Challenge Online</p></h1>
+<body style="height: 574px; align="center" ">
+	<h1><p style="height: px; color: Red" align="center">Sport Challenge Online</p></h1>
 	<form action="<%=request.getContextPath()%>/Iscriviti" method="post" style="height: 409px; ">
 	<table>
 	<tr>

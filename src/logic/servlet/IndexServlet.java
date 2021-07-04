@@ -20,7 +20,10 @@ import bean.LoginBean;
 public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private LoginBean loginBean;
-    
+	private static SortedMap<String, String> user;
+	
+	
+
     @Override
     public void init() {
     	
@@ -45,7 +48,6 @@ public class IndexServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
 
             } else {
-            	SortedMap<String, String> user;
             	user = loginBean.getUser();
             	if((user.get("RENT")).equals("0")){
 	                HttpSession session = request.getSession();
@@ -62,4 +64,8 @@ public class IndexServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    
+    public static SortedMap<String, String> getUser() {
+		return user;
+	}
 }

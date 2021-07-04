@@ -21,7 +21,6 @@ import bean.IscrivitiBean;
 public class IscrivitiServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
 	    private IscrivitiBean iscrivitiBean;
-		private static PrintWriter out;
 
 
 	    
@@ -36,7 +35,8 @@ public class IscrivitiServlet extends HttpServlet {
 	    @Override
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	    	
+			PrintWriter out;
+
 			 out = response.getWriter();
 
 
@@ -63,7 +63,7 @@ public class IscrivitiServlet extends HttpServlet {
 	        }
 	        	        
 	        if (iscrivitiBean.checkMail()==1) {
-	        	out.println("Mail sbaglata");
+	        	out.println("Mail sbagliata");
 	        	return;
 	        }
 	        

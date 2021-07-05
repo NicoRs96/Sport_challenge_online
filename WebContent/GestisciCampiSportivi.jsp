@@ -1,3 +1,4 @@
+<%@ tag lib prefix="c" url="http://java.sun.com/jsp/jspl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -17,8 +18,17 @@
 			<th>INDIRIZZO</th>
 			<th>DESCRIZIONE</th>
 			<th>DATA</th>
-
-
+			
+		<c:forEach var="campo" items="${campo}">
+		<tr>
+			<td>${campo.NOME}</td>
+			<td>${campo.CITTA}</td>
+			<td>${campo.INDIRIZZO}</td>
+			<td>${campo.DESCRIZIONE}</td>
+			<td>${campo.DATA}</td>
+		</tr>
+		
+		</c:forEach>
 
 		</tr>
 		</table>

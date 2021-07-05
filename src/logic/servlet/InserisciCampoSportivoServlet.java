@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bean.InserisciCampoBean;
 import model.Campo;
@@ -45,11 +44,16 @@ public class InserisciCampoSportivoServlet extends HttpServlet {
 		String cittaString=request.getParameter("citta");
 		LocalDate dataDate = LocalDate.parse(request.getParameter("mydatetime"));
 		String oraString= request.getParameter("ora");
-		String sportString =request.getParameter("Selezionasport");
+		String sportString =request.getParameter("selezionasport");
 		String prezzoString=request.getParameter("prezzo");
-		String modPString = request.getParameter("Modpagamento");
+		String modPString = request.getParameter("ModPagamento");
 		String descString=request.getParameter("descrizione");
-		String cbTorneoString= Boolean.toString(Boolean.valueOf(request.getParameter("cbTorneo")));
+		Boolean cbTorneoString= Boolean.valueOf(request.getParameter("cbTorneo"));
+		
+		String isTorneo="0";
+		if(Boolean.TRUE.equals(cbTorneoString)) {
+			isTorneo="1";
+		}
 		
 		for (String ora: oraString.split(" ")) {
     		Campo campo = new Campo(nomeString,cittaString,indirizzoString);
@@ -62,12 +66,12 @@ public class InserisciCampoSportivoServlet extends HttpServlet {
     		campo.setModPagamento(modPString);
     		campo.setRenter(id+"");
             try {
-				if(inseriscoCampoBean.inserisciCampo(campo, cbTorneoString)){
+				if(inseriscoCampoBean.inserisciCampo(campo, isTorneo)){
 	                response.sendRedirect("HomePageRenter.jsp");
 				}
 			} catch (SQLException e) {
 				//nothing
-							}
+			}
 		
 	}
 

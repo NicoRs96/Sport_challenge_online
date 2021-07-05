@@ -39,7 +39,7 @@ public class InserisciCampoDao {
         statement.execute(query);
        }
     	catch (Exception e) {
-		// nothing
+    		//nothing
     	}
     	finally {
     		DBConnectionSingleton.closeRS(rs);

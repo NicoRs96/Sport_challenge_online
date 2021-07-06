@@ -1,4 +1,3 @@
-<%@ tag lib prefix="c" url="http://java.sun.com/jsp/jspl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,6 +7,7 @@
 <title>SPORT CHALLENGE ONLINE</title>
 </head>
 <body>
+	<form action="<%=request.getContextPath()%>/GestisciCampiSportivi" method="get" style="height: 409px; id="form" ">
 		<div><h1 style="height: px; color: Red" align="center">Sport Challenge Online</h1></div>
 		<p> I miei campi </p>
 	<div>
@@ -21,17 +21,14 @@
 			
 		<c:forEach var="campo" items="${campo}">
 		<tr>
-			<td>${campo.NOME}</td>
-			<td>${campo.CITTA}</td>
-			<td>${campo.INDIRIZZO}</td>
-			<td>${campo.DESCRIZIONE}</td>
-			<td>${campo.DATA}</td>
+			<td>${campo}</td>
+			
 		</tr>
 		
 		</c:forEach>
 
 		</tr>
-		</table>
+		</table></form>
 	</div>
 	<div><form align="center">
 			<input value="Rendi Affittabile"type="submit" style="background-color: Aqua"><input value="Refresh" type="submit" style="background-color: #FF8040"><input value="Cancella" type="submit" style="background-color: Red; ">
@@ -59,4 +56,7 @@
 			<input value="Esci" type="submit" style="background-color: Red; ">
 		</form></div>
 </body>
+<script>
+	document.getElementById("form").addEventListener("click", function(event) {event.preventDefault()});
+</script>
 </html>

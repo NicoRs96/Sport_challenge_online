@@ -20,9 +20,9 @@
 	<div style="height: 390px; ">&emsp;&emsp;<img src="image/impSportivo.jpg" align="left" style="width: 440px; height: 344px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="image/torneo1.png" style="width: 451px; height: 307px; "></div>
 	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	<td><td><td></td></td>
-	</td></td><p align="center"><input type="submit" value="I miei eventi" style="background-color: #FF8040; ">&emsp;&emsp;&emsp;<input type="submit" value="Specifica il tuo livello" style="background-color: #FF8040; ">&emsp;&emsp;&emsp;<input type="submit" value="Imposta sport preferito" style="background-color: #FF8040; ">&emsp;&emsp;&emsp;<input type="submit" value="Disiscriviti" style="background-color: #FF8040; "><form align="center">
-			<input type="submit" value ="Esci"  style="background-color: Red; width: 77px">
-		</form></p></body>
+	</td></td><p align="center"><input type="submit" value="I miei eventi" style="background-color: #FF8040; ">&emsp;&emsp;&emsp;<input type="submit" onclick="window.location='SpecificaLivello.jsp'" value="Specifica il tuo livello" style="background-color: #FF8040; ">&emsp;&emsp;&emsp;<input type="submit" value="Imposta sport preferito" onclick= "window.location='SportPreferito.jsp'" style="background-color: #FF8040;  ">&emsp;&emsp;&emsp;<form action="<%=request.getContextPath()%>/HomePageSportman" method="get" align="Center"><input type="submit" value="Disiscriviti" style="background-color: #FF8040;"></form>
+			<td></td><input type="submit" value="Esci" style="background-color: Red; width: 77px"><p></p>
+		</p></body>
 </html>
 
 

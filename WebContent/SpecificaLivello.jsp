@@ -11,10 +11,13 @@
 		<h1><p style="height: px; color: Red" align="center">Sport Challenge Online<form>
 				
 			</form></p></h1>
+		<div style="height: 291px; ">
+		<form style="height: 242px; " action="<%=request.getContextPath()%>/SpecificaLivello" method="get">
 		
 		Scegli il tuo livello&emsp;&emsp;&emsp;&emsp;
 		Seleziona sport
-			<select multiple="true" name="selezionasport" size="1">
+		
+			<select multiple="true" name="selezionasport" size="1" style="height: 51px; ">
 					<option>Tennis</option>
 					<option>Calcio</option>
 					<option>Basket</option>
@@ -23,15 +26,14 @@
 					<option>Golf</option>
 					<option>Padel</option>					
 				</select>
-
-	<div><form>
-			<input type="submit" value="Esperto"><input type="submit" value="Professionista"><input type="submit" value="Dilettante">
+	
+	
+			<div><p></p><input type="radio" name="livello" value="Dilettante">Dilettante&emsp;&emsp; <input type="radio" name="livello" value="Esperto" >Esperto &emsp;&emsp;<input type="radio" name="livello" value="Professionista">Professionista</div>
+			<div><p></p><input type="submit" value="conferma" style="background-color: Green; "></div>
 		</form>
 	</div>
-	<div><form>
-			<input type="submit" value="conferma" style="background-color: Green; ">
-		</form></div><form>
-		<input type="submit" value="esci" style="background-color: Red; ">
-	</form>
+	
+		<input type="submit" value="esci" onclick="window.location='HomePageSportman.jsp'" style="background-color: Red; ">
+	
 </body>
 </html>

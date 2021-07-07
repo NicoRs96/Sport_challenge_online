@@ -13,6 +13,7 @@
 			</form></p></h1>
 		
 		Seleziona sport
+		<form action="<%=request.getContextPath()%>/SportPreferito" method="get">
 			<select multiple="true" name="selezionasport" size="1">
 					<option>Tennis</option>
 					<option>Calcio</option>
@@ -25,8 +26,8 @@
 
 	
 			<input type="submit" value="conferma" style="background-color: Green; ">
-		</form></div><form>
-		<input type="submit" value="esci" style="background-color: Red; ">
-	</form>
+		</form></div>
+		<input type="submit" value="esci" onclick="window.location='HomePageSportman.jsp'" style="background-color: Red; ">
+	
 </body>
 </html>

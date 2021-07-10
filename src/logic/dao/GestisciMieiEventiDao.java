@@ -5,6 +5,7 @@ import model.Torneo;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -65,51 +66,7 @@ public class GestisciMieiEventiDao {
 
 
     public Torneo getTorneoByUtenteId(int id) throws SQLException {
-    	
-    	Connection connection;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        Torneo torneo =null;
-
-        try {
-
-         connection = DBConnectionSingleton.getConnectionInstance();
-         statement = connection.createStatement();
-        String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
-         resultSet = statement.executeQuery(query);
-        while(resultSet.next()) {
-            torneo = new Torneo(
-                    resultSet.getString("t.NOME"),
-                    resultSet.getString("c.NOME"),
-                    LocalDate.parse(resultSet.getString("t.DATA")),
-                    resultSet.getString("t.ORA"),
-                    resultSet.getDouble("t.PREZZO"),
-                    resultSet.getInt("t.ETA"),
-                    resultSet.getInt("t.NUMEROMIN")                    
-
-            );
-            
-            torneo.setId(resultSet.getInt("T.ID"));
-            torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
-            torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
-            torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
-            torneo.setCitta(resultSet.getString("c.COMUNE"));
-            torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
-            torneo.setSport(resultSet.getString("c.SPORT"));
-            torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
-            torneo.setConfermato();
-
-            
-        }
-        }
-        catch (Exception e) {
-			// nothing
-		}
-        finally {
-        	DBConnectionSingleton.closeRS(resultSet);
-       		DBConnectionSingleton.closeSTMT(statement);
-		}
-        return torneo;
+        return getTornei(id).get(0);
     }
 
 
@@ -163,5 +120,52 @@ public class GestisciMieiEventiDao {
         return risultato;
     	
     }
-        
+
+    public List<Torneo> getTornei(int id) {
+        Connection connection;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        List<Torneo> tornei = new ArrayList<>();
+
+        try {
+
+            connection = DBConnectionSingleton.getConnectionInstance();
+            statement = connection.createStatement();
+            String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO p,CAMPO c,TORNEO t WHERE p.USER = %s AND p.TORNEO = t.ID AND t.CAMPO = c.ID", id);
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()) {
+                Torneo torneo = new Torneo(
+                        resultSet.getString("t.NOME"),
+                        resultSet.getString("c.NOME"),
+                        LocalDate.parse(resultSet.getString("t.DATA")),
+                        resultSet.getString("t.ORA"),
+                        resultSet.getDouble("t.PREZZO"),
+                        resultSet.getInt("t.ETA"),
+                        resultSet.getInt("t.NUMEROMIN")
+
+                );
+                torneo.setId(resultSet.getInt("T.ID"));
+                torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
+                torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
+                torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
+                torneo.setCitta(resultSet.getString("c.COMUNE"));
+                torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
+                torneo.setSport(resultSet.getString("c.SPORT"));
+                torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
+                torneo.setConfermato();
+
+                tornei.add(torneo);
+
+            }
+        }
+        catch (Exception e) {
+            // nothing
+        }
+        finally {
+            DBConnectionSingleton.closeRS(resultSet);
+            DBConnectionSingleton.closeSTMT(statement);
+        }
+
+        return tornei;
+    }
 }

@@ -13,6 +13,7 @@ public class Persona {
 	private String isRenter;
 	private String livello;
 	private String sportPreferito;
+	private String isConfermato;
 
 	public Persona(int id, String nome, String cognome, String mail,LocalDate data, String telefono, String isRenter) {
 		this.id = id;
@@ -22,6 +23,7 @@ public class Persona {
 		this.data = data;
 		this.telefono = telefono;
 		this.isRenter = isRenter;
+		this.isConfermato = "NO";
 	}
 
 	public int getId() {
@@ -101,5 +103,13 @@ public class Persona {
 
 	public void setSportPreferito(String sportPreferito) {
 		this.sportPreferito = sportPreferito;
+	}
+
+	public void setIsConfermato(int isConfermato){
+		this.isConfermato = isConfermato == 0 ?  "NO" :  "SI";
+	}
+
+	public String getIsConfermato(){
+		return isConfermato;
 	}
 }

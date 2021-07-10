@@ -10,7 +10,7 @@
 
 	<div><h1 style="height: px; color: Red" align="center">Sport Challenge Online</h1></div>
 
-	<div>
+	<div style="height: 550px; ">
 	<p>Inserisci i dati del tuo campo</p>
 		<form action="<%=request.getContextPath()%>/InserisciCampoSportivo" method="post" style="height: 409px; ">
 	<table>
@@ -73,9 +73,9 @@
 		<td><td><p><input type="submit"; value="Conferma" style="width: 304px; background-color: Lime; height: 46px"></p></td>
 	</form>
 	</div>
-	<div><form align="center">
-			<input type="submit" value="Esci" style="background-color: Red;  ">
-		</form></div>
+	<div>
+			<input type="submit" value="Esci" onclick="window.location='HomePageRenter.jsp'" style="background-color: Red;  ">
+		</div>
 </body>
 <script>
 	var today = new Date();

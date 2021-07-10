@@ -6,6 +6,7 @@ import model.Torneo;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -26,5 +27,9 @@ public class GestisciMieiEventiBean {
 
     public boolean cancellaPrenotazioneTorneo(int torneoId,int utenteId)  throws SQLException{
         return gestisciMieiEventiDao.cancellaPrenotazioneTorneo(torneoId, utenteId);
+    }
+
+    public List<Torneo> getTornei(int id) throws SQLException{
+        return gestisciMieiEventiDao.getTornei(id);
     }
 }

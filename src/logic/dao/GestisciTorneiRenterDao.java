@@ -56,7 +56,7 @@ public class GestisciTorneiRenterDao {
         
         try {
          connection = DBConnectionSingleton.getConnectionInstance();
-         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         statement = connection.createStatement();
         String query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO pt," +
                 "USER u, CAMPO c, TORNEO t, USER_SPORT su " +
                 "WHERE pt.TORNEO = %s AND pt.USER = U.ID AND pt.TORNEO = t.ID AND t.CAMPO = c.ID AND c.SPORT = su.SPORT AND su.USER = u.ID", id);
@@ -74,6 +74,7 @@ public class GestisciTorneiRenterDao {
                         );
                 String livello = (resultSet.getString("su.LIVELLO") == null) ? "DILETTANTE" : resultSet.getString("su.LIVELLO");
                 persona.setLivello(livello);
+                persona.setIsConfermato(resultSet2.getInt("CONFERMATO"));
                 iscritti.add(persona);
             }
         }
@@ -81,15 +82,16 @@ public class GestisciTorneiRenterDao {
             query = String.format("SELECT * FROM PRENOTAZIONE_TORNEO pt," +
                     "USER u WHERE pt.TORNEO = %s AND pt.USER = U.ID" , id);
             resultSet2 = statement.executeQuery(query);
-                while(resultSet.next()) {
-                    Persona persona = new Persona(resultSet.getInt("pt.USER"),
+                while(resultSet2.next()) {
+                    Persona persona = new Persona(resultSet2.getInt("pt.USER"),
                             resultSet2.getString("u.NOME"),
                             resultSet2.getString("u.COGNOME"),
                             resultSet2.getString("u.EMAIL"),
-                            LocalDate.parse(resultSet.getString("u.DATADINASCITA")),
+                            LocalDate.parse(resultSet2.getString("u.DATADINASCITA")),
                             resultSet2.getString("u.TELEFONO"),
                             resultSet2.getString("u.RENT")
                     );
+                    persona.setIsConfermato(resultSet2.getInt("CONFERMATO"));
                     persona.setLivello("DILETTANTE");
                     iscritti.add(persona);
                 }

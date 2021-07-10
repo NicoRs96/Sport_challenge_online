@@ -1,7 +1,7 @@
 package model;
 
 public class Prenotazione {
-    int id;
+    private int id;
     private String nomeCampo;
     private String data;
     private String ora;

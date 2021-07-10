@@ -65,5 +65,7 @@
 		 
 		<td><td><p><input type="submit"; value="Conferma" style="width: 304px; background-color: Lime; height: 46px"></p></td>
 	</form>
+		<input type="submit" value="esci" onclick="window.location='HomePageRenter.jsp'"style="background-color: Red; ">
+	
 </body>
 </html>

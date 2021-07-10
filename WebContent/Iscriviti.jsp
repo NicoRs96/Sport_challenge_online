@@ -40,5 +40,7 @@
 		<input type="checkbox" name="cb" style="width: 31px; height: 26px;  ">Rent 
 		<td><td><p><input type="submit"; value="Iscriviti" style="width: 304px; background-color: Lime; height: 46px"></p></td>
 	</form>
+		<input type="submit" value="esci" onclick="window.location='index.jsp'" style="background-color: Red; ">
+	
 	</body>
 </html>

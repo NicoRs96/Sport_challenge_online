@@ -55,7 +55,9 @@ public class InserisciCampoSportivoServlet extends HttpServlet {
 			isTorneo="1";
 		}
 		
-		for (String ora: oraString.split(" ")) {
+		String[] ora= oraString.split(" ");
+		
+		for (int i=0; i<ora.length; i++) {
     		Campo campo = new Campo(nomeString,cittaString,indirizzoString);
     		campo.setSport(sportString);
     		campo.setDesc(descString);

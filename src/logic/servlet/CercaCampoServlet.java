@@ -34,15 +34,7 @@ public class CercaCampoServlet extends HttpServlet {
         super();
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-
-
-    }
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -61,10 +53,15 @@ public class CercaCampoServlet extends HttpServlet {
                 SortedMap<String, TreeMap<String, String>> campo = cercaCampoBean.getCampo(request.getParameter("citta"), request.getParameter("sport"), request.getParameter("data"));
 
                 List<Campo> campi = new ArrayList<>();
-                for (String i : campo.keySet()) {
-                    TreeMap<String, String> x = campo.get(i);
+                
+                for(Map.Entry<String, TreeMap<String, String>> entry: campo.entrySet())
+                 {
+                	
+                	String keyString=entry.getKey();
+                	
+                    TreeMap<String, String> x = campo.get(keyString);
                     Campo c = new Campo(
-                            i,
+                            keyString,
                             x.get("COMUNE"),
                             x.get("INDIRIZZO"));
 
@@ -78,12 +75,10 @@ public class CercaCampoServlet extends HttpServlet {
 
                 request.setAttribute("campi", campi);
 
-            } catch (ConnectionClosedFXException e) {
+            } catch (ConnectionClosedFXException|ClassNotFoundException  e) {
                 e.printStackTrace();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         } else if(request.getParameter("seleziona") != null){
             if(request.getParameter("campoId") == null){

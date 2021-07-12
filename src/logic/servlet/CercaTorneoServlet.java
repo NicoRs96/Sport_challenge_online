@@ -58,8 +58,12 @@ import java.util.*;
                 SortedMap<Integer, TreeMap<String, String>> torneo = cercaTorneoBean.getTornei(request.getParameter("citta"), request.getParameter("data"));
 
                 List<Torneo> tornei = new ArrayList<>();
-                for (Integer i : torneo.keySet()) {
-                    TreeMap<String, String> x = torneo.get(i);
+                for(Map.Entry<Integer, TreeMap<String, String>> entry: torneo.entrySet())
+                {
+               	
+               	Integer keyString=entry.getKey();
+                
+                    TreeMap<String, String> x = torneo.get(keyString);
                     Torneo t = new Torneo(
                             x.get("NOME"),
                             x.get("CAMPO"),
@@ -69,7 +73,7 @@ import java.util.*;
                             Integer.parseInt(x.get("ETA")),
                             Integer.parseInt(x.get("NUMEROMIN")));
 
-                    t.setId(i);
+                    t.setId(keyString);
                     t.setDataScadenza(x.get("DATASCADENZA"));
                     tornei.add(t);
                 }

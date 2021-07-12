@@ -31,6 +31,8 @@ public class GestisciTorneiServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private GestisciTorneiRenterBean gestisciTorneiBean = new GestisciTorneiRenterBean();
     private int renterId;
+    private static String costanteString="/GestisciTornei.jsp";
+    private static String confermaString="conferma";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -61,7 +63,7 @@ public class GestisciTorneiServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciTornei.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(costanteString);
         dispatcher.forward(request, response);
     }
 
@@ -77,9 +79,9 @@ public class GestisciTorneiServlet extends HttpServlet {
         }
 
         String torneoId = request.getParameter("torneoId");
-        String partecipanteId = request.getParameter("conferma") != null ? request.getParameter("conferma")  : request.getParameter("cancella");
+        String partecipanteId = request.getParameter(confermaString) != null ? request.getParameter(confermaString)  : request.getParameter("cancella");
         if(torneoId == null && partecipanteId == null){
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciTornei.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher(costanteString);
             dispatcher.include(request, response);
             return;
         }
@@ -96,7 +98,7 @@ public class GestisciTorneiServlet extends HttpServlet {
         }
 
         torneoId = Arrays.stream(request.getCookies()).filter(x -> x.getName().equals("torneo")).findFirst().get().getValue();
-        if(request.getParameter("conferma") != null){
+        if(request.getParameter(confermaString) != null){
             try {
 
                 gestisciTorneiBean.confermaIscrizione(Integer.parseInt(partecipanteId), Integer.parseInt(torneoId));
@@ -121,45 +123,11 @@ public class GestisciTorneiServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciTornei.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(costanteString);
         dispatcher.include(request, response);
 
 
-//        doGet(request, response);
-//        String id = request.getParameter("campoRadio");
-//        String idPrenotazione = request.getParameter("pRadio");
-//        if(request.getParameter("cancellaP")== null && id == null){
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
-//            dispatcher.include(request, response);
-//            return;
-//        }
-//        if(request.getParameter("affittabile") != null){
-//            try {
-//                gestisciCampiBean.setCampoAffittabile(Integer.parseInt(id));
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
-//                dispatcher.include(request, response);
-//            } catch (SQLException throwables) {
-//                throwables.printStackTrace();
-//            }
-//        }else if(request.getParameter("cancella")!= null){
-//            try {
-//                gestisciCampiBean.setCampoNonAffittabile(Integer.parseInt(id));
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
-//                dispatcher.include(request, response);
-//            } catch (SQLException throwables) {
-//                throwables.printStackTrace();
-//            }
-//        }else if(request.getParameter("cancellaP") != null){
-//            if(idPrenotazione != null) {
-//                try {
-//                    gestisciCampiBean.cancellaPrenotazione(Integer.parseInt(idPrenotazione));
-//                    RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
-//                    dispatcher.include(request, response);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            }
-//        }
+
 
     }
 

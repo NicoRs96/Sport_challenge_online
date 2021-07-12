@@ -1,12 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import bean.GestisciCampiBean;
 import model.Campo;
 import model.Prenotazione;
-import sun.security.provider.certpath.ResponderId;
 
 /**
  * Servlet implementation class GestisciCampiSportivi
@@ -29,6 +25,7 @@ import sun.security.provider.certpath.ResponderId;
 public class GestisciCampiSportiviServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private GestisciCampiBean gestisciCampiBean = new GestisciCampiBean();
+	String constantString="/GestisciCampiSportivi.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -75,19 +72,27 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 
 			request.setAttribute("campi", campi);
 
-		} catch (SQLException e) {
+		} catch (SQLException|ParseException e) {
 			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		} 
 
 		try{
 			SortedMap<Integer, TreeMap<String, String>> prenotazione = gestisciCampiBean.getPrenotazioni(renterId);
 			List<Prenotazione> prenotazioni = new ArrayList<>();
-			for (Integer i: prenotazione.keySet()) {
-				TreeMap<String, String> x = prenotazione.get(i);
+			
+			
+			
+			
+			
+			
+			 for(Map.Entry<Integer, TreeMap<String, String>> entry: prenotazione.entrySet())
+             {
+            	
+            	Integer keyString=entry.getKey();
+	
+				TreeMap<String, String> x = prenotazione.get(keyString);
 				Prenotazione p = new Prenotazione(
-						i,
+						keyString,
 						x.get("CAMPO"),
 						x.get("DATA"),
 						x.get("ORA"),
@@ -104,7 +109,7 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 			e.printStackTrace();
 			}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher(constantString);
 		dispatcher.forward(request, response);
 	}
 
@@ -116,14 +121,14 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 		String id = request.getParameter("campoRadio");
 		String idPrenotazione = request.getParameter("pRadio");
 		if(request.getParameter("cancellaP")== null && id == null){
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher(constantString);
 			dispatcher.include(request, response);
 			return;
 		}
 		if(request.getParameter("affittabile") != null){
 			try {
 				gestisciCampiBean.setCampoAffittabile(Integer.parseInt(id));
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher(constantString);
 				dispatcher.include(request, response);
 			} catch (SQLException throwables) {
 				throwables.printStackTrace();
@@ -131,16 +136,16 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 		}else if(request.getParameter("cancella")!= null){
 			try {
 				gestisciCampiBean.setCampoNonAffittabile(Integer.parseInt(id));
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher(constantString);
 				dispatcher.include(request, response);
 			} catch (SQLException throwables) {
 				throwables.printStackTrace();
 			}
-		}else if(request.getParameter("cancellaP") != null){
-			if(idPrenotazione != null) {
+		}else if(request.getParameter("cancellaP") != null && idPrenotazione != null){
+		 {
 				try {
 					gestisciCampiBean.cancellaPrenotazione(Integer.parseInt(idPrenotazione));
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/GestisciCampiSportivi.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher(constantString);
 					dispatcher.include(request, response);
 				} catch (SQLException throwables) {
 					throwables.printStackTrace();

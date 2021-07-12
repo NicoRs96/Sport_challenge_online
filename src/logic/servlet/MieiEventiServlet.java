@@ -1,6 +1,5 @@
 package servlet;
 
-import bean.GestisciCampiBean;
 import bean.GestisciMieiEventiBean;
 import model.Campo;
 import model.Torneo;
@@ -92,7 +91,6 @@ public class MieiEventiServlet extends HttpServlet {
         String campoId = request.getParameter("campoId");
         String torneoId = request.getParameter("torneoId");
 
-        System.out.println(request.getParameter("exit"));
         if(request.getParameter("exit") != null){
             RequestDispatcher dispatcher = request.getRequestDispatcher("/HomePageSportman.jsp");
             dispatcher.include(request, response);
@@ -121,7 +119,6 @@ public class MieiEventiServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MieiEventi");
         dispatcher.include(request, response);
-        return;
 
     }
 

@@ -16,15 +16,14 @@ import bean.LoginBean;
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private LoginBean loginBean;
-	private static SortedMap<String, String> user;
+    private static LoginBean loginBean=new LoginBean();
+	private static  SortedMap<String, String> user;
 	
 	
 
     @Override
     public void init() {
-    	
-        loginBean = new LoginBean();
+    	//nothing
     }
     
     @Override
@@ -45,7 +44,8 @@ public class IndexServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
 
             } else {
-            	user = loginBean.getUser();
+            	
+            	setUser(loginBean);
 
                 Cookie cookie = new Cookie("user", user.get("ID"));
                 response.addCookie(cookie);
@@ -68,4 +68,7 @@ public class IndexServlet extends HttpServlet {
     public static SortedMap<String, String> getUser() {
 		return user;
 	}
+    public static void setUser(LoginBean loginBean) {
+    	user=loginBean.getUser();
+    }
 }

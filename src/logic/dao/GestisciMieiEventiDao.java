@@ -144,15 +144,7 @@ public class GestisciMieiEventiDao {
                         resultSet.getInt("t.NUMEROMIN")
 
                 );
-                torneo.setId(resultSet.getInt("T.ID"));
-                torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
-                torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
-                torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
-                torneo.setCitta(resultSet.getString("c.COMUNE"));
-                torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
-                torneo.setSport(resultSet.getString("c.SPORT"));
-                torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
-                torneo.setConfermato();
+                 dummyMethod(torneo, resultSet);
 
                 tornei.add(torneo);
 
@@ -167,5 +159,17 @@ public class GestisciMieiEventiDao {
         }
 
         return tornei;
+    }
+    
+    private void dummyMethod(Torneo torneo, ResultSet resultSet) throws SQLException {
+    	torneo.setId(resultSet.getInt("T.ID"));
+        torneo.setDataScadenza(resultSet.getString("t.DATASCADENZA"));
+        torneo.setMetodoPagamento(resultSet.getString("t.MODALITAPAGAMENTO"));
+        torneo.setDesc(resultSet.getString("t.DESCRIZIONE"));
+        torneo.setCitta(resultSet.getString("c.COMUNE"));
+        torneo.setIndirizzo(resultSet.getString("c.INDIRIZZO"));
+        torneo.setSport(resultSet.getString("c.SPORT"));
+        torneo.setIsConfermato(resultSet.getInt("p.CONFERMATO"));
+        torneo.setConfermato();
     }
 }

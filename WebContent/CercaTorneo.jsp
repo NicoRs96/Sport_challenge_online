@@ -6,9 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body>
-		<h1><p style="height: px; color: Red" align="center">Sport Challenge Online</h1>
+		<h1><p class="test">Sport Challenge Online</h1>
 		<form  action="<%=request.getContextPath()%>/CercaTorneo" method="post">
 			<div>
 				<input type="text" required name="citta" value="Città" />

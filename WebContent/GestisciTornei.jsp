@@ -6,6 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body style="background-color: White; height: 1000px">
 	<p> I miei tornei </p>
@@ -72,7 +74,7 @@
 	</div>
 	</form>
 	<form action="<%=request.getContextPath()%>/GestisciTornei" method="post">
-	<div align="center">
+	<div class="test3">
 		<input id="refresh" value="Refresh" type="submit" style="background-color: #FF8040">
 		
 	</div>

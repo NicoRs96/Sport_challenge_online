@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
-<<html style="background-color: White; height: 477px">
+<html style="background-color: White; height: 477px">
 
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body>
-		<h1><p style="height: 5px; color: Red" align="center">Sport Challenge Online</h1>
+
+		<h1><p class="test">Sport Challenge Online</h1>
 		<form action="<%=request.getContextPath()%>/CercaCampo" method="post">
 			<input type="text" required name="citta" value="Città" />
 			<input value="Data" name="data" type="date" required>

@@ -5,10 +5,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body>
 
-	<div><h1 style="height: px; color: Red" align="center">Sport Challenge Online</h1></div>
+	<div><h1 class="test">Sport Challenge Online</h1></div>
 
 	<div style="height: 550px; ">
 	<p>Inserisci i dati del tuo campo</p>

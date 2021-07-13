@@ -17,10 +17,12 @@
      
 }
     </style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 
 <body style="height: 658px; ">
-  <h1><p  style="height: 132px; text-align: center "><font color="red"> </font>Sport Challenge Online</p></h1>
+  <h1><p class="test"> Sport Challenge Online</p></h1>
   <form action="<%=request.getContextPath()%>/index" method="post" style="height: 116px; ">
    <table style="with: 100%; width: 178px; border="1"text-align: center align="center">
     <tr>

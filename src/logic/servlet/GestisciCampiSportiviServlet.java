@@ -141,7 +141,7 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 			} catch (SQLException throwables) {
 				throwables.printStackTrace();
 			}
-		}else if(request.getParameter("cancellaP") != null && idPrenotazione != null){
+		}else if(request.getParameter("cancellaP") != null && idPrenotazione != null)
 		 {
 				try {
 					gestisciCampiBean.cancellaPrenotazione(Integer.parseInt(idPrenotazione));
@@ -151,7 +151,7 @@ public class GestisciCampiSportiviServlet extends HttpServlet {
 					throwables.printStackTrace();
 				}
 			}
-		}
+		
 
 	}
 

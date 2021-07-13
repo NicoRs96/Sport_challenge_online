@@ -5,9 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sport Challenge Online</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body style="height: 574px; align="center" ">
-	<h1><p style="height: px; color: Red" align="center">Sport Challenge Online</p></h1>
+	<h1><p class="test" >Sport Challenge Online</p></h1>
 	<form action="<%=request.getContextPath()%>/Iscriviti" method="post" style="height: 409px; ">
 	<table>
 	<tr>

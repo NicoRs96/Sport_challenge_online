@@ -5,9 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body>
-			<div><h1><p style="height: px; color: Red" align="center">Sport Challenge Online</p></h1></div>
+			<div><h1><p class="test">Sport Challenge Online</p></h1></div>
 	<p> Seleziona un campo </p>
 	<td><select name=Campi size="1">
 									

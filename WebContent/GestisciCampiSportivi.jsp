@@ -9,10 +9,12 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>SPORT CHALLENGE ONLINE</title>
+	<style><%@include file="/WEB-INF/css/style.css"%></style>
+	
 </head>
 <body>
 <form id="myForm" action="<%=request.getContextPath()%>/GestisciCampiSportivi" method="post" style="height: 409px;">
-	<div><h1 style="height: 5px; color: #ff0000" align="center">Sport Challenge Online</h1></div>
+	<div><h1 class="test">Sport Challenge Online</h1></div>
 	<p> I miei campi </p>
 	<div>
 
@@ -75,7 +77,7 @@
 	</c:forEach>
 	</tbody>
 </table>
-	<div align="left">
+	<div class="test2">
 		<input value ="Cancella Prenotazione" name="cancellaP" type="submit" style="background-color: Red; ">
 		<input id="refreshP" value="Refresh" type="submit" style="background-color: #FF8040">
 	</div>

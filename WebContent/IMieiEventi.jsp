@@ -6,9 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body style="height: 1000px;">
-			<h1><p style="height: 5px; color: Red" align="center">Sport Challenge Online</h1>
+			<h1><p class="test">Sport Challenge Online</h1>
 
 		<form align="center" action="<%=request.getContextPath()%>/MieiEventi" method="post">
 		<div>CAMPI PRENOTATI

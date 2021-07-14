@@ -55,27 +55,27 @@
 		<caption>Iscrizioni ai tornei</caption>
 			<tbody>
 				<tr>
-					<th>ID</th>
-					<th>NOME</th>
-					<th>CITTA</th>
-					<th>DATA</th>
-					<th>ORA</th>
-					<th>DESCRIZIONE</th>
-					<th>PREZZO</th>
-					<th>SPORT</th>
+					<th scope="col">ID</th>
+					<th scope="col">NOME</th>
+					<th scope="col">CITTA</th>
+					<th scope="col">DATA</th>
+					<th scope="col">ORA</th>
+					<th scope="col">DESCRIZIONE</th>
+					<th scope="col">PREZZO</th>
+					<th scope="col">SPORT</th>
 				</tr>
 
 				<c:forEach var= "torneo" items ="${tornei}">
 					<tr>
-						<th>${torneo.id}</th>
-						<th>${torneo.nome}</th>
-						<th>${torneo.citta}</th>
-						<th>${torneo.data}</th>
-						<th>${torneo.ora}</th>
-						<th>${torneo.desc}</th>
-						<th>${torneo.prezzo}</th>
-						<th>${torneo.sport} </th>
-						<th><input type="radio" name="torneoId" value="${torneo.id}"></th>
+						<th scope="col">${torneo.id}</th>
+						<th scope="col">${torneo.nome}</th>
+						<th scope="col">${torneo.citta}</th>
+						<th scope="col">${torneo.data}</th>
+						<th scope="col">${torneo.ora}</th>
+						<th scope="col">${torneo.desc}</th>
+						<th scope="col">${torneo.prezzo}</th>
+						<th scope="col">${torneo.sport} </th>
+						<th scope="col"><input type="radio" name="torneoId" value="${torneo.id}"></th>
 					</tr>
 				</c:forEach>
 

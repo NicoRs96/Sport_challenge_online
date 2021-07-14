@@ -25,12 +25,13 @@
   <h1><p class="test">Sport Challenge Online</p></h1>
   <form action="<%=request.getContextPath()%>/index" method="post" style="height: 116px; ">
    <table class="test5">
+   <caption>Login</caption>
     <tr>
-     <td style="width: 159px; font-style: normal; color: Black; background-color: Yellow; font-size: 16px">UserName</td> 
+     <th scope="col" style="width: 159px; font-style: normal; color: Black; background-color: Yellow; font-size: 16px">UserName</th> 
      <td><input type="text" name="username" style="width: 234px; "></td>
     </tr>
     <tr>
-     <td style="background-color: #FFFF00; font-size: 16px; color: Black">Password</td>
+     <th scope="col" style="background-color: #FFFF00; font-size: 16px; color: Black">Password</th>
      <td><input type="password" name="password" style="width: 233px; "></td>
     </tr>
 

@@ -74,7 +74,7 @@ public class GestisciTorneiRenterDao {
                         );
                 String livello = (resultSet.getString("su.LIVELLO") == null) ? "DILETTANTE" : resultSet.getString("su.LIVELLO");
                 persona.setLivello(livello);
-                persona.setIsConfermato(resultSet2.getInt("CONFERMATO"));
+                persona.setIsConfermato(resultSet.getInt("CONFERMATO"));
                 iscritti.add(persona);
             }
         }

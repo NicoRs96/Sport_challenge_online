@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
-<html style="background-color: White; height: 477px">
+<html  lang="it" style="background-color: White; height: 477px">
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
@@ -13,32 +13,33 @@
 			<h1><p class="test">Sport Challenge Online</h1>
 
 		<form align="center" action="<%=request.getContextPath()%>/MieiEventi" method="post">
-		<div>CAMPI PRENOTATI
+		<div>
 	
 		<table border="1">
+	<caption>Campi prenotati</caption>
 			<tbody>
 				<tr>
-					<th>ID</th>
-					<th>NOME</th>
-					<th>COMUNE</th>
-					<th>INDIRIZZO</th>
-					<th>DESCRIZIONE</th>
-					<th>DATA</th>
-					<th>ORARIO</th>
-					<th>SPORT</th>
+					<th scope="col">ID</th>
+					<th scope="col">NOME</th>
+					<th scope="col">COMUNE</th>
+					<th scope="col">INDIRIZZO</th>
+					<th scope="col">DESCRIZIONE</th>
+					<th scope="col">DATA</th>
+					<th scope="col">ORARIO</th>
+					<th scope="col">SPORT</th>
 				</tr>
 
 				<c:forEach var= "campo" items ="${campi}">
 					<tr>
-						<th>${campo.id}</th>
-						<th>${campo.nome}</th>
-						<th>${campo.comune}</th>
-						<th>${campo.indirizzo}</th>
-						<th>${campo.desc}</th>
-						<th>${campo.data}</th>
-						<th>${campo.ora}</th>
-						<th>${campo.sport} </th>
-						<th><input type="radio" name="campoId" value="${campo.id}"></th>
+						<th scope="col">${campo.id}</th>
+						<th scope="col">${campo.nome}</th>
+						<th scope="col">${campo.comune}</th>
+						<th scope="col">${campo.indirizzo}</th>
+						<th scope="col">${campo.desc}</th>
+						<th scope="col">${campo.data}</th>
+						<th scope="col">${campo.ora}</th>
+						<th scope="col">${campo.sport} </th>
+						<th scope="col"><input type="radio" name="campoId" value="${campo.id}"></th>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -49,8 +50,9 @@
 	</form>
 
 	<form align="center" action="<%=request.getContextPath()%>/MieiEventi" method="post">
-	<div>ISCRIZIONE AI TORNEI
+	<div>
 		<table border="1">
+		<caption>Iscrizioni ai tornei</caption>
 			<tbody>
 				<tr>
 					<th>ID</th>

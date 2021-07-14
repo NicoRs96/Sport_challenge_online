@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html style="background-color: White; height: 1000px">
+<html lang="it" style="background-color: White; height: 1000px">
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
@@ -17,46 +17,47 @@
 			</td>
 	<form action="<%=request.getContextPath()%>/CreaTorneo" method="post" style="height: 409px; ">
 	<table>
+	<caption>Creazione del torneo</caption>
 	<tr>
-			<td>Nome</td>
+			<th  scope="col">Nome</th>
 			<td><input type="text" name="Nome" size="20" maxlength="25"></td>		
 		</tr>
 		
 		<tr>
-			<td>Scegli la data</td>
+			<th scope="col">Scegli la data</th>
 			<td>    <input type="date" name="mydatetime">
 			</td>		
 		</tr>
 		<tr>
-			<td>Ora</td>
+			<th  scope="col">Ora</th>
 			<td><input type="text" name="ora" size="20" maxlength="5"></td>		
 		</tr>
 		<tr>
-			<td>Età minima</td>
+			<th scope="col">Età minima</th>
 			<td><input type="text" name="eta" size="20" maxlength="2"></td>		
 		</tr>
 		<tr>
-			<td>Numero minimo di partecipanti</td>
+			<th scope="col">Numero minimo di partecipanti</th>
 			<td><input type="text" name="numMin" size="20" maxlength="16"></td>		
 		</tr>
 		<tr>
-			<td>Scegli la data di scadenza prenotazione</td>
+			<th scope="col">Scegli la data di scadenza prenotazione</th>
 			<td>    <input type="date" name="mydatetime">
 			</td>		
 		</tr>
 		<tr>
-			<td>Prezzo</td>
+			<th scope="col">Prezzo</th>
 			<td>    <input type="text" name="prezzo" size="20" maxlength="16">
 			</td>		
 		</tr>
 		<tr>
-			<td>Descrizione</td>
+			<th scope="col">Descrizione</th>
 			<td>    <input type="text" name="descrizione" size="20" maxlength="500" style="height: 89px; width: 214px">
 			</td>		
 		</tr>
 		
 		<tr>
-			<td>Modalità di pagamento</td>
+			<th scope="col">Modalità di pagamento</th>
 			<td><select name="ModPagamento" size="1">
 					<option>Contanti</option>
 					<option>Carta di credito</option>

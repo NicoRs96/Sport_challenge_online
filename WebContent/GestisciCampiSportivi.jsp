@@ -3,7 +3,7 @@
 <%@ page import="model.Campo" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
-<html style="background-color: White; height: 274px">
+<html lang="it" style="background-color: White; height: 274px">
 
 
 <head>
@@ -19,26 +19,27 @@
 	<div>
 
 		<table border="1">
+		<caption>I miei campi</caption>
 			<tbody>
 			<tr>
-				<th>NOME</th>
-				<th>CITTA'</th>
-				<th>INDIRIZZO</th>
-				<th>DESCRIZIONE</th>
-				<th>DATA</th>
-				<th>DATA</th>
-				<th>AFFITABILE</th>
+				<th scope="col">NOME</th>
+				<th scope="col">CITTA'</th>
+				<th scope="col">INDIRIZZO</th>
+				<th scope="col">DESCRIZIONE</th>
+				<th scope="col">DATA</th>
+				<th scope="col">DATA</th>
+				<th scope="col">AFFITABILE</th>
 			</tr>
 			<c:forEach var= "campo" items ="${campi}">
 				<tr>
-					<th>${campo.nome}</th>
-					<th>${campo.comune}</th>
-					<th>${campo.indirizzo}</th>
-					<th>${campo.desc}</th>
-					<th>${campo.data}</th>
-					<th>${campo.ora}</th>
-					<th>${campo.isAffittabile == 1} </th>
-					<th><input class="campiRenter" type="radio" name="campoRadio" value="${campo.id}"></th>
+					<th scope="col">${campo.nome}</th>
+					<th scope="col">${campo.comune}</th>
+					<th scope="col">${campo.indirizzo}</th>
+					<th scope="col">${campo.desc}</th>
+					<th scope="col">${campo.data}</th>
+					<th scope="col">${campo.ora}</th>
+					<th scope="col">${campo.isAffittabile == 1} </th>
+					<th scope="col"><input class="campiRenter" type="radio" name="campoRadio" value="${campo.id}"></th>
 				</tr>
 			</c:forEach>
 			</tbody>
@@ -55,24 +56,25 @@
 <p> Prenotazioni </p>
 <form  action="<%=request.getContextPath()%>/GestisciCampiSportivi" method="post">
 <table border="1">
+	<caption>Prenotazioni</caption>
 	<tbody>
 	<tr>
-		<th>CAMPO</th>
-		<th>DATA</th>
-		<th>ORA</th>
-		<th>NOME CLIENTE</th>
-		<th>COGNOME CLIENTE</th>
-		<th>TELEFONO</th>
+		<th scope="col">CAMPO</th>
+		<th scope="col">DATA</th>
+		<th scope="col">ORA</th>
+		<th scope="col">NOME CLIENTE</th>
+		<th scope="col">COGNOME CLIENTE</th>
+		<th scope="col">TELEFONO</th>
 	</tr>
 	<c:forEach var= "prenotazione" items ="${prenotazioni}">
 		<tr>
-			<th>${prenotazione.nomeCampo}</th>
-			<th>${prenotazione.data}</th>
-			<th>${prenotazione.ora}</th>
-			<th>${prenotazione.nomeCliente}</th>
-			<th>${prenotazione.cognomeCliente}</th>
-			<th>${prenotazione.telefonoCliente}</th>
-			<th><input class="prenotazioniCampi" type="radio" name="pRadio" value="${prenotazione.id}"></th>
+			<th scope="col">${prenotazione.nomeCampo}</th>
+			<th scope="col">${prenotazione.data}</th>
+			<th scope="col">${prenotazione.ora}</th>
+			<th scope="col">${prenotazione.nomeCliente}</th>
+			<th scope="col">${prenotazione.cognomeCliente}</th>
+			<th scope="col">${prenotazione.telefonoCliente}</th>
+			<th scope="col"><input class="prenotazioniCampi" type="radio" name="pRadio" value="${prenotazione.id}"></th>
 		</tr>
 	</c:forEach>
 	</tbody>

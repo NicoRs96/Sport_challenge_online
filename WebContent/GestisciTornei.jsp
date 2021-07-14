@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
@@ -14,28 +14,29 @@
 	<form id="myForm" action="<%=request.getContextPath()%>/GestisciTornei" method="post">
 	<div>
 		<table border="1">
+		<caption>Tornei</caption>
 			<tbody>
 		<tr>
-			<th>ID</th>
-			<th>NOME</th>
-			<th>DATA</th>
-			<th>ORA</th>
-			<th>PREZZO</th>
-			<th>ETA MINIMA</th>
-			<th>NUMERO MINIMO</th>
-			<th>SCADENZA PRENOTAZIONI</th>
+			<th scope="col">ID</th>
+			<th scope="col">NOME</th>
+			<th scope="col">DATA</th>
+			<th scope="col">ORA</th>
+			<th scope="col">PREZZO</th>
+			<th scope="col">ETA MINIMA</th>
+			<th scope="col">NUMERO MINIMO</th>
+			<th scope="col">SCADENZA PRENOTAZIONI</th>
 		</tr>
 		<c:forEach var= "torneo" items ="${tornei}">
 			<tr>
-				<th>${torneo.id}</th>
-				<th>${torneo.nome}</th>
-				<th>${torneo.data.toString()}</th>
-				<th>${torneo.ora}</th>
-				<th>${torneo.prezzo}</th>
-				<th>${torneo.etaMin}</th>
-				<th>${torneo.numMinPart}</th>
-				<th>${torneo.dataScadenza} </th>
-				<th><button  class="torneiRenter" type="submit" name="torneoId" value="${torneo.id}">Ottieni iscritti</button></th>
+				<th scope="col">${torneo.id}</th>
+				<th scope="col">${torneo.nome}</th>
+				<th scope="col">${torneo.data.toString()}</th>
+				<th scope="col">${torneo.ora}</th>
+				<th scope="col">${torneo.prezzo}</th>
+				<th scope="col">${torneo.etaMin}</th>
+				<th scope="col">${torneo.numMinPart}</th>
+				<th scope="col">${torneo.dataScadenza} </th>
+				<th scope="col"><button  class="torneiRenter" type="submit" name="torneoId" value="${torneo.id}">Ottieni iscritti</button></th>
 			</tr>
 		</c:forEach>
 			</tbody>
@@ -48,23 +49,24 @@
 		<div>ISCRITTI: ${iscritti.size()}</div>
 			<form>
 		<table border="1">
+		<caption>Iscritti</caption>
 			<tbody>
 		<tr>
-			<th>ID</th>
-			<th>NOME</th>
-			<th>COGNOME</th>
-			<th>LIVELLO</th>
-			<th>CONFERMATO</th>
+			<th scope="col">ID</th>
+			<th scope="col">NOME</th>
+			<th scope="col">COGNOME</th>
+			<th scope="col">LIVELLO</th>
+			<th scope="col">CONFERMATO</th>
 		</tr>
 
 		<c:forEach var= "iscritto" items ="${iscritti}">
 		<tr>
-			<th>${iscritto.id}</th>
-			<th>${iscritto.nome}</th>
-			<th>${iscritto.cognome}</th>
-			<th>${iscritto.livello}</th>
-			<th>${iscritto.isConfermato}</th>
-			<th><button  class="torneiRenter" type="submit" name="conferma" value="${iscritto.id}" style="background-color: #00FF00; ">Conferma</button>
+			<th scope="col">${iscritto.id}</th>
+			<th scope="col">${iscritto.nome}</th>
+			<th scope="col">${iscritto.cognome}</th>
+			<th scope="col">${iscritto.livello}</th>
+			<th scope="col">${iscritto.isConfermato}</th>
+			<th scope="col"><button  class="torneiRenter" type="submit" name="conferma" value="${iscritto.id}" style="background-color: #00FF00; ">Conferma</button>
 				<button  class="torneiRenter" type="submit" name="cancella" value="${iscritto.id}"  style="background-color: Red; ">Cancella</button>
 			</th>
 		</tr>

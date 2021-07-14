@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
-<<html style="background-color: White; height: 477px">
+<<html lang ="it" style="background-color: White; height: 477px">
 <head>
 <meta charset="ISO-8859-1">
 <title>SPORT CHALLENGE ONLINE</title>
@@ -23,28 +23,29 @@
 		<form  action="<%=request.getContextPath()%>/CercaTorneo" method="post">
 	<div>
 		<table border="1">
+		<caption>Tornei disponibili</caption>
 			<tbody>
 				<tr>
-					<th>NOME</th>
-					<th>CAMPO</th>
-					<th>DATA</th>
-					<th>ORA</th>
-					<th>ETA MINIMA</th>
-					<th>NUM MINIMO PARTECIPANTI</th>
-					<th>DATA SCADENZA</th>
-					<th>PREZZO</th>
+					<th scope="col">NOME</th>
+					<th scope="col">CAMPO</th>
+					<th scope="col">DATA</th>
+					<th scope="col">ORA</th>
+					<th scope="col">ETA MINIMA</th>
+					<th scope="col">NUM MINIMO PARTECIPANTI</th>
+					<th scope="col">DATA SCADENZA</th>
+					<th scope="col">PREZZO</th>
 				</tr>
 				<c:forEach var= "torneo" items ="${tornei}">
 					<tr>
-						<th>${torneo.nome}</th>
-						<th>${torneo.campo}</th>
-						<th>${torneo.data.toString()}</th>
-						<th>${torneo.ora}</th>
-						<th>${torneo.etaMin}</th>
-						<th>${torneo.numMinPart}</th>
-						<th>${torneo.dataScadenza} </th>
-						<th>${torneo.prezzo}</th>
-						<th><input type="radio" name="torneoId" value="${torneo.id}"></th>
+						<th scope="col">${torneo.nome}</th>
+						<th scope="col">${torneo.campo}</th>
+						<th scope="col">${torneo.data.toString()}</th>
+						<th scope="col">${torneo.ora}</th>
+						<th scope="col">${torneo.etaMin}</th>
+						<th scope="col">${torneo.numMinPart}</th>
+						<th scope="col">${torneo.dataScadenza} </th>
+						<th scope="col">${torneo.prezzo}</th>
+						<th scope="col"><input type="radio" name="torneoId" value="${torneo.id}"></th>
 					</tr>
 				</c:forEach>
 

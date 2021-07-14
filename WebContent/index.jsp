@@ -22,9 +22,9 @@
 </head>
 
 <body style="height: 658px; ">
-  <h1><p class="test"> Sport Challenge Online</p></h1>
+  <h1><p class="test">Sport Challenge Online</p></h1>
   <form action="<%=request.getContextPath()%>/index" method="post" style="height: 116px; ">
-   <table style="with: 100%; width: 178px; border="1"text-align: center align="center">
+   <table class="test5">
     <tr>
      <td style="width: 159px; font-style: normal; color: Black; background-color: Yellow; font-size: 16px">UserName</td> 
      <td><input type="text" name="username" style="width: 234px; "></td>

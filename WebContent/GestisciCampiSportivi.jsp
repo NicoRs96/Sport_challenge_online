@@ -90,8 +90,8 @@
 </div>
 </body>
 <script>
-document.getElementById("refresh").addEventListener("click", function(event) {location.reload()});
-document.getElementById("refreshP").addEventListener("click", function(event) {location.reload()});
+	document.getElementById("refresh").addEventListener("click", function(event) {location.reload()});
+	document.getElementById("refreshP").addEventListener("click", function(event) {location.reload()});
 
 </script>
 </html>

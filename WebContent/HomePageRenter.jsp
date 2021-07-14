@@ -17,7 +17,7 @@
 	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td><td></td>&emsp;&emsp;&emsp;&emsp;&emsp;
 	<div style="height: 390px; ">&emsp;&emsp;&emsp;&emsp;<img src="image/impSportivo.jpg" alt="campo"class="test2" style="width: 600px; height: 330px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img id="test4" src="image/torneo.jpg" alt="torneo"  style="width: 600px; height: 330px; "></div>
 	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	<td><td></td><div style="height: 69px; "><form>
+	<td><td></td><div style="height: 69px; "><form action="<%=request.getContextPath()%>/HomePageRenter" method="get">
 			<input type="submit" value="Disiscriviti" style="background-color: #FF8040; width: 148px">
 		</form></div>
 	<td></td>

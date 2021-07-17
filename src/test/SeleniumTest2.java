@@ -1,14 +1,22 @@
 package test;
 
+import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.mysql.cj.log.Log;
+
 
 
 
 public class SeleniumTest2 {
+	
+	private static Logger logger = Logger.getLogger(SeleniumTest2.class.getName());
 	
 	public static void main(String [] args) {
 		
@@ -25,7 +33,7 @@ public class SeleniumTest2 {
 
 
 		WebElement txtBoxContent = driver.findElement(By.xpath("/html/body/form/p/input"));
-		System.out.println(txtBoxContent.getAttribute("value"));
+		logger.log(Level.INFO, txtBoxContent.getAttribute("value"));
 		
 	}
 }

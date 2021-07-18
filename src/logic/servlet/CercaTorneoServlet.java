@@ -44,14 +44,7 @@ import java.util.*;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Cookie[] cookies = request.getCookies();
-        Optional<Cookie> opt = Arrays.stream(cookies).filter(x -> x.getName().equals("user")).findFirst();
-        if(opt.isPresent()) {
-            Cookie c = opt.get();
-            utenteId = Integer.parseInt(c.getValue());
-        }
-        else
-            response.sendRedirect("/index.jsp");
+        
 
         if (request.getParameter("cerca") != null) {
             try {

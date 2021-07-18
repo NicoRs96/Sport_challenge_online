@@ -24,7 +24,8 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class CreaTorneoController implements Initializable {
-    private Persona persona;
+    
+	private Persona persona;
     private List<Campo> campi = new ArrayList<>();
 
     public CreaTorneoController(){

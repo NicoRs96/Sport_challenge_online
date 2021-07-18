@@ -36,7 +36,6 @@ public class DBConnectionSingleton {
 		{
 			 try 
 		     {
-				 Class.forName("com.mysql.jdbc.Driver");
 				 conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		     }
 			 catch (SQLException e) 

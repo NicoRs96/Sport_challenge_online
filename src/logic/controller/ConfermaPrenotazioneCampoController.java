@@ -140,18 +140,20 @@ public class ConfermaPrenotazioneCampoController implements Initializable {
 
     public void prenota() throws SQLException, IOException {
         if (confermaPrenotazioneCampoBean.confermaPrenotazione(persona.getId(), campo.getId())) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS");
-            alert.setContentText("Complimenti, hai prenotato con successo il campo.");
+        	Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setContentText("Errore inatteso, riprova più tardi");
             alert.showAndWait();
             indietro();
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setContentText("Errore inatteso, riprova più tardi.");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("SUCCESS");
+        alert.setContentText("Complimenti, hai prenotato con successo il campo.");
         alert.showAndWait();
         indietro();
+        
+        
     }
     
     private void makeMeteo(Document doc) {

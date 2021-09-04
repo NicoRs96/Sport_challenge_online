@@ -1,0 +1,128 @@
+{
+  "id": "5e7f6ef1-6485-4066-ba8a-4c6e852dc9a4",
+  "version": "2.0",
+  "name": "test",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "88c40c13-fa99-41df-ac10-72d65dfff15f",
+    "name": "test1",
+    "commands": [{
+      "id": "7b2322e4-8217-48ca-a8b9-55af3d52f19b",
+      "comment": "",
+      "command": "open",
+      "target": "/SportChallengeOnline/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47555da7-aca6-474f-b7e1-4a98f01fbb16",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb29b84d-4d4e-40d5-9fda-600a4cb12913",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75738420-6838-4273-a1a5-c1dc9966207a",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pacampus@hotmail.it"
+    }, {
+      "id": "fbf0fcee-fe06-42b6-8f03-1bf993fec626",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=tr:nth-child(2) input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//tr[2]/td/input", "xpath:position"]
+      ],
+      "value": "roma"
+    }, {
+      "id": "5d2e68aa-edb9-480c-a9b1-adad555441fd",
+      "comment": "",
+      "command": "click",
+      "target": "css=p > input",
+      "targets": [
+        ["css=p > input", "css:finder"],
+        ["xpath=//input[@value='LOGIN']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29835fd0-6b83-465e-847a-5ef84feb3b72",
+      "comment": "",
+      "command": "click",
+      "target": "css=.test3 > input:nth-child(2)",
+      "targets": [
+        ["css=.test3 > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='Specifica il tuo livello']", "xpath:attributes"],
+        ["xpath=//p/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7488544-d98a-4296-88ac-efaeca2d1aa0",
+      "comment": "",
+      "command": "addSelection",
+      "target": "name=selezionasport",
+      "targets": [
+        ["name=selezionasport", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='selezionasport']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Calcio"
+    }, {
+      "id": "97500835-56fe-4cba-9a6a-b9c7aba77c1e",
+      "comment": "",
+      "command": "click",
+      "target": "name=livello",
+      "targets": [
+        ["name=livello", "name"],
+        ["css=div:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='livello']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4dc6c7e5-6b94-4deb-befa-5532016499d9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=div:nth-child(3) > input",
+      "targets": [
+        ["css=div:nth-child(3) > input", "css:finder"],
+        ["xpath=//input[@value='conferma']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "conferma"
+    }]
+  }],
+  "suites": [{
+    "id": "062db4a5-3324-4dc2-bea4-fcd0fe4b5d4f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["88c40c13-fa99-41df-ac10-72d65dfff15f"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

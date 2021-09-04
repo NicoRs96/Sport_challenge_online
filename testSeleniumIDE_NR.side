@@ -1,0 +1,197 @@
+{
+  "id": "8960a63e-bc10-47c5-a002-924305fac176",
+  "version": "2.0",
+  "name": "test2",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "15701723-d978-4389-ba49-736e5b0ce6e5",
+    "name": "test2",
+    "commands": [{
+      "id": "773c7767-1771-4752-9cf1-cde267232592",
+      "comment": "",
+      "command": "open",
+      "target": "/SportChallengeOnline/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3789426a-0e2b-4979-b4d0-3a3de64c022d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82d9d117-e25d-4ee6-afd0-f42135d70966",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da34fa66-8e18-493c-a5cb-a542520ab14a",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tonioconte@inter.it"
+    }, {
+      "id": "03c53c90-7737-4db9-8b77-3491ee39992a",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=tr:nth-child(2) input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//tr[2]/td/input", "xpath:position"]
+      ],
+      "value": "inter"
+    }, {
+      "id": "a13b855f-6958-43ed-be7c-335c7b6c0805",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=tr:nth-child(2) input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//tr[2]/td/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "1bd1e456-0fdd-4fa1-a019-2c52a55061f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(2)",
+      "targets": [
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='Gestisci campi sportivi']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cda47c3a-cc09-4431-a0d6-6b6af0847cda",
+      "comment": "",
+      "command": "click",
+      "target": "id=refresh",
+      "targets": [
+        ["id=refresh", "id"],
+        ["css=#refresh", "css:finder"],
+        ["xpath=//input[@id='refresh']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5deff0c-13d8-44aa-b82f-83b88510b217",
+      "comment": "",
+      "command": "click",
+      "target": "name=campoRadio",
+      "targets": [
+        ["name=campoRadio", "name"],
+        ["css=tr:nth-child(2) .campiRenter", "css:finder"],
+        ["xpath=//input[@name='campoRadio']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[2]/table/tbody/tr[2]/th[8]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbd5217b-9dcd-4be0-bf65-28af4dd791f5",
+      "comment": "",
+      "command": "click",
+      "target": "name=affittabile",
+      "targets": [
+        ["name=affittabile", "name"],
+        ["css=#myForm > div > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='affittabile']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d55d8b0e-ba6a-45af-beb1-1638e4bd825a",
+      "comment": "",
+      "command": "click",
+      "target": "id=refresh",
+      "targets": [
+        ["id=refresh", "id"],
+        ["css=#refresh", "css:finder"],
+        ["xpath=//input[@id='refresh']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c1d28bb-8c17-4d19-a31a-192e68a949fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) .campiRenter",
+      "targets": [
+        ["css=tr:nth-child(3) .campiRenter", "css:finder"],
+        ["xpath=(//input[@name='campoRadio'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[2]/table/tbody/tr[3]/th[8]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/th[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c6aeeb1-7369-4388-8e14-bb0b06b25e87",
+      "comment": "",
+      "command": "click",
+      "target": "name=affittabile",
+      "targets": [
+        ["name=affittabile", "name"],
+        ["css=#myForm > div > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='affittabile']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a9f036a-4059-4c8d-92e9-cfad965edffb",
+      "comment": "",
+      "command": "click",
+      "target": "id=refresh",
+      "targets": [
+        ["id=refresh", "id"],
+        ["css=#refresh", "css:finder"],
+        ["xpath=//input[@id='refresh']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18e2c692-eda2-4a02-87d8-c9154442b799",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "id=refresh",
+      "targets": [
+        ["id=refresh", "id"],
+        ["css=#refresh", "css:finder"],
+        ["xpath=//input[@id='refresh']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Refresh"
+    }]
+  }],
+  "suites": [{
+    "id": "01dd72f5-3aff-4e67-8643-d839c2f4bcd8",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["15701723-d978-4389-ba49-736e5b0ce6e5"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

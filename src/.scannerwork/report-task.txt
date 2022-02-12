@@ -1,7 +1,0 @@
-organization=paolocmp
-projectKey=PaoloCMP_Sport_challenge_online
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.20026
-dashboardUrl=https://sonarcloud.io/dashboard?id=PaoloCMP_Sport_challenge_online
-ceTaskId=AXlcLfvcyfdC245-02wh
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXlcLfvcyfdC245-02wh

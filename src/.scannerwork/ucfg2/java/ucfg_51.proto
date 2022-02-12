@@ -1,61 +1,0 @@
-
-1dao.LoginDao#getConnection()Ljava/sql/Connection;_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (#"1*ë
-1_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (è
-å
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (
-connjava.sql.Connection"__id*
-""ñì
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java) (3
-%0java.util.Properties"java.util.Properties®
-•
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java% (5
-%1"java.util.Properties#<init>()V*
-
-%0java.util.Properties±
-Æ
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (6'
-connectionPropsjava.util.Properties"__id*
-
-%0java.util.Properties≈
-¬
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (+
-%2java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-user*
-root 
-«
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (0
-%3java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-
-password*	
-admin·
-ﬁ
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java ( 
-%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
-java.sql.DriverManager*42
-0jdbc:mysql://localhost:3306/sportchallengeonline*)
-'
-connectionPropsjava.util.Properties§
-°
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java ( 
-connjava.sql.Connection"__id*
-
-%4java.sql.Connection"Ä
-_
-UC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/LoginDao.java (
-
-connjava.sql.ConnectionB
-dao.LoginDao

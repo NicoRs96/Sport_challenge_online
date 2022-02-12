@@ -1,51 +1,0 @@
-
-bean.LoginBean#userExist()Ia
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java# #("3*”
-2a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java'	 '(
-"k
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java' '(
-""*µ
-3a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java$ $(¶
-£
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java$ $(&
-%0java.lang.String"__id* *
-bean.LoginBean"
-
-username¶
-£
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java$( $(0
-%1java.lang.String"__id* *
-bean.LoginBean"
-
-passwordê
-ç
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java$ $(1
-bean.LoginBean"
-user"__id*
-""•
-¢
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java& &(	
-%2java.util.SortedMap"__id**
-bean.LoginBean"
-user∑¥
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java& &(
-%3boolean"java.util.Map#isEmpty()Z*
-
-%2java.util.SortedMap2	isEmpty()*
-2
-1*”
-1a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java*	 *(
-"k
-a
-WC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/LoginBean.java* *(
-""B
-bean.LoginBean

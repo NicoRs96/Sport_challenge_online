@@ -1,61 +1,0 @@
-
-7dao.CercaTorneoDao#getConnection()Ljava/sql/Connection;e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (#"1*Í
-1e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (•
-’
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (
-connjava.sql.Connection"__id*
-""œ™
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java) (3
-%0java.util.Properties"java.util.Properties®
-«
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java% (5
-%1"java.util.Properties#<init>()V*
-
-%0java.util.Properties·
-´
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (6'
-connectionPropsjava.util.Properties"__id*
-
-%0java.util.PropertiesË
-È
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (+
-%2java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-user*
-rootÐ
-Í
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (0
-%3java.lang.Object"__mapSet*)
-'
-connectionPropsjava.util.Properties*
-
-password*	
-adminç
-ä
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java ( 
-%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
-java.sql.DriverManager*42
-0jdbc:mysql://localhost:3306/sportchallengeonline*)
-'
-connectionPropsjava.util.Propertiesª
-§
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java ( 
-connjava.sql.Connection"__id*
-
-%4java.sql.Connection"†
-e
-[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CercaTorneoDao.java (
-
-connjava.sql.ConnectionB
-dao.CercaTorneoDao

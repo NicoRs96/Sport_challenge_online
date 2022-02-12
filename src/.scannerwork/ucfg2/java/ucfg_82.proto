@@ -1,189 +1,0 @@
-
- bean.CercaCampoBean#checkData()If
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java, ,("8*Ý
-2f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java2
- 2("p
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java2 2(
-""*¯
-3f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java1 1(°
-­
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java1 1(
-%22java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-dataÌÉ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java1 1(/
-
-%23int"$java.time.LocalDate#getDayOfMonth()I*
-
-%22java.time.LocalDate2getDayOfMonth()à
-Ý
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java12 1(E
-%24java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeÔÑ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java12 1(U
-
-%25int"(java.time.LocalDateTime#getDayOfMonth()I* 
-
-%24java.time.LocalDateTime2getDayOfMonth()*
-2
-1*Ó
-4f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java0 0(°
-­
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java0 0(
-%18java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-dataÞÛ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java0 0(*
-%19java.time.Month"/java.time.LocalDate#getMonth()Ljava/time/Month;*
-
-%18java.time.LocalDate2
-getMonth()à
-Ý
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java0. 0(A
-%20java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeæã
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java0. 0(L
-%21java.time.Month"3java.time.LocalDateTime#getMonth()Ljava/time/Month;* 
-
-%20java.time.LocalDateTime2
-getMonth()*
-3
-1*—
-5f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java/ /(°
-­
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java/ /(
-%14java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-dataÀ½
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java/ /(
-
-%15int"java.time.LocalDate#getYear()I*
-
-%14java.time.LocalDate2	getYear()à
-Ý
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java/# /(6
-%16java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeÈÅ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java/# /(@
-
-%17int""java.time.LocalDateTime#getYear()I* 
-
-%16java.time.LocalDateTime2	getYear()*
-4
-1*Ê
-
-6f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.D .(H¯
-¬
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.D .(H
-%8java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-dataÜÙ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.D .(S
-%9java.time.Month"/java.time.LocalDate#getMonth()Ljava/time/Month;*
-
-%8java.time.LocalDate2
-getMonth()¹¶
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.D .(^
-
-%10int"java.time.Month#getValue()I*
-
-%9java.time.Month2
-getValue()à
-Ý
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.a .(t
-%11java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeæã
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.a .(
-%12java.time.Month"3java.time.LocalDateTime#getMonth()Ljava/time/Month;* 
-
-%11java.time.LocalDateTime2
-getMonth()»¸
-g
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.a .(Š
-
-%13int"java.time.Month#getValue()I*
-
-%12java.time.Month2
-getValue()*
-2
-5*‘
-7f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java. .(¯
-¬
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java. .(
-%4java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-data¾»
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java. .(	
-%5int"java.time.LocalDate#getYear()I*
-
-%4java.time.LocalDate2	getYear()ß
-Ü
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.# .(6
-%6java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeÆÃ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java.# .(@	
-%7int""java.time.LocalDateTime#getYear()I*
-
-%6java.time.LocalDateTime2	getYear()*
-5
-6*‘
-8f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java- -(	¯
-¬
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java- -(	
-%0java.time.LocalDate"__id*!*
-bean.CercaCampoBean"
-data¾»
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java- -(	
-%1int"java.time.LocalDate#getYear()I*
-
-%0java.time.LocalDate2	getYear()ß
-Ü
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java- -()
-%2java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
-java.time.LocalDateTimeÆÃ
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java- -(3	
-%3int""java.time.LocalDateTime#getYear()I*
-
-%2java.time.LocalDateTime2	getYear()*
-2
-7*Ý
-1f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java4	 4(
-"p
-f
-\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.java4 4(
-""B
-bean.CercaCampoBean

@@ -1,0 +1,72 @@
+
+;dao.CancellaAccountDao#getConnection()Ljava/sql/Connection;i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java
+ 
+(#"5*§
+2i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java ( Æ
+´
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java ( 
+connjava.sql.Connection"__id*
+
+%4java.sql.Connection*
+1*·
+4i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java (Î
+Ë
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java ( 
+%4java.sql.Connection"cjava.sql.DriverManager#getConnection(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;*"
+java.sql.DriverManager*42
+0jdbc:mysql://localhost:3306/sportchallengeonline*)
+'
+connectionPropsjava.util.Properties*
+2*Œ	
+5i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java# ('ô
+ñ
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java ((
+connjava.sql.Connection"__id*
+""†ù
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java) (3
+%0java.util.Properties"java.util.Properties≤
+Ø
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java% (5
+%1"java.util.Properties#<init>()V*
+
+%0java.util.Propertiesª
+∏
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java (6'
+connectionPropsjava.util.Properties"__id*
+
+%0java.util.Propertiesœ
+Ã
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java (+
+%2java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+user*
+root‘
+—
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java (0
+%3java.lang.Object"__mapSet*)
+'
+connectionPropsjava.util.Properties*
+
+password*	
+admin*
+4*˚
+1i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java ("ä
+i
+_C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/CancellaAccountDao.java (
+
+connjava.sql.ConnectionB
+dao.CancellaAccountDao

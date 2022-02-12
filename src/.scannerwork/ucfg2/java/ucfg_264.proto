@@ -1,0 +1,42 @@
+
+!bean.IscrivitiBean#checkUtente()Ie
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.javaZ Z("3*Û
+2e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java\
+ \("o
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java\ \(
+""*
+3e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java[ [(ª
+§
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java[, [(0
+%0java.lang.String"__id* *
+bean.IscrivitiBean"
+nomeÝÚ
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java[, [(>
+%1java.lang.String"0java.lang.String#toUpperCase()Ljava/lang/String;*
+
+%0java.lang.String2toUpperCase()­
+ª
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java[@ [(G
+%2java.lang.String"__id*#*!
+bean.IscrivitiBean"	
+cognomeÝÚ
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java[@ [(U
+%3java.lang.String"0java.lang.String#toUpperCase()Ljava/lang/String;*
+
+%2java.lang.String2toUpperCase()*
+2
+1*Û
+1e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java^	 ^(
+"o
+e
+[C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/IscrivitiBean.java^ ^(
+""B
+bean.IscrivitiBean

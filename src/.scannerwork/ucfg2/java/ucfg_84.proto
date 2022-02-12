@@ -1,0 +1,12 @@
+
+ibean.CercaCampoBean#getCampo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/SortedMap;f
+\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.javaB3 B(;"1*Ý
+1f
+\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.javaC	 C("p
+f
+\C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/bean/CercaCampoBean.javaC C(3
+"":
+cityjava.lang.String:
+sportjava.lang.String:
+datajava.lang.StringB
+bean.CercaCampoBean

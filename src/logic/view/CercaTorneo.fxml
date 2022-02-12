@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.text.Font?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.controller.CercaTorneoController">
+   <children>
+      <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="64.0" />
+         </font>
+      </Text>
+      <Button fx:id="esciBTN" layoutX="1074.0" layoutY="62.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning" />
+         </styleClass>
+      </Button>
+      <TextField fx:id="cittaTF" layoutX="82.0" layoutY="190.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
+      <Button fx:id="CercaBTN" onAction="#cercaTorneiByCityAndDate" layoutX="640.0" layoutY="190.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="info" />
+         </styleClass>
+      </Button>
+      <DatePicker fx:id="dataDP" layoutX="346.0" layoutY="190.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
+      <TableView fx:id="torneiTV" layoutX="47.0" layoutY="306.0" prefHeight="328.0" prefWidth="1094.0" stylesheets="@bootstrap3.css">
+         <columns>
+            <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />
+            <TableColumn fx:id="campoCol" prefWidth="119.0" text="CAMPO" />
+            <TableColumn fx:id="dataCol" prefWidth="122.0" text="DATA" />
+            <TableColumn fx:id="oraCol" prefWidth="143.0" text="ORA" />
+            <TableColumn fx:id="etaMinCol" prefWidth="308.0" text="ETAMIN" />
+            <TableColumn fx:id="numPartMin" prefWidth="110.0" text="NUMEROMINPARTEC" />
+            <TableColumn fx:id="dataScadenzaCol" prefWidth="90.0" text="DATASCADENZA" />
+            <TableColumn fx:id="prezzoCol" prefWidth="105.0" text="PREZZO" />
+            <TableColumn fx:id="metodoPagCol" prefWidth="96.0" text="METODOPAG" />
+            <TableColumn fx:id="descCol" prefWidth="96.0" text="DESC" />
+         </columns>
+      </TableView>
+      <Button fx:id="confermaBTN" onAction="#conferma" layoutX="494.0" layoutY="688.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="217.0" stylesheets="@bootstrap3.css" text="CONFERMA">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="success" />
+         </styleClass>
+      </Button>
+   </children>
+</Pane>

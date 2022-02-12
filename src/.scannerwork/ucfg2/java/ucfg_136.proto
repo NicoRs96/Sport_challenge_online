@@ -1,0 +1,78 @@
+
+/dao.GestisciCampiDao#setCampoNonAffittabile(I)Zg
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaU U()"3*¶
+2g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaZ Z(ƒ¡
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaZ Z(
+
+%4void"java.sql.Connection#close()V*#
+!
+
+connectionjava.sql.Connection2close()"q
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java[ [(
+""*ç
+3g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaV  V(-ÌÍ
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaV  V(/
+%0java.sql.Connection"9dao.GestisciCampiDao#getConnection()Ljava/sql/Connection;*
+dao.GestisciCampiDao2getConnection()≤
+Ø
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaV V(0!
+
+connectionjava.sql.Connection"__id*
+
+%0java.sql.Connection™
+ß
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaW W(\
+%1java.lang.String"Pjava.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;*"
+java.lang.String*42
+0UPDATE CAMPO SET AFFITTABILE = 0 WHERE id = '%s'*
+""ß
+§
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaW W(]
+queryjava.lang.String"__id*
+
+%1java.lang.StringÃ…
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaX X(@ 
+%2java.sql.PreparedStatement"Tjava.sql.Connection#prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;*#
+!
+
+connectionjava.sql.Connection*
+
+queryjava.lang.String2$prepareStatement(Ljava/lang/String;)∑
+¥
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaX X(A
+	statementjava.sql.Statement"__id*"
+ 
+%2java.sql.PreparedStatementëé
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.javaY Y()	
+%3int"5java.sql.Statement#executeUpdate(Ljava/lang/String;)I*!
+
+	statementjava.sql.Statement*
+
+queryjava.lang.String2!executeUpdate(Ljava/lang/String;)*
+2
+1*¶
+1g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java] ](ƒ¡
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java] ](
+
+%5void"java.sql.Connection#close()V*#
+!
+
+connectionjava.sql.Connection2close()"q
+g
+]C:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/dao/GestisciCampiDao.java^ ^(
+"":
+""B
+dao.GestisciCampiDao

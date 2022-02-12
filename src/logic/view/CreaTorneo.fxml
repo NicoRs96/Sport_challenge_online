@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<ScrollPane prefHeight="839.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.controller.CreaTorneoController">
+   <content>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0">
+         <children>
+            <TextField fx:id="nomeTF" layoutX="147.0" layoutY="240.0" prefHeight="31.0" prefWidth="248.0" promptText="Nome" />
+            <DatePicker fx:id="dataDP" layoutX="147.0" layoutY="280.0" prefHeight="31.0" prefWidth="248.0" promptText="Scegli la data del torneo" />
+            <TextField fx:id="oraTF" layoutX="147.0" layoutY="330.0" prefHeight="18.0" prefWidth="248.0" promptText="Ora" />
+            <TextField fx:id="etaMinimaTF" layoutX="147.0" layoutY="370.0" prefHeight="31.0" prefWidth="248.0" promptText="Età minima" />
+            <TextField fx:id="numMinIscrittiTF" layoutX="147.0" layoutY="416.0" prefHeight="31.0" prefWidth="248.0" promptText="Numero minimo di partecipanti" />
+            <DatePicker fx:id="datascadenzaDP" layoutX="147.0" layoutY="462.0" prefHeight="27.0" prefWidth="248.0" promptText="Data di scadenza prenotazioni" />
+            <TextField fx:id="prezzoTF" layoutX="147.0" layoutY="510.0" prefHeight="31.0" prefWidth="248.0" promptText="Prezzo" />
+            <TextField fx:id="descTF" layoutX="147.0" layoutY="566.0" prefHeight="120.0" prefWidth="261.0" promptText="Descrizione" styleClass="text-field" />
+            <CheckBox fx:id="contantiCB" layoutX="147.0" layoutY="730.0" mnemonicParsing="false" text="Contanti">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="carteCB" layoutX="287.0" layoutY="730.0" mnemonicParsing="false" text="Carte">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="confermaBTN" layoutX="172.0" layoutY="770.0" mnemonicParsing="false" onAction="#conferma" prefHeight="32.0" prefWidth="207.0" stylesheets="@bootstrap3.css" text="Conferma">
+               <styleClass>
+                  <String fx:value="action-btn" />
+                  <String fx:value="success" />
+               </styleClass>
+            </Button>
+            <Text layoutX="147.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campo">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="campiComboBox" layoutX="267.0" layoutY="165.0" onAction="#test" prefHeight="47.0" prefWidth="301.0" value="Seleziona un campo">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+            </FXCollections>
+               </items>
+            </ComboBox>
+            <Text layoutX="147.0" layoutY="720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modalità di pagamento">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="name" fill="#ff0d00" layoutX="188.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
+               <font>
+                  <Font name="Cambria Bold" size="64.0" />
+               </font>
+            </Text>
+            <Button fx:id="esciBTN" layoutX="1056.0" layoutY="68.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+               <styleClass>
+                  <String fx:value="action-btn" />
+                  <String fx:value="warning" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="311.0" fitWidth="463.0" layoutX="712.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@copp.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </content>
+</ScrollPane>

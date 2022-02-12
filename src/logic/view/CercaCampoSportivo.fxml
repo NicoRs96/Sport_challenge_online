@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1167.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.controller.CercaCampoSportivoController">
+   <children>
+      <Text fx:id="name" fill="#ff0d00" layoutX="206.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORT CHALLENGE ONLINE" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria Bold" size="64.0" />
+         </font>
+      </Text>
+      <Button fx:id="esciBTN" layoutX="1074.0" layoutY="62.0" mnemonicParsing="false" onAction="#indietro" stylesheets="@bootstrap3.css" text="Esci">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="warning" />
+         </styleClass>
+      </Button>
+      <TextField fx:id="cittaTFCCSC" layoutX="72.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Città" />
+      <Button fx:id="CercaBTN" layoutX="854.0" layoutY="180.0" mnemonicParsing="false" onAction="#cerca" prefHeight="32.0" prefWidth="121.0" stylesheets="@bootstrap3.css" text="Cerca">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="info" />
+         </styleClass>
+      </Button>
+	  <ComboBox fx:id="sportComboBox" layoutX="317.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Tennis" />
+               <String fx:value="Calcio" />
+               <String fx:value="Basket" />
+               <String fx:value="Calcio a 5" />   
+               <String fx:value="Pallavolo" />
+               <String fx:value="Golf" />
+               <String fx:value="Padel" />
+             </FXCollections>
+         </items>
+         <value>
+            <String fx:value="Seleziona uno sport" />
+         </value>
+      </ComboBox>
+	
+      <DatePicker fx:id="dataDPCCSC" layoutX="558.0" layoutY="180.0" prefHeight="32.0" prefWidth="217.0" promptText="Data" />
+      <TableView fx:id="campiTV" layoutX="37.0" layoutY="296.0" prefHeight="328.0" prefWidth="1094.0" stylesheets="@bootstrap3.css">
+        <columns>
+          <TableColumn fx:id="nomeCol" prefWidth="119.0" text="NOME" />
+          <TableColumn fx:id="comuneColCCSC" prefWidth="122.0" text="COMUNE" />
+           <TableColumn fx:id="indirizzoColCCSC" prefWidth="143.0" text="INDIRIZZO" />
+           <TableColumn fx:id="descColCCSC" prefWidth="308.0" text="DESC" />
+           <TableColumn fx:id="dataColCCSC" prefWidth="110.0" text="DATA" />
+           <TableColumn fx:id="oraColCCSC" prefWidth="90.0" text="ORARIO" />
+           <TableColumn fx:id="sportCol" prefWidth="105.0" text="SPORT" />
+           <TableColumn fx:id="renterCol" prefWidth="96.0" text="RENTER" />
+        </columns>
+      </TableView>
+      <Button fx:id="prenotaBTN" onAction="#prenota" layoutX="484.0" layoutY="678.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="217.0" stylesheets="@bootstrap3.css" text="SELEZIONA">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="success" />
+         </styleClass>
+      </Button>
+      
+   </children>
+</Pane>

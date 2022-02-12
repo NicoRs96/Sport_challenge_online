@@ -1,0 +1,107 @@
+
+,controller.CreaTorneoController#checkData()Zr
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javaj j("8*õ
+2r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javaq q("|
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javaq q(
+""*Ñ
+3r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javap p(!ì
+é
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javap? p(R
+%11java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeàÝ
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javap? p(b
+
+%12int"(java.time.LocalDateTime#getDayOfMonth()I* 
+
+%11java.time.LocalDateTime2getDayOfMonth()*
+2
+1*á
+4r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javao o(!ë
+è
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javao; o(N
+%9java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeñî
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javao; o(Y
+%10java.time.Month"3java.time.LocalDateTime#getMonth()Ljava/time/Month;*
+
+%9java.time.LocalDateTime2
+getMonth()*
+3
+1*Â
+5r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javan n(ë
+è
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javan0 n(C
+%7java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeÒÏ
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javan0 n(M	
+%8int""java.time.LocalDateTime#getYear()I*
+
+%7java.time.LocalDateTime2	getYear()*
+4
+1*ª
+6r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javamQ m(Wì
+é
+s
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam{ m(Ž
+%4java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeñî
+s
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam{ m(™
+%5java.time.Month"3java.time.LocalDateTime#getMonth()Ljava/time/Month;*
+
+%4java.time.LocalDateTime2
+getMonth()ÅÂ
+s
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam{ m(¤	
+%6int"java.time.Month#getValue()I*
+
+%5java.time.Month2
+getValue()*
+2
+5*Â
+7r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam m(ë
+è
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam0 m(C
+%2java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeÒÏ
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javam0 m(M	
+%3int""java.time.LocalDateTime#getYear()I*
+
+%2java.time.LocalDateTime2	getYear()*
+5
+6*Â
+8r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javak k(ë
+è
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javal& l(9
+%0java.time.LocalDateTime"6java.time.LocalDateTime#now()Ljava/time/LocalDateTime;*"
+java.time.LocalDateTimeÒÏ
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javal& l(C	
+%1int""java.time.LocalDateTime#getYear()I*
+
+%0java.time.LocalDateTime2	getYear()*
+2
+7*õ
+1r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javat t("|
+r
+hC:/Users/Paolo C/Desktop/Sport_challenge_online.git/trunk/src/logic/controller/CreaTorneoController.javau u(
+""B#!
+controller.CreaTorneoController
